@@ -17,7 +17,7 @@ LOCAL_JAVA_STATIC_LIBRARIES := httpcore httpmime apachemime httpclient
 #LOCAL_PREBUILT_STATIC_JAVA_LIBARIES
 LOCAL_STATIC_JAVA_LIBRARIES := httpcore httpmime apachemime httpclient 
 
-LOCAL_PACKAGE_NAME := CMLogCapture
+LOCAL_PACKAGE_NAME := CMBugreport
 
 LOCAL_PROGUARD_FLAGS := -include $(LOCAL_PATH)/proguard.cfg
 

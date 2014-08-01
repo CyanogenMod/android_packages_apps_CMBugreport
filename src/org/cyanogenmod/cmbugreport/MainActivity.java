@@ -1,4 +1,4 @@
-package org.cyanogenmod.cmlogcapture;
+package org.cyanogenmod.cmbugreport;
 
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import android.net.Uri;
 public class MainActivity extends Activity {
 
 
-    public final static String EXTRA_MESSAGE = "org.cyanogenmod.cmlogcapture.MESSAGE";
+    public final static String EXTRA_MESSAGE = "org.cyanogenmod.cmbugreport.MESSAGE";
     private Uri reportURI;
     private Button submitButton;
     ArrayList<Uri> attachments;
@@ -97,7 +97,6 @@ public class MainActivity extends Activity {
 
             //re-enable the button so they can put in text and hit button again
             submitButton.setEnabled(true);
-         
         }
 
     }

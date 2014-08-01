@@ -1,4 +1,4 @@
-package org.cyanogenmod.cmlogcapture;
+package org.cyanogenmod.cmbugreport;
 
 import java.io.File;
 import java.io.FileInputStream;
