@@ -38,8 +38,7 @@ public class CMLogService extends IntentService {
     private final static String apiURL = "https://jira.cyanogenmod.org/rest/api/2/issue/";
 
     public final static String EXTRA_MESSAGE = "org.cyanogenmod.bugreportgrabber.MESSAGE";
-    private Uri reportURI; // initializing for testing
-
+    private Uri reportURI;
 
     private JSONObject inputJSON = new JSONObject();
     private JSONObject outputJSON;
@@ -81,7 +80,7 @@ public class CMLogService extends IntentService {
         inputJSON.put("fields", fields);
         } catch(JSONException e){
             Log.e("bugreportgrabber", "JSONexception: " + e.getMessage());
-            notifyUploadFailed("There was a problem creating the issue");
+            notifyUploadFailed(getString(R.string.probCreating));
         }
 
         notifyOfUpload();
@@ -92,8 +91,8 @@ public class CMLogService extends IntentService {
         Notification.Builder mBuilder =
                 new Notification.Builder(this)
                 .setSmallIcon(R.drawable.ic_tab_upload)
-                .setContentTitle("CyanogenMod Bug Report Grabber")
-                .setContentText("Creating issue and uploading report...");
+                .setContentTitle(getString(R.string.notifName))
+                .setContentText(getString(R.string.uploading));
          NotificationManager mNotificationManager =
             (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mBuilder.setProgress(0, 0, true);
@@ -105,8 +104,8 @@ public class CMLogService extends IntentService {
         Notification.Builder mBuilder =
                 new Notification.Builder(this)
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle("CyanogenMod Bug Report Grabber")
-                .setContentText("Thank you for your submission.");
+                .setContentTitle(getString(R.string.notifName))
+                .setContentText(getString(R.string.thanks));
         NotificationManager mNotificationManager =
             (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(notifID, mBuilder.build());
@@ -115,8 +114,8 @@ public class CMLogService extends IntentService {
         Notification.Builder mBuilder =
             new Notification.Builder(this)
             .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle("CyanogenMod Bug Report Grabber")
-            .setContentText("Upload failed: " + reason );
+            .setContentTitle(getString(R.string.notifName))
+            .setContentText(R.string.uplFailed + " " + reason );
     NotificationManager mNotificationManager =
             (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(notifID, mBuilder.build());
@@ -140,7 +139,7 @@ public class CMLogService extends IntentService {
                 responseString = EntityUtils.toString(entity);
             } catch (Exception e) {
                 Log.e("bugreportgrabber", "URLexception: " + e);
-                notifyUploadFailed("problem connecting to the server");
+                notifyUploadFailed(getString(R.string.conProblem));
                 return e.getMessage();
             }
             //issue hopefully created, let's get the ID so we can attach to it (and pass that ID to the results activity)
@@ -151,7 +150,7 @@ public class CMLogService extends IntentService {
                 jiraBugID = (String)  outputJSON.get("key");
             } catch (JSONException e) {
                 e.printStackTrace();
-                notifyUploadFailed("Bad response from server");
+                notifyUploadFailed(getString(R.string.badResponse));
                 return e.getMessage();
             }
 
@@ -175,15 +174,15 @@ public class CMLogService extends IntentService {
                 } catch (Exception e) {
                     Log.e("bugreportgrabber", "file upload exception: " + e);
                     //pop error message for file upload"
-                    notifyUploadFailed("The file failed to upload");
+                    notifyUploadFailed(getString(R.string.fileFail));
                 }
             } else {
                 // pop error message for bad response from server
-                notifyUploadFailed("Bad response from server");
+                notifyUploadFailed(getString(R.string.badResponse));
             }
             return jiraBugID; //output;
         }
-	 private File zip(File bugreportFile) {
+        private File zip(File bugreportFile) {
             String zippedFilename = "/data/bugreports/tmp.zip";
             try{
                 byte[] buffer = new byte[1024];
@@ -200,7 +199,7 @@ public class CMLogService extends IntentService {
                 zos.close();
             }catch (Exception e){
                 Log.e("CMLogCapture", "Zipping problem", e);
-                notifyUploadFailed("The file failed to compress");
+                notifyUploadFailed(getString(R.string.zipFail));
             }
             return new File(zippedFilename);
         }

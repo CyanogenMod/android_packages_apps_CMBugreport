@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name"> CM JIRA</string>
-    
-    <string name="summary">Enter a summary of this report</string>
+    <string name="notifName">CM Bugreport</string>
+    <string name="summary">Enter a summary for this report</string>
     <string name="description">Enter a description, what you were doing, apps running, etc.</string>
     <string name="button_submit">Submit</string>
-    
     <string name="action_settings">Settings</string>
     <string name="title_activity_result">Results</string>
-    
+    <string name="uploading">Creating issue and uploading report...</string>
     <string name="thanks">Thank you for your submission.</string>
+    <!-- error messages -->
     <string name="noText">You must complete all fields before submitting.</string>
     <string name="somethingWentWrong">Something went wrong creating the issue. You may have to manually create a bug report at http://jira.cyanogenmod.org/</string>
+    <string name="probCreating">There was a problem creating the issue.</string>
+    <string name="uplFailed">Upload failed:</string>
+    <string name="conProblem">problem connecting to the server</string>
+    <string name="badResponse">Bad response from server</string>
+    <string name="fileFail">The file failed to upload</string>
+    <string name="zipFail">The file failed to compress</string>
     <string name="OK">OK</string>
-    
-
 </resources>
