@@ -1,12 +1,29 @@
+/*
+ * Copyright (C) 2014 The CyanogenMod Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.cyanogenmod.cmbugreport;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,49 +36,41 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.IntentService;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipOutputStream;
 
 public class CMLogService extends IntentService {
+    private final static String TAG = "CMLogService";
 
-    private final static String projectName = "11400"; // 11102 = WIKI 11400 = bugdump
-    private final static String issueType = "1"; // 4 = improvement   1 = bug?
-    String bugID = "";
-    private final static String uNpW =     "QnVnQ29sbGVjdG9yOldlTE9WRWJ1Z3Mh"; // <--- BugCollector
-    private final static String apiURL = "https://jira.cyanogenmod.org/rest/api/2/issue/";
-
-    public final static String EXTRA_MESSAGE = "org.cyanogenmod.bugreportgrabber.MESSAGE";
-    private Uri reportURI;
-
-    private JSONObject inputJSON = new JSONObject();
-    private JSONObject outputJSON;
-
-    private int notifID = 546924;
+    private final static String PROJECT_NAME = "11400"; // 11102 = WIKI 11400 = bugdump
+    private final static String ISSUE_TYPE = "1"; // 4 = improvement   1 = bug?
+    private final static String AUTH = "QnVnQ29sbGVjdG9yOldlTE9WRWJ1Z3Mh"; // <--- BugCollector
+    private final static String API_URL = "https://jira.cyanogenmod.org/rest/api/2/issue/";
 
     public CMLogService() {
         super("CMLogService");
     }
 
     @Override
-    protected void onHandleIntent(Intent arg0) {
-        Intent intent = arg0;
+    protected void onHandleIntent(Intent intent) {
+        ArrayList<Uri> attachments = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+        Uri reportUri = null;
 
-        ArrayList<Uri> attachments = new ArrayList<Uri>();
-        attachments = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-
-        for (Uri u : attachments){
-            if ( u.toString().contains("txt")){
-                reportURI = u;
+        for (Uri uri : attachments) {
+            if (uri.toString().contains("txt")) {
+                reportUri = uri;
+                break;
             }
         }
-
+        if (reportUri == null) {
+            return;
+        }
 
         String summary = intent.getStringExtra(Intent.EXTRA_SUBJECT);
         String description = intent.getStringExtra(Intent.EXTRA_TEXT);
@@ -69,144 +78,151 @@ public class CMLogService extends IntentService {
         JSONObject fields = new JSONObject();
         JSONObject project = new JSONObject();
         JSONObject issuetype = new JSONObject();
+        JSONObject inputJSON = new JSONObject();
 
         try {
-        project.put("id", projectName);
-        issuetype.put("id", issueType);
-        fields.put("project",project);
-        fields.put("summary", summary);
-        fields.put("description", description);
-        fields.put("issuetype", issuetype);
-        inputJSON.put("fields", fields);
-        } catch(JSONException e){
-            Log.e("bugreportgrabber", "JSONexception: " + e.getMessage());
-            notifyUploadFailed(getString(R.string.probCreating));
+            project.put("id", PROJECT_NAME);
+            issuetype.put("id", ISSUE_TYPE);
+            fields.put("project", project);
+            fields.put("summary", summary);
+            fields.put("description", description);
+            fields.put("issuetype", issuetype);
+            inputJSON.put("fields", fields);
+        } catch (JSONException e) {
+            Log.e(TAG, "Input JSON could not be compiled", e);
+            notifyUploadFailed(R.string.error_problem_creating);
         }
 
         notifyOfUpload();
-        new CallAPI().execute(inputJSON);
+        new CallAPITask(reportUri).execute(inputJSON);
+    }
+
+    private void notify(CharSequence message, int iconResId, boolean withProgress) {
+        Notification.Builder builder = new Notification.Builder(this)
+                .setSmallIcon(iconResId)
+                .setContentTitle(getString(R.string.notif_title))
+                .setContentText(message);
+        if (withProgress) {
+            builder.setProgress(0, 0, true);
+        }
+
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(R.string.notif_title, builder.build());
     }
 
     private void notifyOfUpload() {
-        Notification.Builder mBuilder =
-                new Notification.Builder(this)
-                .setSmallIcon(R.drawable.ic_tab_upload)
-                .setContentTitle(getString(R.string.notifName))
-                .setContentText(getString(R.string.uploading));
-         NotificationManager mNotificationManager =
-            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mBuilder.setProgress(0, 0, true);
-        mNotificationManager.notify(notifID, mBuilder.build());
+        notify(getString(R.string.notif_uploading), R.drawable.ic_tab_upload, true);
     }
-
 
     private void notifyUploadFinished(String issueNumber) {
-        Notification.Builder mBuilder =
-                new Notification.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle(getString(R.string.notifName))
-                .setContentText(getString(R.string.thanks));
-        NotificationManager mNotificationManager =
-            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(notifID, mBuilder.build());
+        notify(getString(R.string.notif_thanks), R.drawable.ic_launcher, false);
     }
-    private void notifyUploadFailed(String reason) {
-        Notification.Builder mBuilder =
-            new Notification.Builder(this)
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle(getString(R.string.notifName))
-            .setContentText(R.string.uplFailed + " " + reason );
-    NotificationManager mNotificationManager =
-            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(notifID, mBuilder.build());
+
+    private void notifyUploadFailed(int reasonResId) {
+        String reason = getString(reasonResId);
+        notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_launcher, false);
+    }
+
+    private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
+        private Uri mReportUri;
+
+        public CallAPITask(Uri reportUri) {
+            mReportUri = reportUri;
         }
-    private class CallAPI extends AsyncTask<JSONObject, Void, String> {
-        String responseString = "";
+
         @Override
-        protected String doInBackground(JSONObject...params){
+        protected String doInBackground(JSONObject...params) {
+            String jiraBugId;
+
             try {
-                URI url = new URI(apiURL);
-                DefaultHttpClient htClient = new DefaultHttpClient();
-                HttpPost httpost = new HttpPost(url);
-                //turn the JSONObject being passed into a stringentity for http consumption
-                StringEntity se = new StringEntity(params[0].toString());
-                httpost.setEntity(se);
-                httpost.setHeader("Accept","application/json");
-                httpost.setHeader("Authorization","Basic " + uNpW);
-                httpost.setHeader("Content-Type","application/json");
-                HttpResponse response = htClient.execute(httpost);
-                HttpEntity entity = response.getEntity();
-                responseString = EntityUtils.toString(entity);
-            } catch (Exception e) {
-                Log.e("bugreportgrabber", "URLexception: " + e);
-                notifyUploadFailed(getString(R.string.conProblem));
-                return e.getMessage();
-            }
-            //issue hopefully created, let's get the ID so we can attach to it (and pass that ID to the results activity)
-            String jiraResponse = responseString;
-            String jiraBugID = "";
-            try {
-                outputJSON = new JSONObject(jiraResponse);
-                jiraBugID = (String)  outputJSON.get("key");
+                jiraBugId = uploadAndGetId(params[0]);
+            } catch (IOException e) {
+                Log.e(TAG, "Could not upload bug report", e);
+                notifyUploadFailed(R.string.error_connection_problem);
+                return null;
             } catch (JSONException e) {
-                e.printStackTrace();
-                notifyUploadFailed(getString(R.string.badResponse));
-                return e.getMessage();
+                Log.e(TAG, "Could not parse JSON response", e);
+                notifyUploadFailed(R.string.error_bad_response);
+                return null;
             }
 
-            //now we attach the file
-            if(!jiraBugID.isEmpty()){
-                try {
-                    URI url2 = new URI(apiURL + jiraBugID + "/attachments");
-                    DefaultHttpClient uplClient = new DefaultHttpClient();
-                    HttpPost httpostUpl = new HttpPost(url2);
-                    httpostUpl.setHeader("Authorization","Basic " + uNpW);
-                    httpostUpl.setHeader("X-Atlassian-Token","nocheck");
-                    File bugreportFile = new File("/data" + reportURI.getPath());
-                    File zippedBug = zip(bugreportFile);
-                    MultipartEntity bugreportUploadEntity = new MultipartEntity();
-                    bugreportUploadEntity.addPart("file", new FileBody(zippedBug));
-                    httpostUpl.setEntity(bugreportUploadEntity);
-                    HttpResponse uplResponse = uplClient.execute(httpostUpl);
-                    HttpEntity entityResponse = uplResponse.getEntity();
-                    responseString = EntityUtils.toString(entityResponse);
-                        // Log.d("brg", "response " + responseString);
-                } catch (Exception e) {
-                    Log.e("bugreportgrabber", "file upload exception: " + e);
-                    //pop error message for file upload"
-                    notifyUploadFailed(getString(R.string.fileFail));
-                }
-            } else {
-                // pop error message for bad response from server
-                notifyUploadFailed(getString(R.string.badResponse));
+            if (jiraBugId.isEmpty()) {
+                notifyUploadFailed(R.string.error_bad_response);
+                return null;
             }
-            return jiraBugID; //output;
+
+            // Now we attach the file
+            try {
+                attachFile(mReportUri, jiraBugId);
+            } catch (ZipException e) {
+                notifyUploadFailed(R.string.error_zip_fail);
+            } catch (IOException e) {
+                notifyUploadFailed(R.string.error_file_fail);
+            }
+
+            return jiraBugId;
         }
-        private File zip(File bugreportFile) {
+
+        @Override
+        protected void onPostExecute(String bugId) {
+            notifyUploadFinished(bugId);
+            stopSelf();
+        }
+
+        private String uploadAndGetId(JSONObject input) throws IOException, JSONException {
+            DefaultHttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(API_URL);
+
+            // Turn the JSONObject being passed into a stringentity for http consumption
+            post.setEntity(new StringEntity(input.toString()));
+            post.setHeader("Accept","application/json");
+            post.setHeader("Authorization","Basic " + AUTH);
+            post.setHeader("Content-Type","application/json");
+
+            HttpResponse response = client.execute(post);
+            HttpEntity entity = response.getEntity();
+
+            JSONObject output = new JSONObject(EntityUtils.toString(entity));
+            return output.getString("key");
+        }
+
+        private void attachFile(Uri reportUri, String bugId) throws IOException, ZipException {
+            DefaultHttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(API_URL + bugId + "/attachments");
+
+            post.setHeader("Authorization","Basic " + AUTH);
+            post.setHeader("X-Atlassian-Token","nocheck");
+
+            File bugreportFile = new File("/data" + reportUri.getPath());
+            File zippedReportFile = zipFile(bugreportFile);
+
+            MultipartEntity bugreportUploadEntity = new MultipartEntity();
+            bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
+            post.setEntity(bugreportUploadEntity);
+
+            client.execute(post);
+        }
+
+        private File zipFile(File bugreportFile) throws ZipException {
             String zippedFilename = "/data/bugreports/tmp.zip";
-            try{
+            try {
                 byte[] buffer = new byte[1024];
                 FileOutputStream fos = new FileOutputStream(zippedFilename);
                 ZipOutputStream zos = new ZipOutputStream(fos);
                 FileInputStream fis = new FileInputStream(bugreportFile);
                 zos.putNextEntry(new ZipEntry(bugreportFile.getName()));
                 int length;
-                while ((length = fis.read(buffer)) > 0){
+                while ((length = fis.read(buffer)) > 0) {
                     zos.write(buffer, 0, length);
                 }
                 zos.closeEntry();
                 fis.close();
                 zos.close();
-            }catch (Exception e){
-                Log.e("CMLogCapture", "Zipping problem", e);
-                notifyUploadFailed(getString(R.string.zipFail));
+            } catch (IOException e) {
+                Log.e(TAG, "Could not zip bug report", e);
+                throw new ZipException();
             }
             return new File(zippedFilename);
         }
-        protected void onPostExecute(String result){
-                stopForeground(true);
-                notifyUploadFinished(result);
-                stopSelf();
-            }
-        } // end CallApi
+    }
 }

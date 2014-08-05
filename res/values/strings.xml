@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name"> CM JIRA</string>
-    <string name="notifName">CM Bugreport</string>
+<!--
+     Copyright (C) 2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">CM bug report</string>
+
+    <!-- Main application -->
     <string name="summary">Enter a summary for this report</string>
     <string name="description">Enter a description, what you were doing, apps running, etc.</string>
-    <string name="button_submit">Submit</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_result">Results</string>
-    <string name="uploading">Creating issue and uploading report...</string>
-    <string name="thanks">Thank you for your submission.</string>
-    <!-- error messages -->
-    <string name="noText">You must complete all fields before submitting.</string>
-    <string name="somethingWentWrong">Something went wrong creating the issue. You may have to manually create a bug report at http://jira.cyanogenmod.org/</string>
-    <string name="probCreating">There was a problem creating the issue.</string>
-    <string name="uplFailed">Upload failed:</string>
-    <string name="conProblem">problem connecting to the server</string>
-    <string name="badResponse">Bad response from server</string>
-    <string name="fileFail">The file failed to upload</string>
-    <string name="zipFail">The file failed to compress</string>
-    <string name="OK">OK</string>
+    <string name="action_submit">Submit</string>
+
+    <!-- Notification messages -->
+    <string name="notif_title">Bug report</string>
+    <string name="notif_uploading">Creating issue and uploading report\u2026</string>
+    <string name="notif_thanks">Thank you for your submission</string>
+
+    <!-- Error messages -->
+    <string name="error_no_text">This field must not be empty</string>
+
+    <string name="error_upload_failed">Upload failed: <xliff:g id="reason">%1$s</xliff:g></string>
+    <string name="error_problem_creating">Problem creating the issue</string>
+    <string name="error_connection_problem">Problem connecting to the server</string>
+    <string name="error_bad_response">Bad response from server</string>
+    <string name="error_file_fail">The file failed to upload</string>
+    <string name="error_zip_fail">The file failed to compress</string>
 </resources>
