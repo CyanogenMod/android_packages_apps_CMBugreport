@@ -189,40 +189,57 @@ public class CMLogService extends IntentService {
         private void attachFile(Uri reportUri, String bugId) throws IOException, ZipException {
             DefaultHttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(API_URL + bugId + "/attachments");
+            File zippedReportFile = null;
 
             post.setHeader("Authorization","Basic " + AUTH);
             post.setHeader("X-Atlassian-Token","nocheck");
+            try {
+                File bugreportFile = new File("/data" + reportUri.getPath());
+                zippedReportFile = zipFile(bugreportFile);
 
-            File bugreportFile = new File("/data" + reportUri.getPath());
-            File zippedReportFile = zipFile(bugreportFile);
+                MultipartEntity bugreportUploadEntity = new MultipartEntity();
+                bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
+                post.setEntity(bugreportUploadEntity);
 
-            MultipartEntity bugreportUploadEntity = new MultipartEntity();
-            bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
-            post.setEntity(bugreportUploadEntity);
-
-            client.execute(post);
+                client.execute(post);
+            } finally {
+                if (zippedReportFile != null) {
+                    zippedReportFile.delete();
+                }
+            }
         }
 
         private File zipFile(File bugreportFile) throws ZipException {
-            String zippedFilename = "/data/bugreports/tmp.zip";
+            FileInputStream fis = null;
+            ZipOutputStream zos = null;
+            File zippedFile = new File(getCacheDir(), bugreportFile.getName() + ".zip");
             try {
                 byte[] buffer = new byte[1024];
-                FileOutputStream fos = new FileOutputStream(zippedFilename);
-                ZipOutputStream zos = new ZipOutputStream(fos);
-                FileInputStream fis = new FileInputStream(bugreportFile);
+                FileOutputStream fos = new FileOutputStream(zippedFile);
+                zos = new ZipOutputStream(fos);
+                fis = new FileInputStream(bugreportFile);
                 zos.putNextEntry(new ZipEntry(bugreportFile.getName()));
                 int length;
                 while ((length = fis.read(buffer)) > 0) {
                     zos.write(buffer, 0, length);
                 }
                 zos.closeEntry();
-                fis.close();
-                zos.close();
             } catch (IOException e) {
                 Log.e(TAG, "Could not zip bug report", e);
                 throw new ZipException();
+            } finally {
+                if (fis != null)
+                    try {
+                        fis.close();
+                    } catch (IOException e) {
+                    }
+                if (zos != null)
+                    try {
+                        zos.close();
+                    } catch (IOException e) {
+                    }
             }
-            return new File(zippedFilename);
+            return zippedFile;
         }
     }
 }
