@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.cmbugreport;
+package org.cyanogenmod.bugreport;
 
 import android.app.IntentService;
 import android.app.Notification;
