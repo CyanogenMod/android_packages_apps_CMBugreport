@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.PowerManager;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -52,6 +53,7 @@ public class CMLogService extends IntentService {
     private final static String ISSUE_TYPE = "1"; // 4 = improvement   1 = bug?
     private final static String AUTH = "QnVnQ29sbGVjdG9yOldlTE9WRWJ1Z3Mh"; // <--- BugCollector
     private final static String API_URL = "https://jira.cyanogenmod.org/rest/api/2/issue/";
+    private final static String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
 
     public CMLogService() {
         super("CMLogService");
@@ -125,9 +127,19 @@ public class CMLogService extends IntentService {
 
     private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
         private Uri mReportUri;
+        private PowerManager.WakeLock mWakeLock;
 
         public CallAPITask(Uri reportUri) {
             mReportUri = reportUri;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+            mWakeLock.acquire();
         }
 
         @Override
@@ -165,6 +177,10 @@ public class CMLogService extends IntentService {
 
         @Override
         protected void onPostExecute(String bugId) {
+            if (mWakeLock != null) {
+                mWakeLock.release();
+                mWakeLock = null;
+            }
             notifyUploadFinished(bugId);
             stopSelf();
         }
@@ -195,7 +211,10 @@ public class CMLogService extends IntentService {
             post.setHeader("X-Atlassian-Token","nocheck");
             try {
                 File bugreportFile = new File("/data" + reportUri.getPath());
-                zippedReportFile = zipFile(bugreportFile);
+                File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
+                        + bugreportFile.getName());
+                ScrubberUtils.scrubFile(bugreportFile, scrubbedBugReportFile);
+                zippedReportFile = zipFile(scrubbedBugReportFile);
 
                 MultipartEntity bugreportUploadEntity = new MultipartEntity();
                 bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
