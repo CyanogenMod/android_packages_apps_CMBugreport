@@ -25,6 +25,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_LOGS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -40,7 +41,13 @@
                 <data android:mimeType="application/vnd.android.bugreport"/>
             </intent-filter>
         </activity>
-
+        <activity android:name=".CrashFeedbackActivity"
+                  android:theme="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.APP_ERROR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <service
             android:name=".CMLogService"
             android:exported="false"/>  

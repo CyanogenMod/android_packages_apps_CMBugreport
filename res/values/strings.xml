@@ -36,4 +36,10 @@
     <string name="error_bad_response">Bad response from server</string>
     <string name="error_file_fail">The file failed to upload</string>
     <string name="error_zip_fail">The file failed to compress</string>
+    <string name="submit_crash_report">Preview Crash Report</string>
+    <string name="submit">Submit</string>
+    <string name="title_subject">Submission subject</string>
+    <string name="title_crash_log">Submission content</string>
+    <string name="already_submitted">This bug report has already been submitted, thank you!</string>
+    <string name="network_unavailable">No network connection available</string>
 </resources>

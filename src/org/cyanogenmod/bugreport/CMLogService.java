@@ -64,14 +64,13 @@ public class CMLogService extends IntentService {
         ArrayList<Uri> attachments = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
         Uri reportUri = null;
 
-        for (Uri uri : attachments) {
-            if (uri.toString().contains("txt")) {
-                reportUri = uri;
-                break;
+        if (attachments != null) {
+            for (Uri uri : attachments) {
+                if (uri.toString().contains("txt")) {
+                    reportUri = uri;
+                    break;
+                }
             }
-        }
-        if (reportUri == null) {
-            return;
         }
 
         String summary = intent.getStringExtra(Intent.EXTRA_SUBJECT);
@@ -163,13 +162,15 @@ public class CMLogService extends IntentService {
                 return null;
             }
 
-            // Now we attach the file
-            try {
-                attachFile(mReportUri, jiraBugId);
-            } catch (ZipException e) {
-                notifyUploadFailed(R.string.error_zip_fail);
-            } catch (IOException e) {
-                notifyUploadFailed(R.string.error_file_fail);
+            if (mReportUri != null) {
+                // Now we attach the file
+                try {
+                    attachFile(mReportUri, jiraBugId);
+                } catch (ZipException e) {
+                    notifyUploadFailed(R.string.error_zip_fail);
+                } catch (IOException e) {
+                    notifyUploadFailed(R.string.error_file_fail);
+                }
             }
 
             return jiraBugId;
