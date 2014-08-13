@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">CM bug report</string>
+    <string name="app_name">CM Bug Report</string>
 
     <!-- Main application -->
     <string name="summary">Enter a summary for this report</string>
