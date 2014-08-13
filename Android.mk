@@ -15,6 +15,8 @@ LOCAL_SRC_FILES +=
 #LOCAL_PREBUILT_STATIC_JAVA_LIBARIES
 LOCAL_STATIC_JAVA_LIBRARIES := bugreport_httpmime apachemime
 
+LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
+
 LOCAL_PACKAGE_NAME := CMBugReport
 
 LOCAL_PROGUARD_FLAGS := -include $(LOCAL_PATH)/proguard.cfg

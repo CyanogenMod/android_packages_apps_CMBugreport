@@ -182,7 +182,9 @@ public class CMLogService extends IntentService {
                 mWakeLock.release();
                 mWakeLock = null;
             }
-            notifyUploadFinished(bugId);
+            if (bugId != null) {
+                notifyUploadFinished(bugId);
+            }
             stopSelf();
         }
 
@@ -214,7 +216,7 @@ public class CMLogService extends IntentService {
                 File bugreportFile = new File("/data" + reportUri.getPath());
                 File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
                         + bugreportFile.getName());
-                ScrubberUtils.scrubFile(bugreportFile, scrubbedBugReportFile);
+                ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
                 zippedReportFile = zipFile(scrubbedBugReportFile);
 
                 MultipartEntity bugreportUploadEntity = new MultipartEntity();

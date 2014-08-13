@@ -15,7 +15,11 @@
  */
 package org.cyanogenmod.bugreport;
 
+import android.content.Context;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import org.cyanogenmod.hardware.SerialNumber;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,6 +27,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class ScrubberUtils {
@@ -40,7 +45,7 @@ public class ScrubberUtils {
     public static final String IGNORE_DATA_DALVIK_CACHE = "/data/dalvik-cache";
     public static final String IGNORE_CACHE_DALVIK_CACHE = "/cache/dalvik-cache";
 
-    public static String scrubLine(String line) {
+    public static String scrubLine(String line, Pattern extraPattern) {
         if (line.contains(IGNORE_DATA_RESOURCE_CACHE)
                 || line.contains(IGNORE_DATA_DALVIK_CACHE)
                 || line.contains(IGNORE_CACHE_DALVIK_CACHE)) {
@@ -52,6 +57,10 @@ public class ScrubberUtils {
         line = PHONE_NUMBER_PATTERN.matcher(line).replaceAll("<phone number omitted>");
         line = WEB_URL_PATTERN.matcher(line).replaceAll("<web url omitted>");
         line = PHONE_INFO_PATTERN.matcher(line).replaceAll("<omitted>");
+
+        if (extraPattern != null) {
+            line = extraPattern.matcher(line).replaceAll("<private info omitted>");
+        }
         return line;
     }
 
@@ -60,8 +69,25 @@ public class ScrubberUtils {
      * @param input  the file to scrub
      * @param output the file to write results to
      */
-    public static void scrubFile(File input, File output) throws IOException {
+    public static void scrubFile(Context context, File input, File output) throws IOException {
         long startScrubTime = System.currentTimeMillis();
+
+        ArrayList<String> extraFilters = new ArrayList<String>();
+        TelephonyManager tm = (TelephonyManager) context.
+                getSystemService(Context.TELEPHONY_SERVICE);
+        if (tm != null && tm.getDeviceId() != null) {
+            extraFilters.add(tm.getDeviceId());
+        }
+        extraFilters.add(getSerialNumber());
+        String extraRegex = "";
+        for (String regex : extraFilters) {
+            extraRegex += regex + "|";
+        }
+        extraRegex = extraRegex.substring(0, extraRegex.length()-1);
+        if (DEBUG) {
+            Log.w(TAG, "extra regex: " + extraRegex);
+        }
+        Pattern privateInfoPattern = Pattern.compile(extraRegex);
 
         BufferedWriter bw = null;
         BufferedReader br = null;
@@ -72,7 +98,7 @@ public class ScrubberUtils {
             if (DEBUG) Log.i(TAG, "starting task!");
             String line, scrubbedLine;
             while ((line = br.readLine()) != null) {
-                scrubbedLine = ScrubberUtils.scrubLine(line);
+                scrubbedLine = ScrubberUtils.scrubLine(line, privateInfoPattern);
                 if (!scrubbedLine.equals(line)) {
                     if (DEBUG) Log.d(TAG, "original line: " + line);
                     if (DEBUG) Log.w(TAG, "scrubbed line: " + scrubbedLine);
@@ -100,6 +126,18 @@ public class ScrubberUtils {
             long endScrubTime = System.currentTimeMillis();
             if (DEBUG) Log.w(TAG, "scrubFile() took: " + (endScrubTime - startScrubTime) + "ms");
         }
+    }
+
+    private static String getSerialNumber() {
+        try {
+            if (SerialNumber.isSupported()) {
+                return SerialNumber.getSerialNumber();
+            }
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed; fall through
+        }
+
+        return Build.SERIAL;
     }
 
 }
