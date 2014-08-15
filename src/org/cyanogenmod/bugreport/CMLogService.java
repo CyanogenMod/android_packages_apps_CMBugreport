@@ -98,9 +98,11 @@ public class CMLogService extends IntentService {
         new CallAPITask(reportUri).execute(inputJSON);
     }
 
-    private void notify(CharSequence message, int iconResId, boolean withProgress) {
+    private void notify(CharSequence message, int iconResId, boolean withProgress,
+                        boolean ongoing) {
         Notification.Builder builder = new Notification.Builder(this)
                 .setSmallIcon(iconResId)
+                .setOngoing(ongoing)
                 .setContentTitle(getString(R.string.notif_title))
                 .setContentText(message);
         if (withProgress) {
@@ -112,16 +114,21 @@ public class CMLogService extends IntentService {
     }
 
     private void notifyOfUpload() {
-        notify(getString(R.string.notif_uploading), R.drawable.ic_tab_upload, true);
+        notify(getString(R.string.notif_uploading), R.drawable.ic_tab_upload, true, true);
     }
 
     private void notifyUploadFinished(String issueNumber) {
-        notify(getString(R.string.notif_thanks), R.drawable.ic_launcher, false);
+        notify(getString(R.string.notif_thanks), R.drawable.ic_launcher, false, false);
+    }
+
+    private void notifyProcessing() {
+        notify(getString(R.string.notif_processing), R.drawable.ic_launcher, true, true);
     }
 
     private void notifyUploadFailed(int reasonResId) {
         String reason = getString(reasonResId);
-        notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_launcher, false);
+        notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_launcher, false,
+                false);
     }
 
     private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
@@ -165,6 +172,7 @@ public class CMLogService extends IntentService {
             if (mReportUri != null) {
                 // Now we attach the file
                 try {
+                    notifyProcessing();
                     attachFile(mReportUri, jiraBugId);
                 } catch (ZipException e) {
                     notifyUploadFailed(R.string.error_zip_fail);
@@ -223,6 +231,7 @@ public class CMLogService extends IntentService {
                 bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
                 post.setEntity(bugreportUploadEntity);
 
+                notifyOfUpload();
                 client.execute(post);
             } finally {
                 if (zippedReportFile != null) {

@@ -42,4 +42,5 @@
     <string name="title_crash_log">Submission content</string>
     <string name="already_submitted">This bug report has already been submitted, thank you!</string>
     <string name="network_unavailable">No network connection available</string>
+    <string name="notif_processing">Processing bug report</string>
 </resources>
