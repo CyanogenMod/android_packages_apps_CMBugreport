@@ -40,6 +40,8 @@ public class ScrubberUtils {
     private static final Pattern WEB_URL_PATTERN = Pattern.compile("\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
     private static final Pattern IPADDRESS_PATTERN = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
     private static final Pattern PHONE_INFO_PATTERN = Pattern.compile("(msisdn=|mMsisdn=|iccid=|iccid: |mImsi=)[a-zA-Z0-9]*", Pattern.CASE_INSENSITIVE);
+    private static final Pattern USER_INFO_PATTERN = Pattern.compile("(UserInfo\\{\\d:)[a-zA-Z0-9\\s]*", Pattern.CASE_INSENSITIVE);
+    private static final Pattern ACCOUNT_INFO_PATTERN = Pattern.compile("(Account \\{name=)[a-zA-Z0-9]*", Pattern.CASE_INSENSITIVE);
 
     public static final String IGNORE_DATA_RESOURCE_CACHE = "/data/resource-cache";
     public static final String IGNORE_DATA_DALVIK_CACHE = "/data/dalvik-cache";
@@ -57,6 +59,8 @@ public class ScrubberUtils {
         line = PHONE_NUMBER_PATTERN.matcher(line).replaceAll("<phone number omitted>");
         line = WEB_URL_PATTERN.matcher(line).replaceAll("<web url omitted>");
         line = PHONE_INFO_PATTERN.matcher(line).replaceAll("<omitted>");
+        line = USER_INFO_PATTERN.matcher(line).replaceAll("<omitted>");
+        line = ACCOUNT_INFO_PATTERN.matcher(line).replaceAll("<omitted>");
 
         if (extraPattern != null) {
             line = extraPattern.matcher(line).replaceAll("<private info omitted>");
