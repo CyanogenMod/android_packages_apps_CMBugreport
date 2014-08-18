@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_project_name"></string>
+    <string name="config_issue_type"></string>
+    <string name="config_auth"></string>
+    <string name="config_api_url"></string>
+</resources>

@@ -51,10 +51,6 @@ import java.util.zip.ZipOutputStream;
 public class CMLogService extends IntentService {
     private final static String TAG = "CMLogService";
 
-    private final static String PROJECT_NAME = "11400"; // 11102 = WIKI 11400 = bugdump
-    private final static String ISSUE_TYPE = "1"; // 4 = improvement   1 = bug?
-    private final static String AUTH = "QnVnQ29sbGVjdG9yOldlTE9WRWJ1Z3Mh"; // <--- BugCollector
-    private final static String API_URL = "https://jira.cyanogenmod.org/rest/api/2/issue/";
     private final static String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
     public static final String RO_CM_VERSION = "ro.cm.version";
 
@@ -86,8 +82,8 @@ public class CMLogService extends IntentService {
         JSONArray labels = new JSONArray();
 
         try {
-            project.put("id", PROJECT_NAME);
-            issuetype.put("id", ISSUE_TYPE);
+            project.put("id", getString(R.string.config_project_name));
+            issuetype.put("id", getString(R.string.config_issue_type));
             fields.put("project", project);
             fields.put("summary", summary);
             fields.put("description", description);
@@ -209,12 +205,12 @@ public class CMLogService extends IntentService {
 
         private String uploadAndGetId(JSONObject input) throws IOException, JSONException {
             DefaultHttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(API_URL);
+            HttpPost post = new HttpPost(getString(R.string.config_api_url));
 
             // Turn the JSONObject being passed into a stringentity for http consumption
             post.setEntity(new StringEntity(input.toString()));
             post.setHeader("Accept","application/json");
-            post.setHeader("Authorization","Basic " + AUTH);
+            post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
             post.setHeader("Content-Type","application/json");
 
             HttpResponse response = client.execute(post);
@@ -226,10 +222,11 @@ public class CMLogService extends IntentService {
 
         private void attachFile(Uri reportUri, String bugId) throws IOException, ZipException {
             DefaultHttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(API_URL + bugId + "/attachments");
+            HttpPost post = new HttpPost(getString(R.string.config_api_url)
+                    + bugId + "/attachments");
             File zippedReportFile = null;
 
-            post.setHeader("Authorization","Basic " + AUTH);
+            post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
             post.setHeader("X-Atlassian-Token","nocheck");
             try {
                 File bugreportFile = new File("/data" + reportUri.getPath());
