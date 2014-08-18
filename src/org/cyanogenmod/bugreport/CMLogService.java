@@ -34,6 +34,7 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -80,6 +81,7 @@ public class CMLogService extends IntentService {
         JSONObject project = new JSONObject();
         JSONObject issuetype = new JSONObject();
         JSONObject inputJSON = new JSONObject();
+        JSONArray labels = new JSONArray();
 
         try {
             project.put("id", PROJECT_NAME);
@@ -88,6 +90,12 @@ public class CMLogService extends IntentService {
             fields.put("summary", summary);
             fields.put("description", description);
             fields.put("issuetype", issuetype);
+            if (summary.startsWith("[CRASH] ")){
+                labels.put("crash");
+            }else{
+                labels.put("user");
+            }
+            fields.put("labels", labels);
             inputJSON.put("fields", fields);
         } catch (JSONException e) {
             Log.e(TAG, "Input JSON could not be compiled", e);
