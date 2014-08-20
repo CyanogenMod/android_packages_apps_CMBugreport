@@ -45,6 +45,7 @@ public class CrashFeedbackActivity extends Activity {
     private static final String TAG = CrashFeedbackActivity.class.getSimpleName();
     public static final String LAST_SUBMISSION = "last_submission";
     public static final String RO_CM_VERSION = "ro.cm.version";
+    public static final String CRASH_PREFIX = "[CRASH] ";
 
     ApplicationErrorReport mReport;
     Button mCancelButton, mSubmitButton;
@@ -132,7 +133,7 @@ public class CrashFeedbackActivity extends Activity {
         if (mReport == null || mReport.crashInfo == null) {
             return "";
         }
-        return "[CRASH] " + mReport.packageName
+        return CRASH_PREFIX + mReport.packageName
                 + " threw " + mReport.crashInfo.exceptionClassName;
     }
 
@@ -140,8 +141,7 @@ public class CrashFeedbackActivity extends Activity {
         if (mReport == null) {
             return "";
         }
-        String cmVersion = SystemProperties.get(RO_CM_VERSION, "");
-        return RO_CM_VERSION + ": " + cmVersion + "\n\n" + mReport.crashInfo.stackTrace;
+        return mReport.crashInfo.stackTrace;
     }
 
     private void uploadCrashReport() {
