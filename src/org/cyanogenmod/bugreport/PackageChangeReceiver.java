@@ -28,12 +28,12 @@ import android.util.Log;
 
 public class PackageChangeReceiver extends BroadcastReceiver {
 
-    private static final String XPOSED_INSTALLER_PACAKGE = "de.robv.android.xposed.installer";
+    private static final String XPOSED_INSTALLER_PACKAGE = "de.robv.android.xposed.installer";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         int newState = PackageManager.COMPONENT_ENABLED_STATE_DEFAULT;
-        if (isPackageInstalled(context, XPOSED_INSTALLER_PACAKGE)) {
+        if (isPackageInstalled(context, XPOSED_INSTALLER_PACKAGE)) {
             // disable bug reporting
             newState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
         }
