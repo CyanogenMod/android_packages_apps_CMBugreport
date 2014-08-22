@@ -39,23 +39,32 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipOutputStream;
 
 public class CMLogService extends IntentService {
-    private final static String TAG = "CMLogService";
+    private static final String TAG = "CMLogService";
+    private static final String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
+    private static final String FILENAME_PROC_VERSION = "/proc/version";
 
-    private final static String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
     public static final String RO_CM_VERSION = "ro.cm.version";
     public static final String SYSTEMLIB = "persist.sys.dalvik.vm.lib";
     public static final String DALVIKLIB = "libdvm.so";
     public static final String ARTLIB = "libart.so";
+    public static final String BUILD_ID_FIELD = "customfield_10800";
+    public static final String KERNELVER_FIELD = "customfield_10104";
+
+    public static Boolean isCMKernel = false;
 
     public CMLogService() {
         super("CMLogService");
@@ -77,6 +86,8 @@ public class CMLogService extends IntentService {
 
         String summary = intent.getStringExtra(Intent.EXTRA_SUBJECT);
         String description = intent.getStringExtra(Intent.EXTRA_TEXT);
+        String kernelver = getFormattedKernelVersion();
+        String syslib = SystemProperties.get(SYSTEMLIB);
 
         JSONObject fields = new JSONObject();
         JSONObject project = new JSONObject();
@@ -91,17 +102,20 @@ public class CMLogService extends IntentService {
             fields.put("summary", summary);
             fields.put("description", description);
             fields.put("issuetype", issuetype);
-            fields.put("customfield_10800", SystemProperties.get(RO_CM_VERSION, ""));
+            fields.put(BUILD_ID_FIELD, SystemProperties.get(RO_CM_VERSION, ""));
+            fields.put(KERNELVER_FIELD, kernelver);
             if (summary.startsWith(CrashFeedbackActivity.CRASH_PREFIX)) {
                 labels.put("crash");
             } else {
                 labels.put("user");
             }
-            String syslib = SystemProperties.get(SYSTEMLIB);
             if (ARTLIB.equals(syslib)){
                 labels.put("ART");
             } else if (DALVIKLIB.equals(syslib)){
                 labels.put("Dalvik");
+            }
+            if (!isCMKernel){
+                labels.put("non-CM-kernel");
             }
             fields.put("labels", labels);
             inputJSON.put("fields", fields);
@@ -145,6 +159,68 @@ public class CMLogService extends IntentService {
         String reason = getString(reasonResId);
         notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_launcher, false,
                 false);
+    }
+
+    public static String getFormattedKernelVersion() {
+       try {
+           return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
+        } catch (IOException e) {
+           Log.e(TAG,
+               "IO Exception when getting kernel version for Device Info screen",
+               e);
+            return "Unavailable";
+       }
+   }
+
+   public static String formatKernelVersion(String rawKernelVersion) {
+        // Example (see tests for more):
+        // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
+        //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
+        //     Thu Jun 28 11:02:39 PDT 2012
+
+        final String PROC_VERSION_REGEX =
+            "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
+            "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
+            "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
+            "(#\\d+) " +              /* group 3: "#1" */
+            "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
+            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
+
+        String builder_regex = "build\\d\\d\\@cyanogenmod";
+
+        Matcher m = Pattern.compile(PROC_VERSION_REGEX).matcher(rawKernelVersion);
+        if (!m.matches()) {
+            Log.e(TAG, "Regex did not match on /proc/version: " + rawKernelVersion);
+            return "Unavailable";
+        } else if (m.groupCount() < 4) {
+            Log.e(TAG, "Regex match on /proc/version only returned " + m.groupCount()
+                    + " groups");
+            return "Unavailable";
+        }
+
+        Matcher k = Pattern.compile(builder_regex).matcher(m.group(2));
+        if (k.matches()){
+            isCMKernel = true;
+        }
+
+        return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
+            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
+            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
+    }
+
+    /**
+     * Reads a line from the specified file.
+     * @param filename the file to read from
+     * @return the first line, if any.
+     * @throws IOException if the file couldn't be read
+     */
+    private static String readLine(String filename) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename), 256);
+        try {
+            return reader.readLine();
+        } finally {
+            reader.close();
+        }
     }
 
     private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
