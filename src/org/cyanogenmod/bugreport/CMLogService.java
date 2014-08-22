@@ -53,6 +53,9 @@ public class CMLogService extends IntentService {
 
     private final static String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
     public static final String RO_CM_VERSION = "ro.cm.version";
+    public static final String SYSTEMLIB = "persist.sys.dalvik.vm.lib";
+    public static final String DALVIKLIB = "libdvm.so";
+    public static final String ARTLIB = "libart.so";
 
     public CMLogService() {
         super("CMLogService");
@@ -93,6 +96,12 @@ public class CMLogService extends IntentService {
                 labels.put("crash");
             } else {
                 labels.put("user");
+            }
+            String syslib = SystemProperties.get(SYSTEMLIB);
+            if (ARTLIB.equals(syslib)){
+                labels.put("ART");
+            } else if (DALVIKLIB.equals(syslib)){
+                labels.put("Dalvik");
             }
             fields.put("labels", labels);
             inputJSON.put("fields", fields);
