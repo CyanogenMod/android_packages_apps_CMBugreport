@@ -23,18 +23,18 @@
   <string name="notif_title">Nahlásiť chybu</string>
   <string name="notif_processing">Spracovávanie hlásenia chyby\u2026</string>
   <string name="notif_uploading">Vytváranie problému a nahrávanie správy\u2026</string>
-  <string name="notif_thanks">Ďakujeme vám za váš príspevok</string>
+  <string name="notif_thanks">Ďakujeme vám za podanie</string>
   <string name="error_no_text">Toto pole nesmie byť prázdne</string>
-  <string name="error_upload_failed">Chyba odosielania: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_upload_failed">Nahrávanie zlyhalo: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Chyba pri vytváraní problému</string>
-  <string name="error_connection_problem">Problém s pripojením na server</string>
+  <string name="error_connection_problem">Chyba pri pripájaní k serveru</string>
   <string name="error_bad_response">Chybná odpoveď zo servera</string>
   <string name="error_file_fail">Súbor sa nepodarilo nahrať</string>
   <string name="error_zip_fail">Súbor sa nepodarilo skomprimovať</string>
   <string name="submit_crash_report">Náhľad správy o zlyhaní</string>
-  <string name="submit">Odoslať</string>
+  <string name="submit">Poslať</string>
   <string name="title_subject">Predmet podania</string>
   <string name="title_crash_log">Obsah podania</string>
-  <string name="already_submitted">Toto hlásenie o chybe už bolo odoslané!</string>
+  <string name="already_submitted">Toto hlásenie o chybe už bolo odoslané, ďakujeme!</string>
   <string name="network_unavailable">K dispozícii nie je žiadne pripojenie k sieti</string>
 </resources>

@@ -21,6 +21,7 @@
   <string name="description">ڕوونکارییه‌ک بنووسه‌، چیت کردووه‌، چی به‌رنامه‌یه‌ک کاری کردووه‌، هتد.</string>
   <string name="action_submit">ناردن</string>
   <string name="notif_title">ڕاگه‌یاندنی هه‌ڵه‌</string>
+  <string name="notif_processing">پرۆسه‌ی ڕاپۆرتی هه‌ڵه‌\u2026</string>
   <string name="notif_uploading">ڕاپۆرتکردنی هه‌ڵه‌ و ناردنی ڕاپۆرت\u2026</string>
   <string name="notif_thanks">سوپاس بۆ ناردنه‌که‌ت</string>
   <string name="error_no_text">ناکرێ ئه‌م خانه‌یه‌ به‌تاڵ بێت</string>

@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Rapporto bug CM</string>
   <string name="summary">Inserisci un riassunto per questo rapporto</string>
-  <string name="description">Immetti una descrizione, cosa stavi facendo, applicazioni in esecuzione, ecc.</string>
+  <string name="description">Immetti una descrizione, cosa stavi facendo, app in esecuzione, ecc.</string>
   <string name="action_submit">Invia</string>
   <string name="notif_title">Rapporto bug</string>
   <string name="notif_processing">Elaborazione rapporto bug\u2026</string>
