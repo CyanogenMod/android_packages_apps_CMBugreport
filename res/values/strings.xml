@@ -20,6 +20,7 @@
     <!-- Main application -->
     <string name="summary">Enter a summary for this report</string>
     <string name="description">Enter a description, what you were doing, apps running, etc.</string>
+    <string name="screenshot">Attach screenshot captured with bugreport?</string>
     <string name="action_submit">Submit</string>
 
     <!-- Notification messages -->

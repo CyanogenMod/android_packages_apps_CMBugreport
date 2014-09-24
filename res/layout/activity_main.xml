@@ -34,4 +34,10 @@
         android:layout_weight="1"
         android:paddingTop="4dp"
         android:hint="@string/description"/>
+
+    <CheckBox
+        android:id="@+id/ssCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/screenshot"/>
 </LinearLayout>

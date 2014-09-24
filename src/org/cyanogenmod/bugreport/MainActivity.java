@@ -23,6 +23,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.CheckBox;
 import android.net.Uri;
 
 import java.util.ArrayList;
@@ -77,8 +78,10 @@ public class MainActivity extends Activity {
         descriptionEditText.setError(TextUtils.isEmpty(description)
                 ? getString(R.string.error_no_text) : null);
 
+        CheckBox ssCheck = (CheckBox) findViewById(R.id.ssCheckBox);
+        boolean ssPreference = ssCheck.isChecked();
+
         if (descriptionEditText.getError() != null || summaryEditText.getError() != null) {
-            // Re-enable the button so they can put in text and hit button again
             return;
         }
 
@@ -86,6 +89,7 @@ public class MainActivity extends Activity {
         intent.putExtra(Intent.EXTRA_SUBJECT, summary);
         intent.putExtra(Intent.EXTRA_TEXT, description);
         intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, mAttachments);
+        intent.putExtra("org.cyanogenmod.bugreport.AddScreenshot", ssPreference);
         startService(intent);
 
         // Make the screen go away
