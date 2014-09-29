@@ -43,4 +43,9 @@
     <string name="title_crash_log">Submission content</string>
     <string name="already_submitted">This bug report has already been submitted, thank you!</string>
     <string name="network_unavailable">No network connection available</string>
+
+    <!-- Hidden copy paste feature -->
+    <string name="crash_clipboard_toast_message_success">Crash report copied to clipboard!</string>
+    <string name="crash_clipboard_toast_message_failure">Crash report failed to copy to clipboard.</string>
+    <string name="crash_clipboard_label">Crash Report</string>
 </resources>
