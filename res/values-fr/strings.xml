@@ -37,4 +37,7 @@
   <string name="title_crash_log">Contenu du rapport</string>
   <string name="already_submitted">Ce rapport de bug a déjà été envoyé, merci !</string>
   <string name="network_unavailable">Aucune connexion réseau disponible</string>
+  <string name="crash_clipboard_toast_message_success">Rapport d\'incident copié dans le presse-papiers.</string>
+  <string name="crash_clipboard_toast_message_failure">Impossible de copier le rapport d\'incident dans le presse-papiers.</string>
+  <string name="crash_clipboard_label">Rapport d\'incident</string>
 </resources>

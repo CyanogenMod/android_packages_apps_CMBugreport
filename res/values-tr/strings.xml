@@ -37,4 +37,7 @@
   <string name="title_crash_log">Gönderi içeriği</string>
   <string name="already_submitted">Bu hata raporu zaten gönderildi, teşekkür ederiz!</string>
   <string name="network_unavailable">Ağ bağlantısı yok</string>
+  <string name="crash_clipboard_toast_message_success">Hata raporu panoya kopyalandı.</string>
+  <string name="crash_clipboard_toast_message_failure">Hata raporu panoya kopyalanamadı.</string>
+  <string name="crash_clipboard_label">Hata Raporu</string>
 </resources>

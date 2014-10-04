@@ -37,4 +37,7 @@
   <string name="title_crash_log">Περιεχόμενο υποβολής</string>
   <string name="already_submitted">Αυτή η αναφορά σφάλματος έχει ήδη υποβληθεί, ευχαριστούμε!</string>
   <string name="network_unavailable">Δεν υπάρχει διαθέσιμη σύνδεση δικτύου</string>
+  <string name="crash_clipboard_toast_message_success">H αναφορά σφάλματος αντιγράφηκε στο πρόχειρο.</string>
+  <string name="crash_clipboard_toast_message_failure">Αποτυχία αντιγραφής της αναφοράς σφάλματος στο πρόχειρο.</string>
+  <string name="crash_clipboard_label">Αναφορά σφάλματος</string>
 </resources>

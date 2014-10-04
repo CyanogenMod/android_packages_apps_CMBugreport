@@ -37,4 +37,7 @@
   <string name="title_crash_log">Conteúdo a enviar</string>
   <string name="already_submitted">Este relatório de erros já foi enviado, obrigado!</string>
   <string name="network_unavailable">Sem ligação de rede disponível</string>
+  <string name="crash_clipboard_toast_message_success">Relatório de falha de sistema copiado para a área de transferência.</string>
+  <string name="crash_clipboard_toast_message_failure">Falha ao copiar o relatório de falha de sistema para a área de transferência</string>
+  <string name="crash_clipboard_label">Relatório de falha de sistema</string>
 </resources>

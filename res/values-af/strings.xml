@@ -37,4 +37,7 @@
   <string name="title_crash_log">Inhoud voorlegging</string>
   <string name="already_submitted">Hierdie fout verslag is alreeds ingedien, dankie!</string>
   <string name="network_unavailable">Geen netwerk verbinding beskikbaar</string>
+  <string name="crash_clipboard_toast_message_success">Fout verslag gekopieer na knipbord.</string>
+  <string name="crash_clipboard_toast_message_failure">Kon nie die fout verslag kopieer na die knipbord.</string>
+  <string name="crash_clipboard_label">Fout verslag</string>
 </resources>

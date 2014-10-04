@@ -37,4 +37,7 @@
   <string name="title_crash_log">Obsah podania</string>
   <string name="already_submitted">Toto hlásenie o chybe už bolo odoslané, ďakujeme!</string>
   <string name="network_unavailable">K dispozícii nie je žiadne pripojenie k sieti</string>
+  <string name="crash_clipboard_toast_message_success">Hlásenie o zlyhaní bolo skopírované do schránky.</string>
+  <string name="crash_clipboard_toast_message_failure">Nepodarilo sa skopírovať hlásenie o zlyhaní do schránky.</string>
+  <string name="crash_clipboard_label">Hlásenie o zlyhaní</string>
 </resources>

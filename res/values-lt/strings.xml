@@ -37,4 +37,7 @@
   <string name="title_crash_log">Pateikimo turinys</string>
   <string name="already_submitted">Šis trikties pranešimas jau buvo pateiktas, ačiū!</string>
   <string name="network_unavailable">Nėra interneto ryšio</string>
+  <string name="crash_clipboard_toast_message_success">Gedimo ataskaita nukopijuota į iškarpinę.</string>
+  <string name="crash_clipboard_toast_message_failure">Nepavyko nukopijuoti gedimo ataskaitos į iškarpinę.</string>
+  <string name="crash_clipboard_label">Gedimo ataskaita</string>
 </resources>

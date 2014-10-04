@@ -37,4 +37,7 @@
   <string name="title_crash_log">Conteníu del unviu</string>
   <string name="already_submitted">Esti informe yá s\'unvió. ¡Gracies!</string>
   <string name="network_unavailable">Nun hai conexón de datos disponible</string>
+  <string name="crash_clipboard_toast_message_success">Informe de fallu copiáu al cartafueyu.</string>
+  <string name="crash_clipboard_toast_message_failure">Fallu al copiar l\'informe de fallu al cartafueyu.</string>
+  <string name="crash_clipboard_label">Informe de fallu</string>
 </resources>

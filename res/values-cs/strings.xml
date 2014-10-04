@@ -37,4 +37,7 @@
   <string name="title_crash_log">Obsah</string>
   <string name="already_submitted">Toto hlášení o chybě již bylo odesláno!</string>
   <string name="network_unavailable">Připojení k síti není k dispozici</string>
+  <string name="crash_clipboard_toast_message_success">Zpráva o selhání zkopírována do schránky.</string>
+  <string name="crash_clipboard_toast_message_failure">Nepodařilo se zkopírovat zprávu o selhání do schránky.</string>
+  <string name="crash_clipboard_label">Zpráva o selhání</string>
 </resources>

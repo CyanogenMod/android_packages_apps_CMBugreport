@@ -37,4 +37,7 @@
   <string name="title_crash_log">Содержимое отчёта</string>
   <string name="already_submitted">Эта ошибка уже есть в нашей базе данных, спасибо за участие!</string>
   <string name="network_unavailable">Нет интернет-подключения</string>
+  <string name="crash_clipboard_toast_message_success">Отчёт о ошибке скопирован в буфер обмена.</string>
+  <string name="crash_clipboard_toast_message_failure">Не удалось скопировать отчёт о ошибке в буфер обмена.</string>
+  <string name="crash_clipboard_label">Отчёт о ошибке</string>
 </resources>
