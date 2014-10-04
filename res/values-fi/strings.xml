@@ -37,4 +37,7 @@
   <string name="title_crash_log">Lähetyksen sisältö</string>
   <string name="already_submitted">Tämä virheraportti on jo toimitettu, kiitos!</string>
   <string name="network_unavailable">Ei verkkoyhteyttä</string>
+  <string name="crash_clipboard_toast_message_success">Kaatumisraportti kopioitu leikepöydälle.</string>
+  <string name="crash_clipboard_toast_message_failure">Kaatumisraportin kopiointi leikepöydälle epäonnistui.</string>
+  <string name="crash_clipboard_label">Kaatumisraportti</string>
 </resources>

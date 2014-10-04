@@ -37,4 +37,7 @@
   <string name="title_crash_log">内容</string>
   <string name="already_submitted">このバグレポートは既に送信されています、ありがとうございました。</string>
   <string name="network_unavailable">ネットワーク接続が利用できません</string>
+  <string name="crash_clipboard_toast_message_success">クラッシュレポートをクリップボードにコピーしました。</string>
+  <string name="crash_clipboard_toast_message_failure">クラッシュレポートをクリップボードにコピーできませんでした。</string>
+  <string name="crash_clipboard_label">クラッシュレポート</string>
 </resources>

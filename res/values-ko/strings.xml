@@ -37,4 +37,7 @@
   <string name="title_crash_log">제출 내용</string>
   <string name="already_submitted">이 버그 리포트는 이미 제출되었습니다. 감사합니다!</string>
   <string name="network_unavailable">사용 가능한 네트워크 연결이 없습니다</string>
+  <string name="crash_clipboard_toast_message_success">충돌 보고서가 클립보드에 복사되었습니다.</string>
+  <string name="crash_clipboard_toast_message_failure">충돌 보고서를 클립보드에 복사하지 못했습니다.</string>
+  <string name="crash_clipboard_label">충돌 보고서</string>
 </resources>

@@ -37,4 +37,7 @@
   <string name="title_crash_log">Садржај за слање</string>
   <string name="already_submitted">Ова пријава грешке је већ послата, хвала!</string>
   <string name="network_unavailable">Нема доступне мрежне везе</string>
+  <string name="crash_clipboard_toast_message_success">Извештај о невољи копиран у привремену меморију.</string>
+  <string name="crash_clipboard_toast_message_failure">Копирање извештаја о невољи у привремену меморију није успело.</string>
+  <string name="crash_clipboard_label">Извештај о невољи</string>
 </resources>

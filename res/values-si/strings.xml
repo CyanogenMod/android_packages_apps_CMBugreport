@@ -37,4 +37,7 @@
   <string name="title_crash_log">යොමන්නෙහි අන්තර්ගතය</string>
   <string name="already_submitted">මෙම දෝෂ වාර්තාව දැනටමත් යොමුකර ඇත, ඔබට ස්තුතියි!</string>
   <string name="network_unavailable">කිසිඳු ජාල සම්බන්ධතාවක් ලද නොහැක</string>
+  <string name="crash_clipboard_toast_message_success">බිඳ වැටීම් වාර්තාව පසුරු පුවරුවට පිටපත් කෙරුණි.</string>
+  <string name="crash_clipboard_toast_message_failure">බිඳ වැටීම් වාර්තාව පසුරු පුවරුවට පිටපත් කිරීමට අසමත්විය.</string>
+  <string name="crash_clipboard_label">බිඳ වැටීම් වාර්තාව</string>
 </resources>

@@ -37,4 +37,7 @@
   <string name="title_crash_log">Hibabejelentés tartalma</string>
   <string name="already_submitted">Ezt a hibabejelentést már beküldték, köszönöm!</string>
   <string name="network_unavailable">Nincs hálózati kapcsolat</string>
+  <string name="crash_clipboard_toast_message_success">Hibajelentés a vágólapra másolva.</string>
+  <string name="crash_clipboard_toast_message_failure">Nem sikerült a vágólapra másolni a hibajelentést.</string>
+  <string name="crash_clipboard_label">Hibajelentés</string>
 </resources>

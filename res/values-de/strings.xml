@@ -37,4 +37,7 @@
   <string name="title_crash_log">Inhalt</string>
   <string name="already_submitted">Dieser Fehlerbericht wurde bereits gesendet, vielen Dank!</string>
   <string name="network_unavailable">Keine Netzwerkverbindung verfügbar</string>
+  <string name="crash_clipboard_toast_message_success">Absturzbericht wurde in die Zwischenablage kopiert.</string>
+  <string name="crash_clipboard_toast_message_failure">Der Absturzbericht konnte nicht in die Zwischenablage kopiert werden.</string>
+  <string name="crash_clipboard_label">Absturzbericht</string>
 </resources>

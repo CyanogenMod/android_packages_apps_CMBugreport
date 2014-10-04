@@ -37,4 +37,7 @@
   <string name="title_crash_log">Indhold af indsendelse</string>
   <string name="already_submitted">Denne fejlrapport er allerede blevet indsendt, tak!</string>
   <string name="network_unavailable">Ingen netværksforbindelse tilgængelig</string>
+  <string name="crash_clipboard_toast_message_success">Fejlrapport kopieret til udklipsholder.</string>
+  <string name="crash_clipboard_toast_message_failure">Kunne ikke kopiere fejlrapporten til udklipsholder.</string>
+  <string name="crash_clipboard_label">Fejlrapport</string>
 </resources>

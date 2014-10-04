@@ -37,4 +37,7 @@
   <string name="title_crash_log">提交内容</string>
   <string name="already_submitted">该错误报告已经被提交，谢谢您！</string>
   <string name="network_unavailable">无可用的网络连接</string>
+  <string name="crash_clipboard_toast_message_success">崩溃报告已复制到剪贴板。</string>
+  <string name="crash_clipboard_toast_message_failure">复制崩溃报告到剪贴板失败。</string>
+  <string name="crash_clipboard_label">崩溃报告</string>
 </resources>

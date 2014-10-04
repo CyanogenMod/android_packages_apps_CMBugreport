@@ -37,4 +37,7 @@
   <string name="title_crash_log">Contenido del envío</string>
   <string name="already_submitted">Este informe de error ya ha sido enviado. ¡Gracias!</string>
   <string name="network_unavailable">No hay conexión de datos disponible</string>
+  <string name="crash_clipboard_toast_message_success">Informe de error copiado al portapapeles.</string>
+  <string name="crash_clipboard_toast_message_failure">Fallo al copiar el informe de error al portapapeles.</string>
+  <string name="crash_clipboard_label">Informe de error</string>
 </resources>
