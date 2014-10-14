@@ -37,4 +37,7 @@
   <string name="title_crash_log">תוכן השליחה</string>
   <string name="already_submitted">דוח זה כבר נשלח, תודה!</string>
   <string name="network_unavailable">אין חיבור רשת זמין</string>
+  <string name="crash_clipboard_toast_message_success">דו\"ח הקריסה הועתק ללוח.</string>
+  <string name="crash_clipboard_toast_message_failure">נכשלה העתקת דו\"ח הקריסה ללוח.</string>
+  <string name="crash_clipboard_label">דו\"ח קריסה</string>
 </resources>

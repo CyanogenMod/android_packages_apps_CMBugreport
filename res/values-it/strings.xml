@@ -37,6 +37,7 @@
   <string name="title_crash_log">Contenuto segnalazione</string>
   <string name="already_submitted">Questo rapporto del bug è già stato inviato, grazie!</string>
   <string name="network_unavailable">Nessuna connessione di rete disponibile</string>
+  <string name="crash_clipboard_toast_message_success">Segnalazione bug copiata negli appunti.</string>
   <string name="crash_clipboard_toast_message_failure">Impossibile copiare negli appunti la segnalazione crash.</string>
   <string name="crash_clipboard_label">Segnalazione crash</string>
 </resources>

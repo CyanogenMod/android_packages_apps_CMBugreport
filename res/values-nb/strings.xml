@@ -37,4 +37,7 @@
   <string name="title_crash_log">Sender inn innhold</string>
   <string name="already_submitted">Denne feilrapporten er allerede sendt, takk!</string>
   <string name="network_unavailable">Ingen nettverkstilkobling tilgjengelig</string>
+  <string name="crash_clipboard_toast_message_success">Krasjrapportering kopiert til utklippstavlen.</string>
+  <string name="crash_clipboard_toast_message_failure">Kan ikke kopiere feilrapporten til utklippstavlen.</string>
+  <string name="crash_clipboard_label">Feilrapport</string>
 </resources>

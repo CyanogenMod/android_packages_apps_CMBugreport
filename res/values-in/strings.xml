@@ -37,4 +37,7 @@
   <string name="title_crash_log">Konten pengajuan</string>
   <string name="already_submitted">Laporan bug ini telah dikirimkan, terima kasih!</string>
   <string name="network_unavailable">Tidak ada koneksi jaringan yang tersedia</string>
+  <string name="crash_clipboard_toast_message_success">Laporan crash disalin ke clipboard.</string>
+  <string name="crash_clipboard_toast_message_failure">Gagal menyalin laporan crash ke clipboard.</string>
+  <string name="crash_clipboard_label">Laporan Crash</string>
 </resources>

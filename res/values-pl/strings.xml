@@ -37,4 +37,7 @@
   <string name="title_crash_log">Treść zgłoszenia</string>
   <string name="already_submitted">To zgłoszenie zostało już złożone, dziękuję!</string>
   <string name="network_unavailable">Brak połączenia sieciowego</string>
+  <string name="crash_clipboard_toast_message_success">Raport problemu skopiowany do schowka.</string>
+  <string name="crash_clipboard_toast_message_failure">Nie udało się skopiować raportu błędu do schowka.</string>
+  <string name="crash_clipboard_label">Raport problemu</string>
 </resources>
