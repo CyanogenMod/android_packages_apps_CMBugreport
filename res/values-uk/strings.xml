@@ -37,4 +37,7 @@
   <string name="title_crash_log">Вміст звіту</string>
   <string name="already_submitted">Цей звіт вже був надісланий, дякуємо!</string>
   <string name="network_unavailable">Немає підключення до мережі</string>
+  <string name="crash_clipboard_toast_message_success">Звіт помилки скопійовано до буфера обміну.</string>
+  <string name="crash_clipboard_toast_message_failure">Не вдалося скопіювати звіт помилки до буфера обміну.</string>
+  <string name="crash_clipboard_label">Звіт про помилку</string>
 </resources>
