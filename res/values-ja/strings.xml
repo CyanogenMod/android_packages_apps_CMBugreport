@@ -19,6 +19,7 @@
   <string name="app_name">CMバグレポート</string>
   <string name="summary">このレポートの概要を入力してください</string>
   <string name="description">何をしていたか、どのアプリを実行していたかなどの説明を入力してください</string>
+  <string name="screenshot">バグレポートでキャプチャしたスクリーンショットを添付しますか？</string>
   <string name="action_submit">送信</string>
   <string name="notif_title">バグレポート</string>
   <string name="notif_processing">バグレポートを処理中\u2026</string>

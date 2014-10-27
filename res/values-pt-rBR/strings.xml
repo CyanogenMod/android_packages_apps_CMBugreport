@@ -19,6 +19,7 @@
   <string name="app_name">Relatório de erros CM</string>
   <string name="summary">Insira um resumo para este relatório</string>
   <string name="description">Digite uma descrição, o que estava fazendo, aplicativos em execução, etc.</string>
+  <string name="screenshot">Anexar captura de tela capturada com bugreport?</string>
   <string name="action_submit">Enviar</string>
   <string name="notif_title">Relatório de erros</string>
   <string name="notif_processing">Processando o relatório de erros\u2026</string>

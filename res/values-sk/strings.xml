@@ -19,6 +19,7 @@
   <string name="app_name">Hlásenie chýb CM</string>
   <string name="summary">Zadajte súhrn tohto hlásenia</string>
   <string name="description">Zadajte popis, čo ste robili, spustené aplikácie, atď.</string>
+  <string name="screenshot">Pripojiť k hláseniu o zlyhaní snímku obrazovky?</string>
   <string name="action_submit">Poslať</string>
   <string name="notif_title">Nahlásiť chybu</string>
   <string name="notif_processing">Spracovávanie hlásenia chyby\u2026</string>

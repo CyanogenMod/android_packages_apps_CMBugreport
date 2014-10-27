@@ -19,6 +19,7 @@
   <string name="app_name">Rapport de bug CM</string>
   <string name="summary">Entrez un résumé pour ce rapport</string>
   <string name="description">Entrez une description, ce que vous faisiez, les applications en cours d\'exécution, etc.</string>
+  <string name="screenshot">Joindre la capture d\'écran prise au rapport de bug ?</string>
   <string name="action_submit">Soumettre</string>
   <string name="notif_title">Rapport de bug</string>
   <string name="notif_processing">Traitement du rapport de bug\u2026</string>

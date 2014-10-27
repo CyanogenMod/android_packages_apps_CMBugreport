@@ -19,6 +19,7 @@
   <string name="app_name">CM දෝෂ වාර්තාව</string>
   <string name="summary">මෙම වාර්තාව සඳහා සාරාංශයක් ඇතුල් කරන්න</string>
   <string name="description">ඔබ කරමින් සිටියේ කුමක්ද, ධාවනය වන යෙදුම්, යනාදිය පිලිබඳ විස්තරයක් ඇතුල් කරන්න.</string>
+  <string name="screenshot">දෝෂ වාර්තාව සමඟ ග්‍රහණය කල තිර සේයාව අමුණන්නද?</string>
   <string name="action_submit">යොමන්න</string>
   <string name="notif_title">දෝෂ වාර්තාව</string>
   <string name="notif_processing">දෝෂ වාර්තාව සකසමින්\u2026</string>

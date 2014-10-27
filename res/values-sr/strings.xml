@@ -19,6 +19,7 @@
   <string name="app_name">CM Пријава грешке</string>
   <string name="summary">Унеси кратак преглед за ову пријаву</string>
   <string name="description">Унеси опис, шта си радио, покренуте апликације, итд.</string>
+  <string name="screenshot">Прикачи ухваћени снимак екрана са пријавом грешке?</string>
   <string name="action_submit">Пошаљи</string>
   <string name="notif_title">Пријава грешке</string>
   <string name="notif_processing">Обрада пријаве грешке\u2026</string>

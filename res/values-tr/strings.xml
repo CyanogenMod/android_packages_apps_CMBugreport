@@ -19,6 +19,7 @@
   <string name="app_name">CM Hata Raporu</string>
   <string name="summary">Bu hata raporu için bir özet yazın</string>
   <string name="description">Ne yapıyordunuz, hangi uygulamalar çalışıyordu, vs. bir açıklama yazın.</string>
+  <string name="screenshot">Çekilen ekran resmi hata raporuna eklensin mi?</string>
   <string name="action_submit">Gönder</string>
   <string name="notif_title">Hata raporu</string>
   <string name="notif_processing">Hata raporu işleniyor\u2026</string>

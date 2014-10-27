@@ -19,6 +19,7 @@
   <string name="app_name">Informe d\'error de CM</string>
   <string name="summary">Introdueix el resum per aquest informe</string>
   <string name="description">Introdueix una descripció, el que estaves fent, apps executant-se, etc.</string>
+  <string name="screenshot">Vols adjuntar una captura de la pantalla amb l\'informe d\'error?</string>
   <string name="action_submit">Tramet</string>
   <string name="notif_title">Informe d\'error</string>
   <string name="notif_processing">S\'està processant l\'informe d\'error\u2026</string>

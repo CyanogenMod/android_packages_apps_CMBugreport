@@ -19,6 +19,7 @@
   <string name="app_name">รายงานข้อผิดพลาด CM</string>
   <string name="summary">ป้อนข้อมูลสรุปสำหรับรายงานนี้</string>
   <string name="description">ป้อนคำอธิบาย สิ่งที่กำลังทำ แอปที่ใช้งาน ฯลฯ</string>
+  <string name="screenshot">แนบภาพหน้าจอที่จับกับรายงานข้อผิดพลาด?</string>
   <string name="action_submit">ส่ง</string>
   <string name="notif_title">แจ้งข้อผิดพลาด</string>
   <string name="notif_processing">กำลังประมสลผลรายงานข้อผิดพลาด\u2026</string>

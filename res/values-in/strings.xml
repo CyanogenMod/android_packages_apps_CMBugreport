@@ -19,6 +19,7 @@
   <string name="app_name">Laporan bug CM</string>
   <string name="summary">Masukkan ringkasan untuk laporan ini</string>
   <string name="description">Masukkan keterangan, apa yang Anda lakukan, aplikasi yang berjalan, dll.</string>
+  <string name="screenshot">Lampirkan screenshot yang diambil dengan laporan bug?</string>
   <string name="action_submit">Kirim</string>
   <string name="notif_title">Laporan bug</string>
   <string name="notif_processing">Memproses laporan bug\u2026</string>
