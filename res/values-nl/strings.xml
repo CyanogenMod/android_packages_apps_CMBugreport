@@ -37,4 +37,7 @@
   <string name="title_crash_log">Inhoud</string>
   <string name="already_submitted">Deze fout is al eerder ingediend, bedankt!</string>
   <string name="network_unavailable">Geen netwerkverbinding beschikbaar</string>
+  <string name="crash_clipboard_toast_message_success">Foutenrapport naar klembord gekopieerd.</string>
+  <string name="crash_clipboard_toast_message_failure">Foutenrapport naar klembord kopiëren mislukt.</string>
+  <string name="crash_clipboard_label">Foutenrapport</string>
 </resources>

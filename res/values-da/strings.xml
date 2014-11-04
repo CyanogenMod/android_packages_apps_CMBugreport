@@ -19,6 +19,7 @@
   <string name="app_name">CM fejlrapport</string>
   <string name="summary">Angiv et resumé for denne rapport</string>
   <string name="description">Angiv en beskrivelse, hvad gjorde du, kørende apps osv.</string>
+  <string name="screenshot">Vedhæft skærmbillede taget med fejlrapport?</string>
   <string name="action_submit">Send</string>
   <string name="notif_title">Fejlrapport</string>
   <string name="notif_processing">Sender fejlrapport\u2026</string>

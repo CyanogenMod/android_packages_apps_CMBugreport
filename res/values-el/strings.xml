@@ -19,6 +19,7 @@
   <string name="app_name">Αναφορά σφάλματος CM</string>
   <string name="summary">Εισάγετε μια περίληψη για αυτή την αναφορά</string>
   <string name="description">Εισάγετε μια περιγραφή, τι κάνατε, εφαρμογές που τρέχατε, κλπ.</string>
+  <string name="screenshot">Επισύναψη στιγμιότυπου οθόνης που λήφθηκε με την αναφορά σφάλματος;</string>
   <string name="action_submit">Υποβολή</string>
   <string name="notif_title">Αναφορά σφάλματος</string>
   <string name="notif_processing">Επεξεργασία αναφοράς σφάλματος\u2026</string>

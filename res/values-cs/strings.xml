@@ -19,6 +19,7 @@
   <string name="app_name">Hlášení o chybě CM</string>
   <string name="summary">Krátký souhrn hlášení</string>
   <string name="description">Zadejte popis činností, běžících aplikací a další</string>
+  <string name="screenshot">Připojit k hlášení o chybě snímek obrazovky?</string>
   <string name="action_submit">Odeslat</string>
   <string name="notif_title">Hlášení o chybě</string>
   <string name="notif_processing">Příprava hlášení o chybě\u2026</string>

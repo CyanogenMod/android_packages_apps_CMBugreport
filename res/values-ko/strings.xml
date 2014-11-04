@@ -19,6 +19,7 @@
   <string name="app_name">CM 버그 리포트</string>
   <string name="summary">이 리포트에 대한 요약을 입력해주십시오</string>
   <string name="description">자세한 설명, 무엇을 하고 있었는지, 실행중이던 앱 등의 정보를 입력해주십시오</string>
+  <string name="screenshot">함께 캡쳐된 스크린샷을 버그 리포트에 첨부하시겠습니까?</string>
   <string name="action_submit">제출</string>
   <string name="notif_title">버그 리포트</string>
   <string name="notif_processing">버그 리포트를 처리하는 중\u2026</string>

@@ -19,6 +19,7 @@
   <string name="app_name">Rapporto bug CM</string>
   <string name="summary">Inserisci un riassunto per questo rapporto</string>
   <string name="description">Immetti una descrizione, cosa stavi facendo, app in esecuzione, ecc.</string>
+  <string name="screenshot">Allegare uno screenshot alla segnalazione bug?</string>
   <string name="action_submit">Invia</string>
   <string name="notif_title">Rapporto bug</string>
   <string name="notif_processing">Elaborazione rapporto bug\u2026</string>
@@ -37,6 +38,7 @@
   <string name="title_crash_log">Contenuto segnalazione</string>
   <string name="already_submitted">Questo rapporto del bug è già stato inviato, grazie!</string>
   <string name="network_unavailable">Nessuna connessione di rete disponibile</string>
+  <string name="crash_clipboard_toast_message_success">Segnalazione bug copiata negli appunti.</string>
   <string name="crash_clipboard_toast_message_failure">Impossibile copiare negli appunti la segnalazione crash.</string>
   <string name="crash_clipboard_label">Segnalazione crash</string>
 </resources>

@@ -19,6 +19,7 @@
   <string name="app_name">Informe de error CM</string>
   <string name="summary">Introduce una breve descripción del informe</string>
   <string name="description">Introduce una descripción de lo que estabas haciendo, aplicaciones en ejecución, etc.</string>
+  <string name="screenshot">¿Adjuntar captura de pantalla al informe de error?</string>
   <string name="action_submit">Enviar</string>
   <string name="notif_title">Informe de error</string>
   <string name="notif_processing">Procesando el informe de errores\u2026</string>

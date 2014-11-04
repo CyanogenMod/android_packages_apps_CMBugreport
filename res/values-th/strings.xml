@@ -19,6 +19,7 @@
   <string name="app_name">รายงานข้อผิดพลาด CM</string>
   <string name="summary">ป้อนข้อมูลสรุปสำหรับรายงานนี้</string>
   <string name="description">ป้อนคำอธิบาย สิ่งที่กำลังทำ แอปที่ใช้งาน ฯลฯ</string>
+  <string name="screenshot">แนบภาพหน้าจอที่จับกับรายงานข้อผิดพลาด?</string>
   <string name="action_submit">ส่ง</string>
   <string name="notif_title">แจ้งข้อผิดพลาด</string>
   <string name="notif_processing">กำลังประมสลผลรายงานข้อผิดพลาด\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">เนื้อหาที่ส่ง</string>
   <string name="already_submitted">รายงานข้อผิดพลาดนี้ส่งแล้ว ขอบคุณ!</string>
   <string name="network_unavailable">การเชื่อมต่อไม่พร้อมใช้งาน</string>
+  <string name="crash_clipboard_toast_message_success">คัดลอกรายงานความผิดพลาดไปยังคลิปบอร์ด</string>
+  <string name="crash_clipboard_toast_message_failure">ไม่สามารถคัดลอกรายงานความผิดพลาดไปยังคลิปบอร์ด</string>
+  <string name="crash_clipboard_label">รายงานความผิดพลาด</string>
 </resources>

@@ -19,6 +19,7 @@
   <string name="app_name">CM hibajelentés</string>
   <string name="summary">Adjon meg egy összefoglalót a jelentéshez</string>
   <string name="description">Adjon meg egy leírást, mit csinált, futó alkalmazások, stb.</string>
+  <string name="screenshot">Csatolja a képernyőmentést a hibajelentéshez?</string>
   <string name="action_submit">Elküldés</string>
   <string name="notif_title">Hibajelentés</string>
   <string name="notif_processing">Hibabejelentés feldolgozása\u2026</string>

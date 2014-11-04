@@ -19,6 +19,7 @@
   <string name="app_name">CM virheraportti</string>
   <string name="summary">Kirjoita yhteenveto raportista</string>
   <string name="description">Kirjoita kuvaus, mitä olit tekemässä, mitä sovelluksia oli käytössä jne.</string>
+  <string name="screenshot">Liitä kuvakaappaus virheraporttiin?</string>
   <string name="action_submit">Lähetä</string>
   <string name="notif_title">Virheraportti</string>
   <string name="notif_processing">Käsitellään virheraporttia\u2026</string>

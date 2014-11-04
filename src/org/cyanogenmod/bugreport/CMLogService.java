@@ -74,12 +74,14 @@ public class CMLogService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         ArrayList<Uri> attachments = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
         Uri reportUri = null;
+        Uri sshotUri = null;
 
         if (attachments != null) {
             for (Uri uri : attachments) {
-                if (uri.toString().contains("txt")) {
+                if (uri.toString().endsWith("txt")) {
                     reportUri = uri;
-                    break;
+                } else if (uri.toString().endsWith("png")) {
+                    sshotUri = uri;
                 }
             }
         }
@@ -88,6 +90,9 @@ public class CMLogService extends IntentService {
         String description = intent.getStringExtra(Intent.EXTRA_TEXT);
         String kernelver = getFormattedKernelVersion();
         String syslib = SystemProperties.get(SYSTEMLIB);
+        if(!intent.getBooleanExtra("org.cyanogenmod.bugreport.AddScreenshot", false)) {
+            sshotUri = null;
+        }
 
         JSONObject fields = new JSONObject();
         JSONObject project = new JSONObject();
@@ -125,7 +130,7 @@ public class CMLogService extends IntentService {
         }
 
         notifyOfUpload();
-        new CallAPITask(reportUri).execute(inputJSON);
+        new CallAPITask(reportUri, sshotUri).execute(inputJSON);
     }
 
     private void notify(CharSequence message, int iconResId, boolean withProgress,
@@ -225,10 +230,12 @@ public class CMLogService extends IntentService {
 
     private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
         private Uri mReportUri;
+        private Uri mSshotUri;
         private PowerManager.WakeLock mWakeLock;
 
-        public CallAPITask(Uri reportUri) {
+        public CallAPITask(Uri reportUri, Uri ssUri) {
             mReportUri = reportUri;
+            mSshotUri = ssUri;
         }
 
         @Override
@@ -262,10 +269,10 @@ public class CMLogService extends IntentService {
             }
 
             if (mReportUri != null) {
-                // Now we attach the file
+                // Now we attach the report
                 try {
                     notifyProcessing();
-                    attachFile(mReportUri, jiraBugId);
+                    attachFile(mReportUri, jiraBugId, mSshotUri);
                 } catch (ZipException e) {
                     notifyUploadFailed(R.string.error_zip_fail);
                 } catch (IOException e) {
@@ -305,7 +312,8 @@ public class CMLogService extends IntentService {
             return output.getString("key");
         }
 
-        private void attachFile(Uri reportUri, String bugId) throws IOException, ZipException {
+        private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
+                throws IOException, ZipException {
             DefaultHttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(getString(R.string.config_api_url)
                     + bugId + "/attachments");
@@ -318,7 +326,12 @@ public class CMLogService extends IntentService {
                 File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
                         + bugreportFile.getName());
                 ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
-                zippedReportFile = zipFile(scrubbedBugReportFile);
+                if(sshotUri != null) {
+                    File sshotFile = new File("/data" + sshotUri.getPath());
+                    zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
+                } else {
+                    zippedReportFile = zipFiles(scrubbedBugReportFile);
+                }
 
                 MultipartEntity bugreportUploadEntity = new MultipartEntity();
                 bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
@@ -333,30 +346,34 @@ public class CMLogService extends IntentService {
             }
         }
 
-        private File zipFile(File bugreportFile) throws ZipException {
-            FileInputStream fis = null;
+        private File zipFiles(File... files) throws ZipException {
             ZipOutputStream zos = null;
-            File zippedFile = new File(getCacheDir(), bugreportFile.getName() + ".zip");
+            File zippedFile = new File(getCacheDir(), files[0].getName() + ".zip");
             try {
                 byte[] buffer = new byte[1024];
                 FileOutputStream fos = new FileOutputStream(zippedFile);
                 zos = new ZipOutputStream(fos);
-                fis = new FileInputStream(bugreportFile);
-                zos.putNextEntry(new ZipEntry(bugreportFile.getName()));
-                int length;
-                while ((length = fis.read(buffer)) > 0) {
-                    zos.write(buffer, 0, length);
+
+                for (int i = 0; i < files.length; i++) {
+                    FileInputStream fis = new FileInputStream(files[i]);
+                    try {
+                        zos.putNextEntry(new ZipEntry(files[i].getName()));
+                        int length;
+                        while ((length = fis.read(buffer)) != -1) {
+                            zos.write(buffer, 0, length);
+                        }
+                        zos.closeEntry();
+                    } finally {
+                        try {
+                            fis.close();
+                        } catch (IOException e) {
+                        }
+                    }
                 }
-                zos.closeEntry();
             } catch (IOException e) {
                 Log.e(TAG, "Could not zip bug report", e);
                 throw new ZipException();
             } finally {
-                if (fis != null)
-                    try {
-                        fis.close();
-                    } catch (IOException e) {
-                    }
                 if (zos != null)
                     try {
                         zos.close();

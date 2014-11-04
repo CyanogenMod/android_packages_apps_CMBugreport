@@ -19,6 +19,7 @@
   <string name="app_name">Сообщения об ошибках CyanogenMod</string>
   <string name="summary">Введите описание для этого отчёта</string>
   <string name="description">Опишите, после какого действия возникла ошибка, какие работали приложения и т.п. (желательно по-английски)</string>
+  <string name="screenshot">Прикрепить скриншот, снятый во время создания отчёта?</string>
   <string name="action_submit">Отправить</string>
   <string name="notif_title">Отчёт об ошибке</string>
   <string name="notif_processing">Обработка отчёта об ошибке\u2026</string>
