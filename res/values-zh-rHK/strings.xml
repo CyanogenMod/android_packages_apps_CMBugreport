@@ -27,9 +27,9 @@
   <string name="error_no_text">此欄位不能為空</string>
   <string name="error_upload_failed">上載失敗: <xliff:g id="reason"> %1$s </xliff:g></string>
   <string name="error_problem_creating">新增錯誤報告時出現問題</string>
-  <string name="error_connection_problem">連線到伺服器時出現問題</string>
+  <string name="error_connection_problem">連綫至伺服器時出現問題</string>
   <string name="error_file_fail">檔案上載失敗</string>
   <string name="error_zip_fail">檔案壓縮失敗</string>
   <string name="submit">提交</string>
-  <string name="network_unavailable">無可用的網絡連線</string>
+  <string name="network_unavailable">無可用的網絡連綫</string>
 </resources>

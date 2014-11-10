@@ -19,6 +19,7 @@
   <string name="app_name">CyanogenMod-foutenrapport</string>
   <string name="summary">Samenvatting van dit foutenrapport</string>
   <string name="description">Geef een omschrijving, wat u deed, apps die werden uitgevoerd, enz.</string>
+  <string name="screenshot">Screenshot gemaakt door foutenrapport meesturen?</string>
   <string name="action_submit">Verzenden</string>
   <string name="notif_title">Foutenrapport</string>
   <string name="notif_processing">Foutenrapport verwerken\u2026</string>
