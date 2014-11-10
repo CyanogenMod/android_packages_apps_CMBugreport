@@ -19,6 +19,7 @@
   <string name="app_name">CM Fout verslag</string>
   <string name="summary">Tik \'n opsomming vir hierdie verslag</string>
   <string name="description">Tik \'n beskrywing, waarmee was jy besig, programme wat aktief was, ens.</string>
+  <string name="screenshot">Heg skerm foto vasgevang aan met fout verslag?</string>
   <string name="action_submit">Stuur</string>
   <string name="notif_title">Fout verslag</string>
   <string name="notif_processing">Verwerking van fout verslag\u2026</string>

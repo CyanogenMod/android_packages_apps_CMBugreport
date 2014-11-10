@@ -19,6 +19,7 @@
   <string name="app_name">CM Kļūdas ziņojums</string>
   <string name="summary">Ievadiet ziņojuma kopsavilkumu</string>
   <string name="description">Ievadiet aprakstu, ko jūs darījāt, darbojošās lietotnes u.tml.</string>
+  <string name="screenshot">Pievienot kļūdu ziņojumam ekrānattēlu?</string>
   <string name="action_submit">Iesniegt</string>
   <string name="notif_title">Kļūdas ziņojums</string>
   <string name="notif_processing">Apstrādā kļūdas ziņojumu\u2026</string>
