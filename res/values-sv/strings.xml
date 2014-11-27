@@ -19,6 +19,7 @@
   <string name="app_name">CM Felrapport</string>
   <string name="summary">Ange en sammanfattning för denna rapport</string>
   <string name="description">Ange en beskrivning, vad du gjorde, appar som körde, etc.</string>
+  <string name="screenshot">Bifoga skärmdump med felrapporten?</string>
   <string name="action_submit">Skicka</string>
   <string name="notif_title">Felrapport</string>
   <string name="notif_processing">Bearbetar felrapport\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">Innehåll i ärende</string>
   <string name="already_submitted">Denna felrapport har redan lämnats in, tack!</string>
   <string name="network_unavailable">Ingen nätverksanslutning är tillgänglig</string>
+  <string name="crash_clipboard_toast_message_success">Kraschrapport kopierad till urklipp.</string>
+  <string name="crash_clipboard_toast_message_failure">Kunde inte kopiera kraschrapporten till urklipp.</string>
+  <string name="crash_clipboard_label">Kraschrapport</string>
 </resources>
