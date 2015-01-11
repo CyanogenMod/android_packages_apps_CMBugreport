@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM-Feelerbericht</string>
   <string name="summary">Gëff eng Kuerzfaassung fir dëse Bericht an</string>
-  <string name="description">Gëff eng Beschreiwung an, wat s du grad gemaach hues, wéieng Apps gelaf sinn, etc.</string>
+  <string name="description">Gëff eng Beschreiwung an, wat s du grad gemaach hues, wéieng Appe gelaf sinn, etc.</string>
   <string name="screenshot">Soll d\'Schiermfoto déi mam Feelerbericht gemaach ginn ass ugehaange ginn?</string>
   <string name="action_submit">Schécken</string>
   <string name="notif_title">Feelerbericht</string>

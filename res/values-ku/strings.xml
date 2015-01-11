@@ -19,6 +19,7 @@
   <string name="app_name">ڕاپۆرتی هه‌ڵه‌ی CM</string>
   <string name="summary">پوخته‌ی ئه‌م ڕاپۆرته‌ بنووسه‌</string>
   <string name="description">ڕوونکارییه‌ک بنووسه‌، چیت کردووه‌، چی به‌رنامه‌یه‌ک کاری کردووه‌، هتد.</string>
+  <string name="screenshot">ناردنی وێنەیشاشەکە کە گیراوە لەگەڵ ڕاپۆرتی تێکچو?</string>
   <string name="action_submit">ناردن</string>
   <string name="notif_title">ڕاگه‌یاندنی هه‌ڵه‌</string>
   <string name="notif_processing">پرۆسه‌ی ڕاپۆرتی هه‌ڵه‌\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">پێکهاته‌ی ناردن</string>
   <string name="already_submitted">ئه‌م ڕاپۆرته‌ پێشتر نێردراوه‌، سوپاس!</string>
   <string name="network_unavailable">هیچ هێڵێکی کارا ئاماده‌ نییه‌</string>
+  <string name="crash_clipboard_toast_message_success">ڕاپۆرتی تێکشکان لە بەر گیرایەوە بۆ تەختەکلیپ.</string>
+  <string name="crash_clipboard_toast_message_failure">لەبەرگرتنەوەی ڕاپۆرتی تێکشکان بۆ تەختەکلیپ سەرکەوتوو نەبوو.</string>
+  <string name="crash_clipboard_label">ڕاپۆرتی تێکشکان</string>
 </resources>

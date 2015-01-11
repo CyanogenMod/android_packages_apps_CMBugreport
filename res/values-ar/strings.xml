@@ -19,6 +19,7 @@
   <string name="app_name">تقرير حول خطأ في CyanogenMod</string>
   <string name="summary">أدخل موجز لهذا التقرير</string>
   <string name="description">أدخل وصفاً، ماذا كنت تفعل، تطبيقات قيد التشغيل، إلخ.</string>
+  <string name="screenshot">إرفاق صورة تم التقاطها للشاشة مع تقرير الأخطاء؟</string>
   <string name="action_submit">إعتماد</string>
   <string name="notif_title">تقرير حول خطأ</string>
   <string name="notif_processing">معالجة بلاغات الأخطاء\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">محتوى التقرير</string>
   <string name="already_submitted">تم ارسال تقرير حول هذا الخطأ سابقا، شكرا لك!</string>
   <string name="network_unavailable">لا يوجد أي اتصال بالشبكة متوفر</string>
+  <string name="crash_clipboard_toast_message_success">تم نسخ تقرير الخلل إلى الحافظة.</string>
+  <string name="crash_clipboard_toast_message_failure">فشل نسخ تقرير الخلل إلى الحافظة.</string>
+  <string name="crash_clipboard_label">تقرير عن خطأ</string>
 </resources>
