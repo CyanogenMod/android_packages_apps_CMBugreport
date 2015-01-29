@@ -153,16 +153,16 @@ public class CMLogService extends IntentService {
     }
 
     private void notifyUploadFinished(String issueNumber) {
-        notify(getString(R.string.notif_thanks), R.drawable.ic_launcher, false, false);
+        notify(getString(R.string.notif_thanks), R.drawable.stat_cmbugreport, false, false);
     }
 
     private void notifyProcessing() {
-        notify(getString(R.string.notif_processing), R.drawable.ic_launcher, true, true);
+        notify(getString(R.string.notif_processing), R.drawable.stat_cmbugreport, true, true);
     }
 
     private void notifyUploadFailed(int reasonResId) {
         String reason = getString(reasonResId);
-        notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_launcher, false,
+        notify(getString(R.string.error_upload_failed, reason), R.drawable.stat_cmbugreport, false,
                 false);
     }
 
