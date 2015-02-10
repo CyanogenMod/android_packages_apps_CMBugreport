@@ -19,6 +19,7 @@
   <string name="app_name">דיווח תקלות CM</string>
   <string name="summary">הזן תקציר לדיווח זה</string>
   <string name="description">הזן תיאור, מה עשית, יישומים רצים וכדומה.</string>
+  <string name="screenshot">האם לצרף צילום מסך עם דיווח התקלות?</string>
   <string name="action_submit">שלח</string>
   <string name="notif_title">דיווח תקלה</string>
   <string name="notif_processing">מעבד דיווח תקלה\u2026</string>

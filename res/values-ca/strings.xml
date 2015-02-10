@@ -34,7 +34,7 @@
   <string name="error_zip_fail">El fitxer no s\'ha pogut comprimir</string>
   <string name="submit_crash_report">Previsualitza l\'informe de la fallada</string>
   <string name="submit">Tramet</string>
-  <string name="title_subject">Tema de l\'informe</string>
+  <string name="title_subject">Assumpte de l\'informe</string>
   <string name="title_crash_log">Contingut de l\'informe</string>
   <string name="already_submitted">Aquest informe d\'error ja s\'ha presentat, gràcies!</string>
   <string name="network_unavailable">No hi ha connexió de xarxa disponible</string>

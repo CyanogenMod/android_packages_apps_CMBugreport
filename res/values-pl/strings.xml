@@ -19,6 +19,7 @@
   <string name="app_name">Zgłaszanie błędów CM</string>
   <string name="summary">Wprowadź opis zgłoszenia</string>
   <string name="description">Opisz wykonywane czynności, uruchamiane aplikacje itp.</string>
+  <string name="screenshot">Dołączyć zrobiony zrzut ekranu z raportem?</string>
   <string name="action_submit">Wyślij</string>
   <string name="notif_title">Zgłaszanie błędów</string>
   <string name="notif_processing">Wysyłanie raportu\u2026</string>

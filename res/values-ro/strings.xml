@@ -19,6 +19,7 @@
   <string name="app_name">Raport de eroare CM</string>
   <string name="summary">Introdu un rezumat pentru acest raport</string>
   <string name="description">Introdu o descriere, ceea ce faceai, aplicații care rulau, etc.</string>
+  <string name="screenshot">Ataşaţi captura de ecran la raportul de eroare?</string>
   <string name="action_submit">Trimite</string>
   <string name="notif_title">Raport de eroare</string>
   <string name="notif_processing">Se prelucrează reportul de eroare\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">Conținutul trimiterii</string>
   <string name="already_submitted">Acest raport a fost trimis deja, vă mulțumesc!</string>
   <string name="network_unavailable">Nicio conexiune la rețea disponibilă</string>
+  <string name="crash_clipboard_toast_message_success">Raportul de avarie copiat în clipboard.</string>
+  <string name="crash_clipboard_toast_message_failure">A eșuat copierea raportului de avarie în clipboard.</string>
+  <string name="crash_clipboard_label">Raportul de avarie</string>
 </resources>

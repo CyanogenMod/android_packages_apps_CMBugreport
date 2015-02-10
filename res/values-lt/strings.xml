@@ -16,12 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM trikties pranešimas</string>
+  <string name="app_name">CM pranešimas apie riktą</string>
   <string name="summary">Įveskite santrauką šiam pranešimui</string>
   <string name="description">Įveskite aprašą, ką darėte, kokios programos veikė tuo metu ir kt.</string>
+  <string name="screenshot">Pridėti ekranvaizdį prie riktos pranešimo?</string>
   <string name="action_submit">Pateikti</string>
-  <string name="notif_title">Trikties pranešimas</string>
-  <string name="notif_processing">Apdorojamas trikties pranešimas\u2026</string>
+  <string name="notif_title">Pranešimas apie riktą</string>
+  <string name="notif_processing">Apdorojamas riktos pranešimas\u2026</string>
   <string name="notif_uploading">Kuriama problema ir įkeliamas pranešimas\u2026</string>
   <string name="notif_thanks">Dėkojame už pateiktą informaciją</string>
   <string name="error_no_text">Šis laukas negali būti tuščias</string>
@@ -31,13 +32,13 @@
   <string name="error_bad_response">Blogas atsakymas iš serverio</string>
   <string name="error_file_fail">Failo įkelti nepavyko</string>
   <string name="error_zip_fail">Failo suglaudinti nepavyko</string>
-  <string name="submit_crash_report">Peržiūrėti trikties ataskaitą</string>
+  <string name="submit_crash_report">Peržiūrėti riktos ataskaitą</string>
   <string name="submit">Pateikti</string>
   <string name="title_subject">Pateikimo tema</string>
   <string name="title_crash_log">Pateikimo turinys</string>
-  <string name="already_submitted">Šis trikties pranešimas jau buvo pateiktas, ačiū!</string>
+  <string name="already_submitted">Šis riktos pranešimas jau buvo pateiktas, ačiū!</string>
   <string name="network_unavailable">Nėra interneto ryšio</string>
-  <string name="crash_clipboard_toast_message_success">Gedimo ataskaita nukopijuota į iškarpinę.</string>
-  <string name="crash_clipboard_toast_message_failure">Nepavyko nukopijuoti gedimo ataskaitos į iškarpinę.</string>
-  <string name="crash_clipboard_label">Gedimo ataskaita</string>
+  <string name="crash_clipboard_toast_message_success">Riktos ataskaita nukopijuota į iškarpinę.</string>
+  <string name="crash_clipboard_toast_message_failure">Nepavyko nukopijuoti riktos ataskaitos į iškarpinę.</string>
+  <string name="crash_clipboard_label">Riktos ataskaita</string>
 </resources>
