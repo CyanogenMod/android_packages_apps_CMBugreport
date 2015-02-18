@@ -19,7 +19,7 @@
   <string name="app_name">CM pranešimas apie riktą</string>
   <string name="summary">Įveskite santrauką šiam pranešimui</string>
   <string name="description">Įveskite aprašą, ką darėte, kokios programos veikė tuo metu ir kt.</string>
-  <string name="screenshot">Pridėti ekranvaizdį prie riktos pranešimo?</string>
+  <string name="screenshot">Pridėti ekrano kopiją prie riktos pranešimo?</string>
   <string name="action_submit">Pateikti</string>
   <string name="notif_title">Pranešimas apie riktą</string>
   <string name="notif_processing">Apdorojamas riktos pranešimas\u2026</string>
