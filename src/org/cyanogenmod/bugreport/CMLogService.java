@@ -65,6 +65,7 @@ public class CMLogService extends IntentService {
     public static final String KERNELVER_FIELD = "customfield_10104";
 
     public static Boolean isCMKernel = false;
+    private Notification.Builder mNotificationBuilder;
 
     public CMLogService() {
         super("CMLogService");
@@ -127,25 +128,29 @@ public class CMLogService extends IntentService {
         } catch (JSONException e) {
             Log.e(TAG, "Input JSON could not be compiled", e);
             notifyUploadFailed(R.string.error_problem_creating);
+            return;
         }
 
-        notifyOfUpload();
         new CallAPITask(reportUri, sshotUri).execute(inputJSON);
     }
 
     private void notify(CharSequence message, int iconResId, boolean withProgress,
                         boolean ongoing) {
-        Notification.Builder builder = new Notification.Builder(this)
+        if (mNotificationBuilder == null) {
+            mNotificationBuilder = new Notification.Builder(this);
+        }
+        mNotificationBuilder
                 .setSmallIcon(iconResId)
                 .setOngoing(ongoing)
                 .setContentTitle(getString(R.string.notif_title))
                 .setContentText(message);
         if (withProgress) {
-            builder.setProgress(0, 0, true);
+            mNotificationBuilder.setProgress(0, 0, true);
         }
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(R.string.notif_title, builder.build());
+        nm.notify(CMLogService.class.getSimpleName(), R.string.notif_title,
+                mNotificationBuilder.build());
     }
 
     private void notifyOfUpload() {
@@ -245,6 +250,8 @@ public class CMLogService extends IntentService {
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
             mWakeLock.acquire();
+
+            notifyOfUpload();
         }
 
         @Override
@@ -273,14 +280,15 @@ public class CMLogService extends IntentService {
                 try {
                     notifyProcessing();
                     attachFile(mReportUri, jiraBugId, mSshotUri);
+                    notifyUploadFinished(jiraBugId);
+                    return jiraBugId; // success!
                 } catch (ZipException e) {
                     notifyUploadFailed(R.string.error_zip_fail);
                 } catch (IOException e) {
                     notifyUploadFailed(R.string.error_file_fail);
                 }
             }
-
-            return jiraBugId;
+            return null;
         }
 
         @Override
@@ -288,9 +296,6 @@ public class CMLogService extends IntentService {
             if (mWakeLock != null) {
                 mWakeLock.release();
                 mWakeLock = null;
-            }
-            if (bugId != null) {
-                notifyUploadFinished(bugId);
             }
             stopSelf();
         }
@@ -337,7 +342,6 @@ public class CMLogService extends IntentService {
                 bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
                 post.setEntity(bugreportUploadEntity);
 
-                notifyOfUpload();
                 client.execute(post);
             } finally {
                 if (zippedReportFile != null) {
