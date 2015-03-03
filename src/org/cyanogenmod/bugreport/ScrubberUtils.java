@@ -16,10 +16,10 @@
 package org.cyanogenmod.bugreport;
 
 import android.content.Context;
+import android.hardware.CmHardwareManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import org.cyanogenmod.hardware.SerialNumber;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -82,7 +82,7 @@ public class ScrubberUtils {
         if (tm != null && tm.getDeviceId() != null) {
             extraFilters.add(tm.getDeviceId());
         }
-        extraFilters.add(getSerialNumber());
+        extraFilters.add(getSerialNumber(context));
         String extraRegex = "";
         for (String regex : extraFilters) {
             extraRegex += regex + "|";
@@ -132,13 +132,13 @@ public class ScrubberUtils {
         }
     }
 
-    private static String getSerialNumber() {
-        try {
-            if (SerialNumber.isSupported()) {
-                return SerialNumber.getSerialNumber();
+    private static String getSerialNumber(Context context) {
+        CmHardwareManager cmHwManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        if (cmHwManager != null) {
+            if (cmHwManager.isSupported(CmHardwareManager.FEATURE_SERIAL_NUMBER)) {
+                return cmHwManager.getSerialNumber();
             }
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed; fall through
         }
 
         return Build.SERIAL;
