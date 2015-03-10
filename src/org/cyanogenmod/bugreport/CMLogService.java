@@ -34,17 +34,28 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,6 +76,7 @@ public class CMLogService extends IntentService {
     public static final String KERNELVER_FIELD = "customfield_10104";
 
     public static Boolean isCMKernel = false;
+    private PowerManager.WakeLock mWakeLock;
 
     public CMLogService() {
         super("CMLogService");
@@ -130,7 +142,17 @@ public class CMLogService extends IntentService {
             return;
         }
 
-        new CallAPITask(reportUri, sshotUri).execute(inputJSON);
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        mWakeLock.acquire(3000);
+
+        notifyOfUpload();
+        doUpload(reportUri, sshotUri, inputJSON);
+
+        if (mWakeLock.isHeld()) {
+            mWakeLock.release();
+        }
     }
 
     private void notify(CharSequence message, int iconResId, boolean withProgress,
@@ -231,160 +253,163 @@ public class CMLogService extends IntentService {
         }
     }
 
-    private class CallAPITask extends AsyncTask<JSONObject, Void, String> {
-        private Uri mReportUri;
-        private Uri mSshotUri;
-        private PowerManager.WakeLock mWakeLock;
+    private String doUpload(Uri reportUri, Uri screenshotUri, JSONObject json) {
+        String jiraBugId;
 
-        public CallAPITask(Uri reportUri, Uri ssUri) {
-            mReportUri = reportUri;
-            mSshotUri = ssUri;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-            mWakeLock.acquire();
-
-            notifyOfUpload();
-        }
-
-        @Override
-        protected String doInBackground(JSONObject...params) {
-            String jiraBugId;
-
-            try {
-                jiraBugId = uploadAndGetId(params[0]);
-            } catch (IOException e) {
-                Log.e(TAG, "Could not upload bug report", e);
-                notifyUploadFailed(R.string.error_connection_problem);
-                return null;
-            } catch (JSONException e) {
-                Log.e(TAG, "Could not parse JSON response", e);
-                notifyUploadFailed(R.string.error_bad_response);
-                return null;
-            }
-
-            if (jiraBugId.isEmpty()) {
-                notifyUploadFailed(R.string.error_bad_response);
-                return null;
-            }
-
-            if (mReportUri != null) {
-                // Now we attach the report
-                try {
-                    notifyProcessing();
-                    attachFile(mReportUri, jiraBugId, mSshotUri);
-                    notifyUploadFinished(jiraBugId);
-                    return jiraBugId; // success!
-                } catch (ZipException e) {
-                    notifyUploadFailed(R.string.error_zip_fail);
-                } catch (IOException e) {
-                    notifyUploadFailed(R.string.error_file_fail);
-                }
-            } else {
-                notifyUploadFinished(jiraBugId);
-            }
+        try {
+            jiraBugId = uploadAndGetId(json);
+        } catch (IOException e) {
+            Log.e(TAG, "Could not upload bug report", e);
+            notifyUploadFailed(R.string.error_connection_problem);
+            return null;
+        } catch (JSONException e) {
+            Log.e(TAG, "Could not parse JSON response", e);
+            notifyUploadFailed(R.string.error_bad_response);
             return null;
         }
 
-        @Override
-        protected void onPostExecute(String bugId) {
-            if (mWakeLock != null) {
-                mWakeLock.release();
-                mWakeLock = null;
-            }
-            stopSelf();
+        if (jiraBugId == null || jiraBugId.isEmpty()) {
+            notifyUploadFailed(R.string.error_bad_response);
+            return null;
         }
 
-        private String uploadAndGetId(JSONObject input) throws IOException, JSONException {
-            DefaultHttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(getString(R.string.config_api_url));
-
-            // Turn the JSONObject being passed into a stringentity for http consumption
-            post.setEntity(new StringEntity(input.toString()));
-            post.setHeader("Accept","application/json");
-            post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
-            post.setHeader("Content-Type","application/json");
-
-            HttpResponse response = client.execute(post);
-            HttpEntity entity = response.getEntity();
-
-            JSONObject output = new JSONObject(EntityUtils.toString(entity));
-            return output.getString("key");
-        }
-
-        private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
-                throws IOException, ZipException {
-            DefaultHttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(getString(R.string.config_api_url)
-                    + bugId + "/attachments");
-            File zippedReportFile = null;
-
-            post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
-            post.setHeader("X-Atlassian-Token","nocheck");
+        if (reportUri != null) {
+            // Now we attach the report
             try {
-                File bugreportFile = new File("/data" + reportUri.getPath());
-                File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
-                        + bugreportFile.getName());
-                ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
-                if(sshotUri != null) {
-                    File sshotFile = new File("/data" + sshotUri.getPath());
-                    zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
-                } else {
-                    zippedReportFile = zipFiles(scrubbedBugReportFile);
-                }
-
-                MultipartEntity bugreportUploadEntity = new MultipartEntity();
-                bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
-                post.setEntity(bugreportUploadEntity);
-
-                client.execute(post);
-            } finally {
-                if (zippedReportFile != null) {
-                    zippedReportFile.delete();
-                }
-            }
-        }
-
-        private File zipFiles(File... files) throws ZipException {
-            ZipOutputStream zos = null;
-            File zippedFile = new File(getCacheDir(), files[0].getName() + ".zip");
-            try {
-                byte[] buffer = new byte[1024];
-                FileOutputStream fos = new FileOutputStream(zippedFile);
-                zos = new ZipOutputStream(fos);
-
-                for (int i = 0; i < files.length; i++) {
-                    FileInputStream fis = new FileInputStream(files[i]);
-                    try {
-                        zos.putNextEntry(new ZipEntry(files[i].getName()));
-                        int length;
-                        while ((length = fis.read(buffer)) != -1) {
-                            zos.write(buffer, 0, length);
-                        }
-                        zos.closeEntry();
-                    } finally {
-                        try {
-                            fis.close();
-                        } catch (IOException e) {
-                        }
-                    }
-                }
+                notifyProcessing();
+                attachFile(reportUri, jiraBugId, screenshotUri);
+                notifyUploadFinished(jiraBugId);
+                return jiraBugId; // success!
+            } catch (ZipException e) {
+                notifyUploadFailed(R.string.error_zip_fail);
+                e.printStackTrace();
             } catch (IOException e) {
-                Log.e(TAG, "Could not zip bug report", e);
-                throw new ZipException();
-            } finally {
-                if (zos != null)
+                e.printStackTrace();
+                notifyUploadFailed(R.string.error_file_fail);
+            }
+        } else {
+            notifyUploadFinished(jiraBugId);
+        }
+        return null;
+    }
+
+    private String uploadAndGetId(JSONObject input) throws IOException, JSONException {
+        URL url = new URL(getString(R.string.config_api_url));
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        try {
+            urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.setRequestProperty("Authorization", "Basic " + getString(R.string.config_auth));
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+
+            urlConnection.setReadTimeout(10000);
+            urlConnection.setConnectTimeout(15000);
+            urlConnection.setInstanceFollowRedirects(true);
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+            urlConnection.setFixedLengthStreamingMode(input.toString().length());
+
+            OutputStream os = urlConnection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            writer.write(input.toString());
+            writer.flush();
+            writer.close();
+            os.close();
+
+            urlConnection.connect();
+
+            String response = getResponse(urlConnection);
+            JSONObject output = new JSONObject(response);
+            return output.getString("key");
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
+
+    private String getResponse(HttpURLConnection httpUrlConnection) throws IOException {
+        InputStream responseStream = new BufferedInputStream(httpUrlConnection.getInputStream());
+
+        BufferedReader responseStreamReader = new BufferedReader(
+                new InputStreamReader(responseStream));
+        String line = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((line = responseStreamReader.readLine()) != null) {
+            stringBuilder.append(line).append("\n");
+        }
+        responseStreamReader.close();
+        responseStream.close();
+
+        return stringBuilder.toString();
+    }
+
+    private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
+            throws IOException, ZipException {
+        DefaultHttpClient client = new DefaultHttpClient();
+        HttpConnectionParams.setConnectionTimeout(client.getParams(), 3000);
+        HttpConnectionParams.setSoTimeout(client.getParams(), 3000);
+        HttpPost post = new HttpPost(getString(R.string.config_api_url)
+                + bugId + "/attachments");
+        File zippedReportFile = null;
+
+        post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
+        post.setHeader("X-Atlassian-Token","nocheck");
+        try {
+            File bugreportFile = new File("/data" + reportUri.getPath());
+            File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
+                    + bugreportFile.getName());
+            ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
+            if(sshotUri != null) {
+                File sshotFile = new File("/data" + sshotUri.getPath());
+                zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
+            } else {
+                zippedReportFile = zipFiles(scrubbedBugReportFile);
+            }
+
+            MultipartEntity bugreportUploadEntity = new MultipartEntity();
+            bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
+            post.setEntity(bugreportUploadEntity);
+
+            client.execute(post);
+        } finally {
+            if (zippedReportFile != null) {
+                zippedReportFile.delete();
+            }
+        }
+    }
+
+    private File zipFiles(File... files) throws ZipException {
+        ZipOutputStream zos = null;
+        File zippedFile = new File(getCacheDir(), files[0].getName() + ".zip");
+        try {
+            byte[] buffer = new byte[1024];
+            FileOutputStream fos = new FileOutputStream(zippedFile);
+            zos = new ZipOutputStream(fos);
+
+            for (int i = 0; i < files.length; i++) {
+                FileInputStream fis = new FileInputStream(files[i]);
+                try {
+                    zos.putNextEntry(new ZipEntry(files[i].getName()));
+                    int length;
+                    while ((length = fis.read(buffer)) != -1) {
+                        zos.write(buffer, 0, length);
+                    }
+                    zos.closeEntry();
+                } finally {
                     try {
-                        zos.close();
+                        fis.close();
                     } catch (IOException e) {
                     }
+                }
             }
-            return zippedFile;
+        } catch (IOException e) {
+            Log.e(TAG, "Could not zip bug report", e);
+            throw new ZipException();
+        } finally {
+            if (zos != null)
+                try {
+                    zos.close();
+                } catch (IOException e) {
+                }
         }
+        return zippedFile;
     }
 }
