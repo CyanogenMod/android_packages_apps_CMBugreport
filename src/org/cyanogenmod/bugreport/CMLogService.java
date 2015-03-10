@@ -65,7 +65,6 @@ public class CMLogService extends IntentService {
     public static final String KERNELVER_FIELD = "customfield_10104";
 
     public static Boolean isCMKernel = false;
-    private Notification.Builder mNotificationBuilder;
 
     public CMLogService() {
         super("CMLogService");
@@ -136,21 +135,20 @@ public class CMLogService extends IntentService {
 
     private void notify(CharSequence message, int iconResId, boolean withProgress,
                         boolean ongoing) {
-        if (mNotificationBuilder == null) {
-            mNotificationBuilder = new Notification.Builder(this);
-        }
-        mNotificationBuilder
+        Notification.Builder notificationBuilder = new Notification.Builder(this);
+        notificationBuilder
                 .setSmallIcon(iconResId)
                 .setOngoing(ongoing)
                 .setContentTitle(getString(R.string.notif_title))
                 .setContentText(message);
         if (withProgress) {
-            mNotificationBuilder.setProgress(0, 0, true);
+            notificationBuilder.setProgress(0, 0, true);
         }
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.cancel(CMLogService.class.getSimpleName(), R.string.notif_title);
         nm.notify(CMLogService.class.getSimpleName(), R.string.notif_title,
-                mNotificationBuilder.build());
+                notificationBuilder.build());
     }
 
     private void notifyOfUpload() {
@@ -287,6 +285,8 @@ public class CMLogService extends IntentService {
                 } catch (IOException e) {
                     notifyUploadFailed(R.string.error_file_fail);
                 }
+            } else {
+                notifyUploadFinished(jiraBugId);
             }
             return null;
         }
