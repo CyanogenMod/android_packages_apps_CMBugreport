@@ -16,29 +16,29 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Rapport de bug CM</string>
-  <string name="summary">Entrez un résumé pour ce rapport</string>
+  <string name="app_name">Rapport de bogue CM</string>
+  <string name="summary">Entrer un résumé pour ce rapport</string>
   <string name="description">Entrez une description, ce que vous faisiez, les applications en cours d\'exécution, etc.</string>
-  <string name="screenshot">Joindre la capture d\'écran prise au rapport de bug ?</string>
+  <string name="screenshot">Joindre la capture d\'écran au rapport de bogue?</string>
   <string name="action_submit">Soumettre</string>
-  <string name="notif_title">Rapport de bug</string>
-  <string name="notif_processing">Traitement du rapport de bug\u2026</string>
-  <string name="notif_uploading">Création et envoi du rapport\u2026</string>
+  <string name="notif_title">Rapport de bogue</string>
+  <string name="notif_processing">Traitement du rapport de bogue en cours\u2026</string>
+  <string name="notif_uploading">Création de la problématique et chargement du rapport en cours\u2026</string>
   <string name="notif_thanks">Merci pour votre participation</string>
   <string name="error_no_text">Ce champ ne doit pas être vide</string>
-  <string name="error_upload_failed">L\'envoi a échoué : <xliff:g id="reason">%1$s</xliff:g></string>
-  <string name="error_problem_creating">Problème causant l\'erreur</string>
+  <string name="error_upload_failed">La chargement a échoué : <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_problem_creating">Problème de création de la problématique</string>
   <string name="error_connection_problem">Problème de connexion au serveur</string>
   <string name="error_bad_response">Réponse erronée du serveur</string>
-  <string name="error_file_fail">Le fichier n\'a pas pu être envoyé</string>
-  <string name="error_zip_fail">La compression du fichier a échoué</string>
-  <string name="submit_crash_report">Aperçu du rapport de crash</string>
+  <string name="error_file_fail">Échec de chargement du fichier</string>
+  <string name="error_zip_fail">Échec de la compression du fichier</string>
+  <string name="submit_crash_report">Aperçu du rapport de plantage</string>
   <string name="submit">Soumettre</string>
   <string name="title_subject">Sujet du rapport</string>
   <string name="title_crash_log">Contenu du rapport</string>
-  <string name="already_submitted">Ce rapport de bug a déjà été envoyé, merci !</string>
+  <string name="already_submitted">Ce rapport de bogue a déjà été envoyé, merci!</string>
   <string name="network_unavailable">Aucune connexion réseau disponible</string>
-  <string name="crash_clipboard_toast_message_success">Rapport d\'incident copié dans le presse-papiers.</string>
-  <string name="crash_clipboard_toast_message_failure">Impossible de copier le rapport d\'incident dans le presse-papiers.</string>
-  <string name="crash_clipboard_label">Rapport d\'incident</string>
+  <string name="crash_clipboard_toast_message_success">Rapport de plantage copié dans le presse-papiers.</string>
+  <string name="crash_clipboard_toast_message_failure">Impossible de copier le rapport de plantage dans le presse-papiers.</string>
+  <string name="crash_clipboard_label">Rapport de plantage</string>
 </resources>
