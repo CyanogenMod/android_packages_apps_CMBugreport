@@ -32,10 +32,13 @@
   <string name="error_bad_response">Serverdən pis cavab</string>
   <string name="error_file_fail">Fayl yüklənmə xətası</string>
   <string name="error_zip_fail">Fayl sıxışdırılma xətası</string>
+  <string name="submit_crash_report">Çökmə Hesabatını Önizləmə</string>
   <string name="submit">Göndər</string>
   <string name="title_subject">Təqdimat mövzusu</string>
   <string name="title_crash_log">Təqdimat məzmunu</string>
   <string name="already_submitted">Bu xəta hesabatı artıq təqdim olunub, təşəkkür edirik!</string>
   <string name="network_unavailable">Şəbəkə bağlantısı yoxdur</string>
-  <string name="crash_clipboard_label">Xəta Hesabatı</string>
+  <string name="crash_clipboard_toast_message_success">Çökmə hesabatı lövhəyə kopyalandı.</string>
+  <string name="crash_clipboard_toast_message_failure">Çökmə hesabatı lövhəyə kopyalanmadı.</string>
+  <string name="crash_clipboard_label">Çökmə Hesabatı</string>
 </resources>
