@@ -19,6 +19,7 @@
   <string name="app_name">CM akats txostena</string>
   <string name="summary">Txostenaren deskripzio labur bat idatzi</string>
   <string name="description">Egiten ari zinena, martxan zenituen aplikazioen eta abarren deskripzioa idatzi.</string>
+  <string name="screenshot">Erantsi pantailaren argazkia arazte txostenari?</string>
   <string name="action_submit">Bidali</string>
   <string name="notif_title">Akats txostena</string>
   <string name="notif_processing">Akatx txostena prozesatzen\u2026</string>
