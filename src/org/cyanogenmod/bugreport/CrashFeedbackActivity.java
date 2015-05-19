@@ -166,10 +166,12 @@ public class CrashFeedbackActivity extends Activity {
     }
 
     private String getContent() {
-        if (mReport == null) {
-            return "";
+        if (mReport != null
+                && mReport.crashInfo != null
+                && mReport.crashInfo.stackTrace != null) {
+            return mReport.crashInfo.stackTrace;
         }
-        return mReport.crashInfo.stackTrace;
+        return "";
     }
 
     private void uploadCrashReport() {
@@ -178,7 +180,7 @@ public class CrashFeedbackActivity extends Activity {
         if (getPreferences(0).getString(LAST_SUBMISSION, "").equals(content)) {
             Toast.makeText(this, R.string.already_submitted, Toast.LENGTH_LONG).show();
         } else if (mReport != null) {
-            if (DEBUG) {
+            if (DEBUG && mReport.crashInfo != null) {
                 Log.i(TAG, "Exception class name: " + mReport.crashInfo.exceptionClassName);
                 Log.i(TAG, "Exception message: " + mReport.crashInfo.exceptionMessage);
                 Log.i(TAG, "Throw class name: " + mReport.crashInfo.throwClassName);
