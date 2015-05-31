@@ -16,24 +16,29 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM akats txostena</string>
+  <string name="app_name">CM errore-txostena</string>
   <string name="summary">Txostenaren deskripzio labur bat idatzi</string>
   <string name="description">Egiten ari zinena, martxan zenituen aplikazioen eta abarren deskripzioa idatzi.</string>
+  <string name="screenshot">Erantsi pantailaren argazkia arazte txostenari?</string>
   <string name="action_submit">Bidali</string>
-  <string name="notif_title">Akats txostena</string>
-  <string name="notif_processing">Akatx txostena prozesatzen\u2026</string>
-  <string name="notif_uploading">Gertakaria sortzen eta txostena bidaltzen\u2026</string>
+  <string name="notif_title">Errore-txostena</string>
+  <string name="notif_processing">Errore-txostena prozesatzen\u2026</string>
+  <string name="notif_uploading">Arazoaren txostena sortzen eta bidaltzen\u2026</string>
   <string name="notif_thanks">Eskerrik asko bidaltzeagatik</string>
   <string name="error_no_text">Gune hau ez luke hutsik egon behar</string>
-  <string name="error_upload_failed">Bidaltzeak huts egin du: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_upload_failed">Igoerak huts egin du: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Txostena sortzean akats bat egon da</string>
   <string name="error_connection_problem">Akats bat egon da zerbitzariarekin konektazterakoan</string>
   <string name="error_bad_response">Zerbitzariaren erantzun okerra</string>
-  <string name="error_file_fail">Akats bat egn da fitxategia bidaltzean</string>
-  <string name="error_zip_fail">Akats bat egon da fitxategia konprimatzerakoan</string>
-  <string name="submit_crash_report">Akatsen txostena aurreikusi</string>
+  <string name="error_file_fail">Fitxategiaren igoerak huts egin du</string>
+  <string name="error_zip_fail">Huts egin du fitxategia konprimitzean</string>
+  <string name="submit_crash_report">Aurreikusi kraskatze-txostena</string>
   <string name="submit">Bidali</string>
   <string name="title_subject">Gaia</string>
-  <string name="title_crash_log">Edukia</string>
-  <string name="already_submitted">Akatsen txosten hau bidalia izan da. Eskerrik asko!</string>
+  <string name="title_crash_log">Bidalketaren edukia</string>
+  <string name="already_submitted">Errore-txosten hau bidali da jada. Eskerrik asko!</string>
+  <string name="network_unavailable">Sare konexioa ez dago erabilgarri</string>
+  <string name="crash_clipboard_toast_message_success">Kraskatze-txostena paper-zorrora kopiatu da.</string>
+  <string name="crash_clipboard_toast_message_failure">Kraskatze txostena ezin izan da paper-zorrora kopiatu.</string>
+  <string name="crash_clipboard_label">Kraskatze-txostena</string>
 </resources>
