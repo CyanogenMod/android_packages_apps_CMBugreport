@@ -27,7 +27,7 @@
   <string name="notif_thanks">Eskerrik asko bidaltzeagatik</string>
   <string name="error_no_text">Gune hau ez luke hutsik egon behar</string>
   <string name="error_upload_failed">Igoerak huts egin du: <xliff:g id="reason">%1$s</xliff:g></string>
-  <string name="error_problem_creating">Txostena sortzean akats bat egon da</string>
+  <string name="error_problem_creating">Arazo bat egon da txostena sortzean</string>
   <string name="error_connection_problem">Akats bat egon da zerbitzariarekin konektazterakoan</string>
   <string name="error_bad_response">Zerbitzariaren erantzun okerra</string>
   <string name="error_file_fail">Akats bat egn da fitxategia bidaltzean</string>
