@@ -30,10 +30,12 @@
   <string name="error_bad_response">Maltaŭga respondo de la servilo</string>
   <string name="error_file_fail">Alŝuto de dosiero fiaskis</string>
   <string name="error_zip_fail">Densigado de dosiero fiaskis</string>
+  <string name="submit">Sendi</string>
   <string name="title_subject">Temo de la raporto</string>
   <string name="title_crash_log">Enhavo de la raporto</string>
   <string name="already_submitted">Tiu cimraporto jam estis sendita, dankon!</string>
   <string name="network_unavailable">Neniu konekto disponeblas</string>
-  <string name="crash_clipboard_toast_message_success">Cimraporto kopiita en la poŝon.</string>
+  <string name="crash_clipboard_toast_message_success">Cimraporto kopiiĝis en la tondejon.</string>
+  <string name="crash_clipboard_toast_message_failure">Kopio de la cimraporo en la tondejon fiaskis.</string>
   <string name="crash_clipboard_label">Cimraporto</string>
 </resources>
