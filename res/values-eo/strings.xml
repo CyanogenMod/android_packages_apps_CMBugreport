@@ -19,8 +19,10 @@
   <string name="app_name">CM Cimraporto</string>
   <string name="summary">Entajpu resumon por tiu raporto</string>
   <string name="description">Entajpu priskribon pri kio vi faris, aplikaĵoj funkciantaj, ktp.</string>
+  <string name="screenshot">Ĉu kunligi ekrankapturon kun cimraporto?</string>
   <string name="action_submit">Sendi</string>
   <string name="notif_title">Cimraporto</string>
+  <string name="notif_processing">Traktado de la cimraporto\u2026</string>
   <string name="notif_uploading">Kreado kaj sendado de la cimraporto\u2026</string>
   <string name="notif_thanks">Dankon pro via partopreno</string>
   <string name="error_no_text">Tiu kampo ne estu malplena</string>
@@ -30,6 +32,7 @@
   <string name="error_bad_response">Maltaŭga respondo de la servilo</string>
   <string name="error_file_fail">Alŝuto de dosiero fiaskis</string>
   <string name="error_zip_fail">Densigado de dosiero fiaskis</string>
+  <string name="submit_crash_report">Antaŭrigardo de la cimraporto</string>
   <string name="submit">Sendi</string>
   <string name="title_subject">Temo de la raporto</string>
   <string name="title_crash_log">Enhavo de la raporto</string>

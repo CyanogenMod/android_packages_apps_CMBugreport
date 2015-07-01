@@ -23,11 +23,11 @@
   <string name="action_submit">שלח</string>
   <string name="notif_title">דיווח תקלה</string>
   <string name="notif_processing">מעבד דיווח תקלה\u2026</string>
-  <string name="notif_uploading">יוצר בעיה ושולח דיווח\u2026</string>
+  <string name="notif_uploading">יוצר נושא ושולח דיווח\u2026</string>
   <string name="notif_thanks">תודה על הדיווח</string>
   <string name="error_no_text">השדה לא יכול להיות ריק</string>
   <string name="error_upload_failed">העלאה נכשלה: <xliff:g id="reason">%1$s</xliff:g></string>
-  <string name="error_problem_creating">בעיה ביצירת הבעיה</string>
+  <string name="error_problem_creating">בעיה ביצירת הנושא</string>
   <string name="error_connection_problem">בעיה בהתחברות לשרת</string>
   <string name="error_bad_response">תגובה שגויה מהשרת</string>
   <string name="error_file_fail">העלאת הקובץ נכשלה</string>
