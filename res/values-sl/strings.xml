@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Poročilo o hrošču CM</string>
   <string name="summary">Vnesite povzetek za to poročilo</string>
-  <string name="description">Vnesite opis, kaj ste počeli, aplikacije v izvajanju itd.</string>
+  <string name="description">Vnesite opis, kaj ste počeli, programe v izvajanju itd.</string>
   <string name="screenshot">Pripni zaslonsko sliko, ki je bila zajeta s poročilom o hrošču?</string>
   <string name="action_submit">Pošlji</string>
   <string name="notif_title">Poročilo o hrošču</string>
