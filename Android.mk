@@ -16,6 +16,8 @@ LOCAL_PACKAGE_NAME := CMBugReport
 
 LOCAL_PROGUARD_FLAGS := -include $(LOCAL_PATH)/proguard.cfg
 
+LOCAL_STATIC_JAVA_LIBRARIES += org.cyanogenmod.platform.sdk
+
 include $(BUILD_PACKAGE)
 
 include $(CLEAR_VARS)

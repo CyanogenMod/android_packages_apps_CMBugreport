@@ -16,10 +16,11 @@
 package org.cyanogenmod.bugreport;
 
 import android.content.Context;
-import android.hardware.CmHardwareManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import cyanogenmod.hardware.CMHardwareManager;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -133,11 +134,10 @@ public class ScrubberUtils {
     }
 
     private static String getSerialNumber(Context context) {
-        CmHardwareManager cmHwManager =
-                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
-        if (cmHwManager != null) {
-            if (cmHwManager.isSupported(CmHardwareManager.FEATURE_SERIAL_NUMBER)) {
-                return cmHwManager.getSerialNumber();
+        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        if (hardware != null) {
+            if (hardware.isSupported(CMHardwareManager.FEATURE_SERIAL_NUMBER)) {
+                return hardware.getSerialNumber();
             }
         }
 
