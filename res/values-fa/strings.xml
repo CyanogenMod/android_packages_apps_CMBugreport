@@ -19,7 +19,7 @@
   <string name="app_name">گزارش اشکال CM</string>
   <string name="summary">یک خلاصه برای این گزارش وارد کنید</string>
   <string name="description">یک توصیف، کاری که انجام می‌دهید، برنامه‌های در حال اجرا و غیره را وارد کنید.</string>
-  <string name="screenshot">عکس از صفحه همراه با گزارش اشکال ضمیمه شود؟</string>
+  <string name="screenshot">تصویر صفحه به گزارش اشکال پیوست شود؟</string>
   <string name="action_submit">ارسال</string>
   <string name="notif_title">گزارش اشکال</string>
   <string name="notif_processing">پردازش گزارش اشکال\u2026</string>
