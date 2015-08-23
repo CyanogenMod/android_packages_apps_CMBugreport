@@ -19,6 +19,7 @@
   <string name="app_name">CM Veaaruanne</string>
   <string name="summary">Sisestage aruande kohta kokkuvõte</string>
   <string name="description">Sisesta kirjeldus, mida te tegite, jooksvad rakendused, jne.</string>
+  <string name="screenshot">Lisa tehtud ekraanitõmmis koos veaaruandega?</string>
   <string name="action_submit">Sisesta</string>
   <string name="notif_title">Veaaruanne</string>
   <string name="notif_processing">Töötlen veaaruannet\u2026</string>
@@ -37,4 +38,7 @@
   <string name="title_crash_log">Esituse sisu</string>
   <string name="already_submitted">See veaaruanne on juba saadetud, aitäh!</string>
   <string name="network_unavailable">Ühtegi võrguühendust pole saadaval</string>
+  <string name="crash_clipboard_toast_message_success">Süsteemi kokkujooksmise aruanne kopeeriti lõikelauale.</string>
+  <string name="crash_clipboard_toast_message_failure">Süsteemi kokkujooksmise aruande kopeerimine lõikelauale nurjus.</string>
+  <string name="crash_clipboard_label">Süsteemi kokkujooksmise aruanne</string>
 </resources>
