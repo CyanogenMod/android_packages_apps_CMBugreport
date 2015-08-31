@@ -19,7 +19,7 @@
   <string name="app_name">گزارش اشکال CM</string>
   <string name="summary">یک خلاصه برای این گزارش وارد کنید</string>
   <string name="description">شرح آنچه انجام شد، برنامه‌های در حال اجرا، و غیره را وارد کنید.</string>
-  <string name="screenshot">پیوست تصویر گرفته‌شده با گزارش اشکال؟</string>
+  <string name="screenshot">تصویر گرفته شده به گزارش اشکال پیوست شود؟</string>
   <string name="action_submit">ارسال</string>
   <string name="notif_title">گزارش اشکال</string>
   <string name="notif_processing">پردازش گزارش اشکال\u2026</string>
@@ -32,7 +32,7 @@
   <string name="error_bad_response">پاسخ بد از سرور</string>
   <string name="error_file_fail">آپلود فایل ناموفق بود</string>
   <string name="error_zip_fail">فشرده سازی فایل ناموفق بود</string>
-  <string name="submit_crash_report">پیش نمایش گزارش</string>
+  <string name="submit_crash_report">مشاهده گزارش خرابی</string>
   <string name="submit">ارسال</string>
   <string name="title_subject">موضوع ارسال</string>
   <string name="title_crash_log">محتوای ارسال</string>
