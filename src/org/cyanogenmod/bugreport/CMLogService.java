@@ -22,22 +22,13 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.util.Log;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -343,16 +334,18 @@ public class CMLogService extends IntentService {
 
     private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
             throws IOException, ZipException {
-        DefaultHttpClient client = new DefaultHttpClient();
-        HttpConnectionParams.setConnectionTimeout(client.getParams(), 3000);
-        HttpConnectionParams.setSoTimeout(client.getParams(), 3000);
-        HttpPost post = new HttpPost(getString(R.string.config_api_url)
-                + bugId + "/attachments");
+        URL url = new URL(getString(R.string.config_api_url) + bugId + " /attachments");
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         File zippedReportFile = null;
 
-        post.setHeader("Authorization","Basic " + getString(R.string.config_auth));
-        post.setHeader("X-Atlassian-Token","nocheck");
         try {
+            urlConnection.setRequestProperty("Authorization", "Basic " + getString(R.string.config_auth));
+            urlConnection.setRequestProperty("X-Atlassian-Token", "nocheck");
+            urlConnection.setDoOutput(true);
+            urlConnection.setChunkedStreamingMode(0);
+            urlConnection.setReadTimeout(10000);
+            urlConnection.setConnectTimeout(15000);
+
             File bugreportFile = new File("/data" + reportUri.getPath());
             File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
                     + bugreportFile.getName());
@@ -364,15 +357,19 @@ public class CMLogService extends IntentService {
                 zippedReportFile = zipFiles(scrubbedBugReportFile);
             }
 
-            MultipartEntity bugreportUploadEntity = new MultipartEntity();
+            MultipartEntity bugreportUploadEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
             bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
-            post.setEntity(bugreportUploadEntity);
+            OutputStream os = urlConnection.getOutputStream();
+            bugreportUploadEntity.writeTo(os);
+            os.close();
 
-            client.execute(post);
+            urlConnection.connect();
+
         } finally {
             if (zippedReportFile != null) {
                 zippedReportFile.delete();
             }
+            urlConnection.disconnect();
         }
     }
 
