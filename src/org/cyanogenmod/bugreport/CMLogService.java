@@ -344,8 +344,8 @@ public class CMLogService extends IntentService {
     private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
             throws IOException, ZipException {
         DefaultHttpClient client = new DefaultHttpClient();
-        HttpConnectionParams.setConnectionTimeout(client.getParams(), 3000);
-        HttpConnectionParams.setSoTimeout(client.getParams(), 3000);
+        HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
+        HttpConnectionParams.setSoTimeout(client.getParams(), 15000);
         HttpPost post = new HttpPost(getString(R.string.config_api_url)
                 + bugId + "/attachments");
         File zippedReportFile = null;
