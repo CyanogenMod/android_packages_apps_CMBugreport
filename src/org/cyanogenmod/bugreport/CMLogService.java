@@ -25,28 +25,17 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.util.Log;
-
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.FileBody;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,7 +46,7 @@ import java.util.zip.ZipOutputStream;
 
 public class CMLogService extends IntentService {
     private static final String TAG = "CMLogService";
-    private static final String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
+    public static final String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
     private static final String FILENAME_PROC_VERSION = "/proc/version";
 
     public static final String RO_CM_VERSION = "ro.cm.version";
@@ -85,14 +74,14 @@ public class CMLogService extends IntentService {
                     sshotUri = uri;
                 } else if (uri.toString().endsWith("zip")) {
                     reportUri = zipUri(uri);
-               }
+                }
             }
         }
 
         String summary = intent.getStringExtra(Intent.EXTRA_SUBJECT);
         String description = intent.getStringExtra(Intent.EXTRA_TEXT);
         String kernelver = getFormattedKernelVersion();
-        if(!intent.getBooleanExtra("org.cyanogenmod.bugreport.AddScreenshot", false)) {
+        if (!intent.getBooleanExtra("org.cyanogenmod.bugreport.AddScreenshot", false)) {
             sshotUri = null;
         }
 
@@ -116,7 +105,7 @@ public class CMLogService extends IntentService {
             } else {
                 labels.put("user");
             }
-            if (!isCMKernel){
+            if (!isCMKernel) {
                 labels.put("non-CM-kernel");
             }
             fields.put("labels", labels);
@@ -177,29 +166,29 @@ public class CMLogService extends IntentService {
     }
 
     public static String getFormattedKernelVersion() {
-       try {
-           return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
+        try {
+            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
         } catch (IOException e) {
-           Log.e(TAG,
-               "IO Exception when getting kernel version for Device Info screen",
-               e);
+            Log.e(TAG,
+                    "IO Exception when getting kernel version for Device Info screen",
+                    e);
             return "Unavailable";
-       }
-   }
+        }
+    }
 
-   public static String formatKernelVersion(String rawKernelVersion) {
+    public static String formatKernelVersion(String rawKernelVersion) {
         // Example (see tests for more):
         // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
         //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
         //     Thu Jun 28 11:02:39 PDT 2012
 
         final String PROC_VERSION_REGEX =
-            "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
-            "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
-            "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
-            "(#\\d+) " +              /* group 3: "#1" */
-            "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
-            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
+                "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
+                        "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
+                        "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
+                        "(#\\d+) " +              /* group 3: "#1" */
+                        "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
+                        "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
 
         String builder_regex = "\\@cyanogenmod";
 
@@ -214,13 +203,13 @@ public class CMLogService extends IntentService {
         }
 
         Matcher k = Pattern.compile(builder_regex).matcher(m.group(2));
-        if (k.matches()){
+        if (k.matches()) {
             isCMKernel = true;
         }
 
         return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
-            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
-            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
+                m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
+                m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
     }
 
     /**
@@ -242,7 +231,7 @@ public class CMLogService extends IntentService {
         String jiraBugId;
 
         try {
-            jiraBugId = uploadAndGetId(json);
+            jiraBugId = UploadHelper.uploadAndGetId(this, json);
         } catch (IOException e) {
             Log.e(TAG, "Could not upload bug report", e);
             notifyUploadFailed(R.string.error_connection_problem);
@@ -278,93 +267,26 @@ public class CMLogService extends IntentService {
         return null;
     }
 
-    private String uploadAndGetId(JSONObject input) throws IOException, JSONException {
-        URL url = new URL(getString(R.string.config_api_url));
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        try {
-            urlConnection.setRequestProperty("Accept", "application/json");
-            urlConnection.setRequestProperty("Authorization", "Basic " + getString(R.string.config_auth));
-            urlConnection.setRequestProperty("Content-Type", "application/json");
-
-            urlConnection.setReadTimeout(10000);
-            urlConnection.setConnectTimeout(15000);
-            urlConnection.setInstanceFollowRedirects(true);
-            urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
-            urlConnection.setFixedLengthStreamingMode(input.toString().length());
-
-            OutputStream os = urlConnection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            writer.write(input.toString());
-            writer.flush();
-            writer.close();
-            os.close();
-
-            urlConnection.connect();
-
-            String response = getResponse(urlConnection);
-            JSONObject output = new JSONObject(response);
-            return output.getString("key");
-        } finally {
-            urlConnection.disconnect();
-        }
-    }
-
-    private String getResponse(HttpURLConnection httpUrlConnection) throws IOException {
-        InputStream responseStream = new BufferedInputStream(httpUrlConnection.getInputStream());
-
-        BufferedReader responseStreamReader = new BufferedReader(
-                new InputStreamReader(responseStream));
-        String line = "";
-        StringBuilder stringBuilder = new StringBuilder();
-        while ((line = responseStreamReader.readLine()) != null) {
-            stringBuilder.append(line).append("\n");
-        }
-        responseStreamReader.close();
-        responseStream.close();
-
-        return stringBuilder.toString();
-    }
 
     private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
-            throws IOException, ZipException {
-        URL url = new URL(getString(R.string.config_api_url) + bugId + "/attachments");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        File zippedReportFile = null;
+            throws IOException {
 
-        try {
-            urlConnection.setRequestProperty("Authorization", "Basic " + getString(R.string.config_auth));
-            urlConnection.setRequestProperty("X-Atlassian-Token", "nocheck");
-            urlConnection.setDoOutput(true);
-            urlConnection.setChunkedStreamingMode(0);
-            urlConnection.setReadTimeout(10000);
-            urlConnection.setConnectTimeout(15000);
+        File bugreportFile = new File(reportUri.getPath());
+        File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
+                + bugreportFile.getName());
 
-            File bugreportFile = new File(reportUri.getPath());
-            File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
-                    + bugreportFile.getName());
-            ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
-            if(sshotUri != null) {
-                File sshotFile = new File("/data" + sshotUri.getPath());
-                zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
-            } else {
-                zippedReportFile = zipFiles(scrubbedBugReportFile);
-            }
+        // scrub file clean of user info
+        ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
 
-            MultipartEntity bugreportUploadEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-            bugreportUploadEntity.addPart("file", new FileBody(zippedReportFile));
-            OutputStream os = urlConnection.getOutputStream();
-            bugreportUploadEntity.writeTo(os);
-            os.close();
-
-            urlConnection.connect();
-
-        } finally {
-            if (zippedReportFile != null) {
-                zippedReportFile.delete();
-            }
-            urlConnection.disconnect();
+        // zip it back up, maybe with a screenshot
+        File zippedReportFile;
+        if (sshotUri != null) {
+            File sshotFile = new File("/data" + sshotUri.getPath());
+            zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
+        } else {
+            zippedReportFile = zipFiles(scrubbedBugReportFile);
         }
+        UploadHelper.attachFile(this, zippedReportFile, bugId);
     }
 
     private File zipFiles(File... files) throws ZipException {
@@ -404,7 +326,7 @@ public class CMLogService extends IntentService {
         return zippedFile;
     }
 
-    private Uri zipUri(Uri zipUri){
+    private Uri zipUri(Uri zipUri) {
         Uri fileUri = null;
         File zipFile = null;
         FileInputStream is = null;
@@ -429,13 +351,13 @@ public class CMLogService extends IntentService {
             Log.e(TAG, " failed to unzip ", e);
         } finally {
             try {
-                if (zis != null){
+                if (zis != null) {
                     zis.close();
                 }
                 if (unZipped != null) {
-                        unZipped.close();
+                    unZipped.close();
                 }
-             }catch (Exception e) {
+            } catch (Exception e) {
                 Log.e(TAG, "can't even close things right", e);
             }
         }
