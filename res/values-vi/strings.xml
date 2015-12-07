@@ -17,4 +17,28 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Trình báo lỗi CM</string>
+  <string name="summary">Tóm tắt bản báo cáo này</string>
+  <string name="description">Nhập một mô tả, bạn đã làm gì, các ứng dụng đã chạy, v.v.</string>
+  <string name="screenshot">Đính kèm ảnh chụp màn hình chụp với báo cáo lỗi?</string>
+  <string name="action_submit">Gửi</string>
+  <string name="notif_title">Báo cáo lỗi</string>
+  <string name="notif_processing">Đang xử lý báo cáo lỗi\u2026</string>
+  <string name="notif_uploading">Đang xuất bản và tải báo cáo lên\u2026</string>
+  <string name="notif_thanks">Cảm ơn bạn đã báo cáo lỗi cho chúng tôi</string>
+  <string name="error_no_text">Trường này không được để trống</string>
+  <string name="error_upload_failed">Tải lên thất bại: <xliff:g id="reason">%1$s </xliff:g></string>
+  <string name="error_problem_creating">Có lỗi khi xuất bản</string>
+  <string name="error_connection_problem">Vấn đề kết nối với máy chủ</string>
+  <string name="error_bad_response">Phản hồi không tốt từ máy chủ</string>
+  <string name="error_file_fail">Tập tin tải lên thất bại</string>
+  <string name="error_zip_fail">Tập tin nén không thành công</string>
+  <string name="submit_crash_report">Xem Trước Bản Báo Cáo Lỗi</string>
+  <string name="submit">Gửi</string>
+  <string name="title_subject">Tên bản gửi</string>
+  <string name="title_crash_log">Nội dung gửi</string>
+  <string name="already_submitted">Bản báo cáo lỗi này đã được gửi đi rồi, cảm ơn bạn!</string>
+  <string name="network_unavailable">Không có kết nối internet</string>
+  <string name="crash_clipboard_toast_message_success">Đã chép báo cáo lỗi vào bảng tạm.</string>
+  <string name="crash_clipboard_toast_message_failure">Không thể chép báo cáo lỗi vào bảng tạm.</string>
+  <string name="crash_clipboard_label">Báo cáo lỗi</string>
 </resources>
