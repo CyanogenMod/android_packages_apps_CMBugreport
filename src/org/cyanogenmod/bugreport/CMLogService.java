@@ -203,7 +203,7 @@ public class CMLogService extends IntentService {
         }
 
         Matcher k = Pattern.compile(builder_regex).matcher(m.group(2));
-        if (k.matches()) {
+        if (k.find()) {
             isCMKernel = true;
         }
 
