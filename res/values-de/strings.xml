@@ -17,26 +17,26 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM-Fehlerbericht</string>
-  <string name="summary">Bitte geben Sie hier eine Zusammenfassung dieses Fehlerberichtes ein</string>
-  <string name="description">Bitte geben sie hier eine Beschreibung des Fehlers ein: was Sie zuvor getan haben, welche Apps Sie verwendet haben usw.</string>
+  <string name="summary">Geben Sie hier eine Zusammenfassung dieses Fehlerberichtes ein.</string>
+  <string name="description">Geben Sie hier eine Beschreibung des Fehlers ein: was Sie zuvor getan haben, welche Apps Sie verwendet haben usw.</string>
   <string name="screenshot">Soll das mit dem Fehlerbericht erstellte Bildschirmfoto angehängt werden?</string>
   <string name="action_submit">Absenden</string>
   <string name="notif_title">Fehlerbericht</string>
   <string name="notif_processing">Fehlerbericht wird verarbeitet\u2016</string>
   <string name="notif_uploading">Fehler eintragen und Fehlerbericht hochladen\u2026</string>
   <string name="notif_thanks">Danke für Ihren Bericht</string>
-  <string name="error_no_text">Dieses Feld darf nicht leer sein</string>
+  <string name="error_no_text">Dieses Feld darf nicht leer sein.</string>
   <string name="error_upload_failed">Hochladen fehlgeschlagen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Eintragen des Fehlers</string>
   <string name="error_connection_problem">Problem bei der Verbindung zum Server</string>
   <string name="error_bad_response">Negative Antwort des Servers</string>
-  <string name="error_file_fail">Die Datei konnte nicht hochgeladen werden</string>
-  <string name="error_zip_fail">Die Datei konnte nicht komprimiert werden</string>
+  <string name="error_file_fail">Die Datei konnte nicht hochgeladen werden.</string>
+  <string name="error_zip_fail">Die Datei konnte nicht komprimiert werden.</string>
   <string name="submit_crash_report">Absturzbericht-Vorschau</string>
   <string name="submit">Absenden</string>
   <string name="title_subject">Betreff</string>
   <string name="title_crash_log">Inhalt</string>
-  <string name="already_submitted">Dieser Fehlerbericht wurde bereits gesendet, vielen Dank!</string>
+  <string name="already_submitted">Dieser Fehlerbericht wurde bereits gesendet. Vielen Dank!</string>
   <string name="network_unavailable">Keine Netzwerkverbindung verfügbar</string>
   <string name="crash_clipboard_toast_message_success">Absturzbericht wurde in die Zwischenablage kopiert.</string>
   <string name="crash_clipboard_toast_message_failure">Der Absturzbericht konnte nicht in die Zwischenablage kopiert werden.</string>
