@@ -5,4 +5,6 @@
     <string name="config_auth"></string>
     <string name="config_api_url"></string>
     <string name="config_api_url_upload"></string>
+    <string name="config_kernel_field"></string>
+    <string name="config_buildid_field"></string>
 </resources>
