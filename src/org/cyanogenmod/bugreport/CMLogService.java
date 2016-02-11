@@ -99,8 +99,8 @@ public class CMLogService extends IntentService {
             fields.put("description", description);
             fields.put("issuetype", issuetype);
             if(!getString(R.string.config_kernel_field).isEmpty() && !getString(R.string.config_buildid_field).isEmpty()) {
-                fields.put(getString(R.string.config_kernel_field), SystemProperties.get(RO_CM_VERSION, ""));
-                fields.put(getString(R.string.config_buildid_field), kernelver);
+                fields.put(getString(R.string.config_buildid_field), SystemProperties.get(RO_CM_VERSION, ""));
+                fields.put(getString(R.string.config_kernel_field), kernelver);
             } else {
                 fields.put(BUILD_ID_FIELD, SystemProperties.get(RO_CM_VERSION, ""));
                 fields.put(KERNELVER_FIELD, kernelver);
