@@ -22,9 +22,9 @@
   <string name="screenshot">Soll das mit dem Fehlerbericht erstellte Bildschirmfoto angehängt werden?</string>
   <string name="action_submit">Absenden</string>
   <string name="notif_title">Fehlerbericht</string>
-  <string name="notif_processing">Fehlerbericht wird verarbeitet\u2016</string>
+  <string name="notif_processing">Fehlerbericht wird verarbeitet\u2026</string>
   <string name="notif_uploading">Fehler eintragen und Fehlerbericht hochladen\u2026</string>
-  <string name="notif_thanks">Danke für Ihren Bericht</string>
+  <string name="notif_thanks">Danke für Ihren Bericht!</string>
   <string name="error_no_text">Dieses Feld darf nicht leer sein.</string>
   <string name="error_upload_failed">Hochladen fehlgeschlagen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Eintragen des Fehlers</string>
