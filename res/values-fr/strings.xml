@@ -20,20 +20,20 @@
   <string name="summary">Entrez un résumé pour ce rapport</string>
   <string name="description">Entrez une description, ce que vous faisiez, les applications en cours d\'exécution, etc.</string>
   <string name="screenshot">Joindre la capture d\'écran prise au rapport de bug ?</string>
-  <string name="action_submit">Soumettre</string>
+  <string name="action_submit">Envoyer</string>
   <string name="notif_title">Rapport de bug</string>
   <string name="notif_processing">Traitement du rapport de bug\u2026</string>
   <string name="notif_uploading">Création et envoie du rapport\u2026</string>
   <string name="notif_thanks">Merci pour votre participation</string>
   <string name="error_no_text">Ce champ ne doit pas être vide</string>
-  <string name="error_upload_failed">L\'envoi a échoué : <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_upload_failed">Le téléchargement a échoué : <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problème causant l\'erreur</string>
   <string name="error_connection_problem">Problème de connexion au serveur</string>
   <string name="error_bad_response">Réponse erronée du serveur</string>
-  <string name="error_file_fail">Le fichier n\'a pas pu être envoyé</string>
+  <string name="error_file_fail">Le fichier n\'a pas pu être téléchargé</string>
   <string name="error_zip_fail">La compression du fichier a échoué</string>
   <string name="submit_crash_report">Aperçu du rapport de crash</string>
-  <string name="submit">Soumettre</string>
+  <string name="submit">Envoyer</string>
   <string name="title_subject">Sujet du rapport</string>
   <string name="title_crash_log">Contenu du rapport</string>
   <string name="already_submitted">Ce rapport de bug a déjà été envoyé, merci !</string>
