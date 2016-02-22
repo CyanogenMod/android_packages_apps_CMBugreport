@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Сообщения об ошибках CyanogenMod</string>
   <string name="summary">Введите описание для этого отчёта</string>
-  <string name="description">Опишите, после какого действия возникла ошибка, какие работали приложения и т.п. (желательно по-английски)</string>
+  <string name="description">Опишите, после какого действия возникла ошибка, какие приложения были запущены и т. п. (желательно по-английски).</string>
   <string name="screenshot">Прикрепить скриншот, снятый во время создания отчёта?</string>
   <string name="action_submit">Отправить</string>
   <string name="notif_title">Отчёт об ошибке</string>
@@ -26,7 +26,7 @@
   <string name="notif_uploading">Создание инцидента и отправка отчёта\u2026</string>
   <string name="notif_thanks">Спасибо, вы нам очень помогли</string>
   <string name="error_no_text">Это поле должно быть заполнено</string>
-  <string name="error_upload_failed">Отправка не удалась: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_upload_failed">Не удалась отправить: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Сбой при создании инцидента</string>
   <string name="error_connection_problem">Не удалось подключиться к серверу</string>
   <string name="error_bad_response">Получен некорректный ответ от сервера</string>
@@ -36,9 +36,9 @@
   <string name="submit">Отправить</string>
   <string name="title_subject">Тема сообщения</string>
   <string name="title_crash_log">Содержимое отчёта</string>
-  <string name="already_submitted">Эта ошибка уже есть в нашей базе данных, спасибо за участие!</string>
+  <string name="already_submitted">Нам уже известно об этой ошибке. Спасибо за участие!</string>
   <string name="network_unavailable">Нет интернет-подключения</string>
   <string name="crash_clipboard_toast_message_success">Отчёт о ошибке скопирован в буфер обмена.</string>
-  <string name="crash_clipboard_toast_message_failure">Не удалось скопировать отчёт о ошибке в буфер обмена.</string>
+  <string name="crash_clipboard_toast_message_failure">Не удалось скопировать отчёт об ошибке в буфер обмена.</string>
   <string name="crash_clipboard_label">Отчёт о ошибке</string>
 </resources>
