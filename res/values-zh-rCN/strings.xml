@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM Bug 报告</string>
+  <!-- Main application -->
   <string name="summary">为此报告输入摘要</string>
   <string name="description">输入具体的描述，当时您正在做什么操作，正在运行的应用等等。</string>
   <string name="screenshot">在错误报告中附加屏幕截图？</string>
   <string name="action_submit">提交</string>
+  <!-- Notification messages -->
   <string name="notif_title">Bug 报告</string>
   <string name="notif_processing">正在处理错误报告\u2026</string>
   <string name="notif_uploading">正在创建问题和上传报告\u2026</string>
   <string name="notif_thanks">感谢您的提交</string>
+  <!-- Error messages -->
   <string name="error_no_text">此字段不能为空</string>
   <string name="error_upload_failed">上传失败：<xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">创建该问题报告时出错</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">提交内容</string>
   <string name="already_submitted">该错误报告已经被提交，谢谢您！</string>
   <string name="network_unavailable">无可用的网络连接</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">崩溃报告已复制到剪贴板。</string>
   <string name="crash_clipboard_toast_message_failure">复制崩溃报告到剪贴板失败。</string>
   <string name="crash_clipboard_label">崩溃报告</string>

@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">דיווח תקלות CM</string>
+  <!-- Main application -->
   <string name="summary">הזן תקציר לדיווח זה</string>
   <string name="description">הזן תיאור, מה עשית, יישומים רצים וכדומה.</string>
   <string name="screenshot">האם לצרף צילום מסך עם דיווח התקלות?</string>
   <string name="action_submit">שלח</string>
+  <!-- Notification messages -->
   <string name="notif_title">דיווח תקלה</string>
   <string name="notif_processing">מעבד דיווח תקלה\u2026</string>
   <string name="notif_uploading">יוצר נושא ושולח דיווח\u2026</string>
   <string name="notif_thanks">תודה על הדיווח</string>
+  <!-- Error messages -->
   <string name="error_no_text">השדה לא יכול להיות ריק</string>
   <string name="error_upload_failed">העלאה נכשלה: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">בעיה ביצירת הנושא</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">תוכן השליחה</string>
   <string name="already_submitted">דוח זה כבר נשלח, תודה!</string>
   <string name="network_unavailable">אין חיבור רשת זמין</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">דו\"ח הקריסה הועתק ללוח.</string>
   <string name="crash_clipboard_toast_message_failure">נכשלה העתקת דו\"ח הקריסה ללוח.</string>
   <string name="crash_clipboard_label">דו\"ח קריסה</string>

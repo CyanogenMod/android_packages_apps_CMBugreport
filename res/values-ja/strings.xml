@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CMバグレポート</string>
+  <!-- Main application -->
   <string name="summary">このレポートの概要を入力してください</string>
   <string name="description">何をしていたか、どのアプリを実行していたかなどの説明を入力してください</string>
   <string name="screenshot">バグレポートでキャプチャしたスクリーンショットを添付しますか？</string>
   <string name="action_submit">送信</string>
+  <!-- Notification messages -->
   <string name="notif_title">バグレポート</string>
   <string name="notif_processing">バグレポートを処理中\u2026</string>
   <string name="notif_uploading">イシューを作成してレポートをアップロード中\u2026</string>
   <string name="notif_thanks">送信ありがとうございました</string>
+  <!-- Error messages -->
   <string name="error_no_text">このフィールドは空にできません</string>
   <string name="error_upload_failed">アップロードできませんでした: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">イシュー作成の問題</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">内容</string>
   <string name="already_submitted">このバグレポートは既に送信されています、ありがとうございました。</string>
   <string name="network_unavailable">ネットワーク接続が利用できません</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">クラッシュレポートをクリップボードにコピーしました。</string>
   <string name="crash_clipboard_toast_message_failure">クラッシュレポートをクリップボードにコピーできませんでした。</string>
   <string name="crash_clipboard_label">クラッシュレポート</string>

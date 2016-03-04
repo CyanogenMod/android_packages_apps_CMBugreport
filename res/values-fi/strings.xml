@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM virheraportti</string>
+  <!-- Main application -->
   <string name="summary">Kirjoita yhteenveto raportista</string>
   <string name="description">Kirjoita kuvaus, mitä olit tekemässä, mitä sovelluksia oli käytössä jne.</string>
   <string name="screenshot">Liitä kuvakaappaus virheraporttiin?</string>
   <string name="action_submit">Lähetä</string>
+  <!-- Notification messages -->
   <string name="notif_title">Virheraportti</string>
   <string name="notif_processing">Käsitellään virheraporttia\u2026</string>
   <string name="notif_uploading">Luodaan ja ladataan raporttia\u2026</string>
   <string name="notif_thanks">Kiitos ilmoituksesta</string>
+  <!-- Error messages -->
   <string name="error_no_text">Kenttä ei voi olla tyhjä</string>
   <string name="error_upload_failed">Lataus epäonnistui: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Virhe luotaessa ilmoitusta</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Lähetyksen sisältö</string>
   <string name="already_submitted">Tämä virheraportti on jo toimitettu, kiitos!</string>
   <string name="network_unavailable">Ei verkkoyhteyttä</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Kaatumisraportti kopioitu leikepöydälle.</string>
   <string name="crash_clipboard_toast_message_failure">Kaatumisraportin kopiointi leikepöydälle epäonnistui.</string>
   <string name="crash_clipboard_label">Kaatumisraportti</string>

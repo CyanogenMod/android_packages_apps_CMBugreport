@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Повідомлення про помилку CyanogenMod</string>
+  <!-- Main application -->
   <string name="summary">Введіть опис цього звіту</string>
   <string name="description">Опишіть, під час чого виникла помилка, які програми були запущені та інше.</string>
   <string name="screenshot">Прикріпити скріншот до звіту про помилку?</string>
   <string name="action_submit">Надіслати</string>
+  <!-- Notification messages -->
   <string name="notif_title">Звіт про помилку</string>
   <string name="notif_processing">Обробка звіту\u2026</string>
   <string name="notif_uploading">Створення питання та завантаження звіту\u2026</string>
   <string name="notif_thanks">Дякуємо за співпрацю</string>
+  <!-- Error messages -->
   <string name="error_no_text">Поле не може бути пустим</string>
   <string name="error_upload_failed">Завантаження не вдалось: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Виникла проблема при створенні питання</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Вміст звіту</string>
   <string name="already_submitted">Цей звіт вже був надісланий, дякуємо!</string>
   <string name="network_unavailable">Немає підключення до мережі</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Звіт помилки скопійовано до буфера обміну.</string>
   <string name="crash_clipboard_toast_message_failure">Не вдалося скопіювати звіт помилки до буфера обміну.</string>
   <string name="crash_clipboard_label">Звіт про помилку</string>

@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Informe d\'error CM</string>
+  <!-- Main application -->
   <string name="summary">Introduz una descripción curtia del informe</string>
   <string name="description">Introduz una descripción de lo que tabes faciendo, aplicaciones n\'execución, etc.</string>
   <string name="screenshot">¿Axuntar captura de pantalla al informe de fallu?</string>
   <string name="action_submit">Unviar</string>
+  <!-- Notification messages -->
   <string name="notif_title">Informe d\'error</string>
   <string name="notif_processing">Procesando l\'informe de fallos\u2026</string>
   <string name="notif_uploading">Creando la incidencia y unviando l\'informe\u2026</string>
   <string name="notif_thanks">Gracies pola to collaboración</string>
+  <!-- Error messages -->
   <string name="error_no_text">Esti campu nun pue tar baleru</string>
   <string name="error_upload_failed">Falló l\'unviu: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Hebo un problema al crear l\'informe</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Conteníu del unviu</string>
   <string name="already_submitted">Esti informe yá s\'unvió. ¡Gracies!</string>
   <string name="network_unavailable">Nun hai conexón de datos disponible</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Informe de fallu copiáu al cartafueyu.</string>
   <string name="crash_clipboard_toast_message_failure">Fallu al copiar l\'informe de fallu al cartafueyu.</string>
   <string name="crash_clipboard_label">Informe de fallu</string>
