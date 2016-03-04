@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM Veaaruanne</string>
+  <!-- Main application -->
   <string name="summary">Sisestage aruande kohta kokkuvõte</string>
   <string name="description">Sisesta kirjeldus, mida te tegite, jooksvad rakendused, jne.</string>
   <string name="screenshot">Lisa kuvatõmmis koos püütud veaaruandega?</string>
   <string name="action_submit">Sisesta</string>
+  <!-- Notification messages -->
   <string name="notif_title">Veaaruanne</string>
   <string name="notif_processing">Töötlen veaaruannet\u2026</string>
   <string name="notif_uploading">Loon teemat ja laen üles aruannet\u2026</string>
   <string name="notif_thanks">Täname teid esitamise eest</string>
+  <!-- Error messages -->
   <string name="error_no_text">See väli ei tohi olla tühi</string>
   <string name="error_upload_failed">Üleslaadimine nurjus: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probleem teema loomisel</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Esituse sisu</string>
   <string name="already_submitted">See veaaruanne on juba saadetud, aitäh!</string>
   <string name="network_unavailable">Ühtegi võrguühendust pole saadaval</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Krahhiaruanne on kopeeritud lõikelauale.</string>
   <string name="crash_clipboard_toast_message_failure">Krahhiaruande kopeerimine lõikelauale nurjus.</string>
   <string name="crash_clipboard_label">Krahhiaruanne</string>

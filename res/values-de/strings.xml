@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM-Fehlerbericht</string>
+  <!-- Main application -->
   <string name="summary">Geben Sie hier eine Zusammenfassung dieses Fehlerberichtes ein.</string>
   <string name="description">Geben Sie hier eine Beschreibung des Fehlers ein: was Sie zuvor getan haben, welche Apps Sie verwendet haben usw.</string>
   <string name="screenshot">Soll das mit dem Fehlerbericht erstellte Bildschirmfoto angehängt werden?</string>
   <string name="action_submit">Absenden</string>
+  <!-- Notification messages -->
   <string name="notif_title">Fehlerbericht</string>
   <string name="notif_processing">Fehlerbericht wird verarbeitet\u2026</string>
   <string name="notif_uploading">Fehler eintragen und Fehlerbericht hochladen\u2026</string>
   <string name="notif_thanks">Danke für Ihren Bericht!</string>
+  <!-- Error messages -->
   <string name="error_no_text">Dieses Feld darf nicht leer sein.</string>
   <string name="error_upload_failed">Hochladen fehlgeschlagen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Eintragen des Fehlers</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Inhalt</string>
   <string name="already_submitted">Dieser Fehlerbericht wurde bereits gesendet. Vielen Dank!</string>
   <string name="network_unavailable">Keine Netzwerkverbindung verfügbar</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Absturzbericht wurde in die Zwischenablage kopiert.</string>
   <string name="crash_clipboard_toast_message_failure">Der Absturzbericht konnte nicht in die Zwischenablage kopiert werden.</string>
   <string name="crash_clipboard_label">Absturzbericht</string>

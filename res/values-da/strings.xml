@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM fejlrapport</string>
+  <!-- Main application -->
   <string name="summary">Angiv et resumé for denne rapport</string>
   <string name="description">Angiv en beskrivelse, hvad gjorde du, kørende apps osv.</string>
   <string name="screenshot">Vedhæft skærmbillede taget med fejlrapport?</string>
   <string name="action_submit">Send</string>
+  <!-- Notification messages -->
   <string name="notif_title">Fejlrapport</string>
   <string name="notif_processing">Sender fejlrapport\u2026</string>
   <string name="notif_uploading">Opretter spørgsmål og sender rapport\u2026</string>
   <string name="notif_thanks">Tak for din rapport</string>
+  <!-- Error messages -->
   <string name="error_no_text">Dette felt må ikke være tom</string>
   <string name="error_upload_failed">Upload mislykkedes: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem med at oprette spørgsmålet</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Indhold af indsendelse</string>
   <string name="already_submitted">Denne fejlrapport er allerede blevet indsendt, tak!</string>
   <string name="network_unavailable">Ingen netværksforbindelse tilgængelig</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Fejlrapport kopieret til udklipsholder.</string>
   <string name="crash_clipboard_toast_message_failure">Kunne ikke kopiere fejlrapporten til udklipsholder.</string>
   <string name="crash_clipboard_label">Fejlrapport</string>

@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM දෝෂ වාර්තාව</string>
+  <!-- Main application -->
   <string name="summary">මෙම වාර්තාව සඳහා සාරාංශයක් ඇතුල් කරන්න</string>
   <string name="description">ඔබ කරමින් සිටියේ කුමක්ද, ධාවනය වන යෙදුම්, යනාදිය පිලිබඳ විස්තරයක් ඇතුල් කරන්න.</string>
   <string name="screenshot">දෝෂ වාර්තාව සමඟ ග්‍රහණය කල තිර සේයාව අමුණන්නද?</string>
   <string name="action_submit">යොමන්න</string>
+  <!-- Notification messages -->
   <string name="notif_title">දෝෂ වාර්තාව</string>
   <string name="notif_processing">දෝෂ වාර්තාව සකසමින්\u2026</string>
   <string name="notif_uploading">වාද විෂය සාදමින් සහ වාර්තාව උඩුගත කරමින්\u2026</string>
   <string name="notif_thanks">ඔබගේ යොමුකිරීම වෙනුවෙන් ඔබට ස්තුතියි</string>
+  <!-- Error messages -->
   <string name="error_no_text">මෙම ක්ෂේත්‍රය හිස් නොවිය යුතුය</string>
   <string name="error_upload_failed">උඩුගතකිරීම අසමත්විය: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">වාද විෂය සෑදීමේදී ගැටළුවක්</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">යොමන්නෙහි අන්තර්ගතය</string>
   <string name="already_submitted">මෙම දෝෂ වාර්තාව දැනටමත් යොමුකර ඇත, ඔබට ස්තුතියි!</string>
   <string name="network_unavailable">කිසිඳු ජාල සම්බන්ධතාවක් ලද නොහැක</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">බිඳ වැටීම් වාර්තාව පසුරු පුවරුවට පිටපත් කෙරුණි.</string>
   <string name="crash_clipboard_toast_message_failure">බිඳ වැටීම් වාර්තාව පසුරු පුවරුවට පිටපත් කිරීමට අසමත්විය.</string>
   <string name="crash_clipboard_label">බිඳ වැටීම් වාර්තාව</string>
