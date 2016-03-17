@@ -16,8 +16,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">CM బగ్ నివేదిక</string>
   <!-- Main application -->
+  <string name="summary">ఈ నివేదిక కొరకు ఒక సారాంశాన్ని ఎంటర్ చేయండి</string>
+  <string name="description">ఒక వివరణను ఎంటర్ చేయండి, మీరు ఏమి చేస్తున్నారు, నడుస్తున్న అనువర్తనాలు, మొదలైనవి.</string>
+  <string name="screenshot">బగ్ నివేదికతో బంధించబడిన స్క్రీన్‌షాటును జోడించాలా?</string>
+  <string name="action_submit">సమర్పించు</string>
   <!-- Notification messages -->
+  <string name="notif_title">బగ్ నివేదిక</string>
+  <string name="notif_processing">బగ్ నివేదిక ప్రక్రియ జరుగుతోంది\u2026</string>
+  <string name="notif_uploading">సమస్య మరియు అప్లోడింగ్ నివేదిక సృష్టించబడుతున్నాయి\u2026</string>
+  <string name="notif_thanks">దాఖలు చేసినందుకు మీకు ధన్యవాదాలు</string>
   <!-- Error messages -->
+  <string name="error_no_text">ఈ క్షేత్రం ఖాళీగా ఉండకూడదు</string>
+  <string name="error_upload_failed">అప్లోడ్ విఫలమయింది: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_problem_creating">సమస్యను సృష్టిస్తున్న సమస్య</string>
+  <string name="error_connection_problem">సర్వరుకు అనుసంధానం కావడంలో సమస్య</string>
+  <string name="error_bad_response">సర్వరు నుండి చెల్లని ప్రతిస్పందన</string>
+  <string name="error_file_fail">ఫైల్ అప్లోడ్ కావడం విఫలమయింది</string>
+  <string name="error_zip_fail">ఫైల్ కుదించబడడం విఫలమయింది</string>
+  <string name="submit_crash_report">పరిదృశ్య క్యాష్ నివేదిక</string>
+  <string name="submit">సమర్పించు</string>
+  <string name="title_subject">సమర్పణ విషయం</string>
+  <string name="title_crash_log">సమర్పణ అంశం</string>
+  <string name="already_submitted">ఈ బగ్ నివేదిక ఇప్పటికే సమర్పించబడింది, ధన్యవాదాలు!</string>
+  <string name="network_unavailable">ఎటువంటి నెట్వర్క్ అనుసంధానం అందుబాటులో లేదు</string>
   <!-- Hidden copy paste feature -->
+  <string name="crash_clipboard_toast_message_success">క్రాష్ నివేదిక క్లిప్ బోర్డుకు కాపీ చేయబడింది.</string>
+  <string name="crash_clipboard_toast_message_failure">క్రాష్ నివేదిక క్లిప్ బోర్డుకు కాపీ చేయబడడం విఫలమయింది.</string>
+  <string name="crash_clipboard_label">క్రాష్ నివేదిక</string>
 </resources>

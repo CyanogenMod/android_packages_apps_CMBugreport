@@ -16,8 +16,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">CM বাগ প্ৰতিবেদন</string>
   <!-- Main application -->
+  <string name="summary">এই প্ৰতিবেদনৰ বাবে এটা সাৰাংশ প্ৰৱেশ কৰক</string>
+  <string name="description">এটা বৰ্ণনা প্ৰৱেশ কৰক, আপুনি কি কৰি আছে, এপ্প্ চলি থকা ইত্যাদি</string>
+  <string name="screenshot">বাগ প্ৰতিবেদনৰ দ্বাৰা কেপচাৰ কৰা স্ক্ৰীণশ্বট সংলগ্ন কৰিব?</string>
+  <string name="action_submit">দাখিল</string>
   <!-- Notification messages -->
+  <string name="notif_title">বাগ প্ৰতিবেদন</string>
+  <string name="notif_processing">বাগ প্ৰতিবেদন প্ৰক্ৰিয়া কৰি আছে\u2026</string>
+  <string name="notif_uploading">বিষয় সৃষ্টি কৰি আছে আৰু প্ৰতিবেদন আপলোড কৰি আছে\u2026</string>
+  <string name="notif_thanks">দাখিল কৰা বাবে আপোনাক ধন্যবাদ জনাইছো</string>
   <!-- Error messages -->
+  <string name="error_no_text">এই ফিল্ড খালি থাকিব নোৱাৰে।</string>
+  <string name="error_upload_failed">আপলড ব্যৰ্থ হৈছে: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_problem_creating">বিষয়টো সৃষ্টি কৰোতে সমস্যা হৈছে</string>
+  <string name="error_connection_problem">ছাৰ্ভাৰলৈ সংযোগ কৰোতে সমস্যা হৈছে</string>
+  <string name="error_bad_response">ছাৰ্ভাৰৰ পৰা বেয়া সঁহাৰি</string>
+  <string name="error_file_fail">ফাইলটো আপলোড কৰিবলৈ ব্যৰ্থ হৈছে</string>
+  <string name="error_zip_fail">ফাইলটো সংকোচন কৰিবলৈ ব্যৰ্থ হৈছে</string>
+  <string name="submit_crash_report">ক্ৰেশ্ব প্ৰতিবেদন পূৰ্বলোকন কৰক</string>
+  <string name="submit">দাখিল</string>
+  <string name="title_subject">দাখিল কৰা বিষয়</string>
+  <string name="title_crash_log">দাখিল কৰা সামগ্ৰী</string>
+  <string name="already_submitted">বাগ প্ৰতিবেদন ইতিমধ্যে দাখিল কৰা হৈছে, আপোনাক ধন্যবাদ!</string>
+  <string name="network_unavailable">কোনো নেটৱৰ্ক সংযোগ উপলব্ধ নহয়</string>
   <!-- Hidden copy paste feature -->
+  <string name="crash_clipboard_toast_message_success">ক্ৰেশ্ব প্ৰতিবেদন ক্লিপবোৰ্ডলৈ কপি কৰা হৈছে।</string>
+  <string name="crash_clipboard_toast_message_failure">ক্ৰেশ্ব প্ৰতিবেদন ক্লিপবোৰ্ডলৈ কপি কৰিবলৈ ব্যৰ্থ হৈছে।</string>
+  <string name="crash_clipboard_label">ক্ৰেশ্ব প্ৰতিবেদন</string>
 </resources>

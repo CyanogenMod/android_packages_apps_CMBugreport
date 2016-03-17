@@ -16,9 +16,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM બગ અહેવાલ</string>
+  <string name="app_name">CM બગ રિપોર્ટ</string>
   <!-- Main application -->
+  <string name="summary">આ અહેવાલનો સારાંશ દાખલ કરો</string>
+  <string name="description">વર્ણન દાખલ કરો, તમે શું કરતા હતાં, ચાલુ એપ્લિકેશન્સ, વગેરે.</string>
+  <string name="screenshot">શું બગરિપોર્ટથી કૅપ્ચર કરેલ સ્ક્રીનશૉટ જોડવો છે?</string>
+  <string name="action_submit">સબમિટ કરો</string>
   <!-- Notification messages -->
+  <string name="notif_title">બગ રિપોર્ટ</string>
+  <string name="notif_processing">બગ રિપોર્ટ પર પ્રક્રિયા થઈ રહી છે \u2026</string>
+  <string name="notif_uploading">ઇશ્યૂનું સર્જન થઈ રહ્યું છે અને રિપોર્ટ અપલોડ થઈ રહ્યો છે\u2026</string>
+  <string name="notif_thanks">તમારી રજૂઆત માટે તમારો આભાર</string>
   <!-- Error messages -->
+  <string name="error_no_text">આ ફિલ્ડ ખાલી ન હોઇ શકે</string>
+  <string name="error_upload_failed">અપલોડ નિષ્ફળ થયું: <xliff:g id="reason">%1$s</xliff:g></string>
+  <string name="error_problem_creating">ઇશ્યૂ સર્જનમાં સમસ્યા</string>
+  <string name="error_connection_problem">સર્વર સાથે જોડાવામાં સમસ્યા</string>
+  <string name="error_bad_response">સર્વર તરફથી ખરાબ પ્રતિભાવ</string>
+  <string name="error_file_fail">ફાઇલ અપલોડ થવામાં નિષ્ફળતા</string>
+  <string name="error_zip_fail">ફાઇલ કોમ્પ્રેસ થવામાં નિષ્ફળતા</string>
+  <string name="submit_crash_report">પૂર્વદર્શન ક્રેશ રિપોર્ટ</string>
+  <string name="submit">સબમિટ કરો</string>
+  <string name="title_subject">સબ્મિશન વિષય</string>
+  <string name="title_crash_log">સબ્મિશન સામગ્રી</string>
+  <string name="already_submitted">બગ રિપોર્ટ સબ્મિટ થઈ ચુક્યો છે આપનો આભાર!</string>
+  <string name="network_unavailable">કોઇ નેટવર્ક કનેક્શન ઉપલબ્ધ નથી</string>
   <!-- Hidden copy paste feature -->
+  <string name="crash_clipboard_toast_message_success">ક્રેશ રિપોર્ટ ક્લિપબૉર્ડ પર કૉપિ કરવામાં આવ્યો.</string>
+  <string name="crash_clipboard_toast_message_failure">ક્રેશ રિપોર્ટ ક્લિપબૉર્ડ પર કૉપિ કરવામાં નિષ્ફળતા.</string>
+  <string name="crash_clipboard_label">ક્રેશ રિપોર્ટ</string>
 </resources>
