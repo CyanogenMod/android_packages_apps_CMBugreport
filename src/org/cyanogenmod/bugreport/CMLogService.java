@@ -19,12 +19,17 @@ package org.cyanogenmod.bugreport;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.util.Log;
+import libcore.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,15 +41,22 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
 import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
 
 public class CMLogService extends IntentService {
+
+    private static final String ACTION_RETRY_UPLOAD
+            = "org.cyanogenmod.bugreport.action.RETRY_BUGREPORT_UPLOAD";
+    private static final String ACTION_CANCEL_UPLOAD
+            = "org.cyanogenmod.bugreport.action.CANCEL_BUGREPORT_UPLOAD";
+    private static final String EXTRA_RETRY_FILE_PATH = "extra_zipped_file";
+    private static final String EXTRA_JSON_INFO = "extra_json_info";
+
     private static final String TAG = "CMLogService";
     public static final String SCRUBBED_BUG_REPORT_PREFIX = "scrubbed_";
     private static final String FILENAME_PROC_VERSION = "/proc/version";
@@ -54,7 +66,6 @@ public class CMLogService extends IntentService {
     public static final String KERNELVER_FIELD = "customfield_10104";
 
     public static Boolean isCMKernel = false;
-    private PowerManager.WakeLock mWakeLock;
 
     public CMLogService() {
         super("CMLogService");
@@ -62,6 +73,107 @@ public class CMLogService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        ProcessedInfo processedInfo;
+        if (Objects.equal(intent.getAction(), ACTION_RETRY_UPLOAD)) {
+            boolean fail = false;
+
+            processedInfo = new ProcessedInfo();
+            if (intent.hasExtra(EXTRA_RETRY_FILE_PATH) && intent.hasExtra(EXTRA_JSON_INFO)) {
+                try {
+                    processedInfo.inputJson = new JSONObject(intent.getStringExtra(EXTRA_JSON_INFO));
+                    final String filePath = intent.getStringExtra(EXTRA_RETRY_FILE_PATH);
+                    if (filePath != null) {
+                        processedInfo.zippedFile = new File(filePath);
+                    } else {
+                        fail = true; // can't upload a null file
+                    }
+                } catch (JSONException e) {
+                    Log.e(TAG, "fail parsing extra JSON", e);
+                    fail = true;
+                }
+            } else {
+                fail = true; // no filepath extra
+            }
+            if (fail) {
+                if (processedInfo.zippedFile != null && processedInfo.zippedFile.exists()) {
+                    notifyNotOnlineAndRetry(processedInfo, 0);
+                } else {
+                    notifyUploadFailed(R.string.error_file_fail);
+                }
+                return;
+            }
+        } else if (Objects.equal(intent.getAction(), ACTION_CANCEL_UPLOAD)) {
+            if (intent.hasExtra(EXTRA_RETRY_FILE_PATH)) {
+                final File zippedFile = new File(intent.getStringExtra(EXTRA_RETRY_FILE_PATH));
+                if (zippedFile.exists()) {
+                    zippedFile.delete();
+                }
+            }
+            // clear notification
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.cancel(CMLogService.class.getSimpleName(), R.string.notif_title);
+            return;
+        } else {
+            notifyProcessing();
+            final UnprocessedInfo info = gatherInfo(intent);
+            if (info == null) {
+                notifyUploadFailed(R.string.error_problem_creating);
+                return;
+            }
+            processedInfo = new ProcessedInfo();
+            if (info.reportUri != null) {
+                processedInfo.zippedFile = scrubFileAndZip(info.reportUri, info.ssUri);
+                if (processedInfo.zippedFile == null || !processedInfo.zippedFile.exists()) {
+                    notifyUploadFailed(R.string.error_zip_fail);
+                    return;
+                }
+            }
+
+            processedInfo.inputJson = info.inputJson;
+        }
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        mWakeLock.acquire();
+        try {
+            if (!isNetworkAvailable()) {
+                notifyNotOnlineAndRetry(processedInfo, 0);
+                return;
+            }
+
+            notifyOfUpload();
+            doUpload(processedInfo);
+        } finally {
+            if (mWakeLock.isHeld()) {
+                mWakeLock.release();
+            }
+        }
+    }
+
+    private File scrubFileAndZip(Uri reportUri, Uri sshotUri) {
+        File bugreportFile = new File(reportUri.getPath());
+        File scrubbedFile = null;
+        File zippedReportFile = null;
+
+        // first scrub
+        try {
+            scrubbedFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX + bugreportFile.getName());
+            ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedFile);
+
+            // zip it back up, maybe with a screenshot
+            if (sshotUri != null) {
+                File sshotFile = new File("/data" + sshotUri.getPath());
+                zippedReportFile = UploadHelper.zipFiles(this, scrubbedFile, sshotFile);
+            } else {
+                zippedReportFile = UploadHelper.zipFiles(this, scrubbedFile);
+            }
+        } catch (IOException e) {
+            zippedReportFile = null;
+        }
+        return zippedReportFile;
+    }
+
+    private UnprocessedInfo gatherInfo(Intent intent) {
         ArrayList<Uri> attachments = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
         Uri reportUri = null;
         Uri sshotUri = null;
@@ -73,7 +185,7 @@ public class CMLogService extends IntentService {
                 } else if (uri.toString().endsWith("png")) {
                     sshotUri = uri;
                 } else if (uri.toString().endsWith("zip")) {
-                    reportUri = zipUri(uri);
+                    reportUri = zipUri(this, uri);
                 }
             }
         }
@@ -95,11 +207,13 @@ public class CMLogService extends IntentService {
             project.put("id", getString(R.string.config_project_name));
             issuetype.put("id", getString(R.string.config_issue_type));
             fields.put("project", project);
-            fields.put("summary", summary);
-            fields.put("description", description);
+            fields.put("summary", new String(summary.getBytes(), "UTF-8"));
+            fields.put("description", new String(description.getBytes(), "UTF-8"));
             fields.put("issuetype", issuetype);
-            if(!getString(R.string.config_kernel_field).isEmpty() && !getString(R.string.config_buildid_field).isEmpty()) {
-                fields.put(getString(R.string.config_buildid_field), SystemProperties.get(RO_CM_VERSION, ""));
+            if (!getString(R.string.config_kernel_field).isEmpty()
+                    && !getString(R.string.config_buildid_field).isEmpty()) {
+                fields.put(getString(R.string.config_buildid_field),
+                        SystemProperties.get(RO_CM_VERSION, ""));
                 fields.put(getString(R.string.config_kernel_field), kernelver);
             } else {
                 fields.put(BUILD_ID_FIELD, SystemProperties.get(RO_CM_VERSION, ""));
@@ -116,26 +230,21 @@ public class CMLogService extends IntentService {
             fields.put("labels", labels);
             inputJSON.put("fields", fields);
         } catch (JSONException e) {
-            Log.e(TAG, "Input JSON could not be compiled", e);
-            notifyUploadFailed(R.string.error_problem_creating);
-            return;
+            Log.e(TAG, "error configuring JSON", e);
+            return null;
+        } catch (UnsupportedEncodingException e) {
+            Log.e(TAG, "error converting to UTF8", e);
+            return null;
         }
-
-
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-        mWakeLock.acquire(3000);
-
-        notifyOfUpload();
-        doUpload(reportUri, sshotUri, inputJSON);
-
-        if (mWakeLock.isHeld()) {
-            mWakeLock.release();
-        }
+        UnprocessedInfo info = new UnprocessedInfo();
+        info.inputJson = inputJSON;
+        info.reportUri = reportUri;
+        info.ssUri = sshotUri;
+        return info;
     }
 
     private void notify(CharSequence message, int iconResId, boolean withProgress,
-                        boolean ongoing) {
+            boolean ongoing) {
         Notification.Builder notificationBuilder = new Notification.Builder(this);
         notificationBuilder
                 .setSmallIcon(iconResId)
@@ -147,7 +256,47 @@ public class CMLogService extends IntentService {
         }
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.cancel(CMLogService.class.getSimpleName(), R.string.notif_title);
+        nm.notify(CMLogService.class.getSimpleName(), R.string.notif_title,
+                notificationBuilder.build());
+    }
+
+    private void notifyNotOnlineAndRetry(ProcessedInfo info, int uploadError) {
+        final Intent retryIntent = new Intent(ACTION_RETRY_UPLOAD)
+                .putExtra(EXTRA_JSON_INFO, info.inputJson.toString())
+                .putExtra(EXTRA_RETRY_FILE_PATH, info.zippedFile.getPath());
+
+        final PendingIntent retryPi = PendingIntent.getService(this, 0, retryIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        final Notification.Action retry = new Notification.Action.Builder(
+                Icon.createWithResource(getApplicationContext(), R.drawable.ic_tab_upload),
+                getString(R.string.action_retry),
+                retryPi).build();
+
+        final Notification.Action cancel = new Notification.Action.Builder(
+                Icon.createWithResource(getApplicationContext(), android.R.drawable.ic_delete),
+                getString(R.string.action_delete),
+                PendingIntent.getService(this, 0, new Intent(ACTION_CANCEL_UPLOAD)
+                                .putExtra(EXTRA_RETRY_FILE_PATH, info.zippedFile.getPath()),
+                        PendingIntent.FLAG_UPDATE_CURRENT))
+                .build();
+
+        String notificationMessage;
+        if (uploadError > 0) {
+            notificationMessage = getString(R.string.error_upload_failed, getString(uploadError));
+        } else {
+            notificationMessage = getString(R.string.error_connection_problem);
+        }
+
+        Notification.Builder notificationBuilder = new Notification.Builder(this)
+                .setSmallIcon(R.drawable.stat_cmbugreport)
+                .setOngoing(true)
+                .setContentTitle(getString(R.string.notif_title))
+                .setContentText(notificationMessage)
+                .setContentIntent(retryPi)
+                .addAction(retry)
+                .addAction(cancel);
+
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(CMLogService.class.getSimpleName(), R.string.notif_title,
                 notificationBuilder.build());
     }
@@ -170,15 +319,84 @@ public class CMLogService extends IntentService {
                 false);
     }
 
-    public static String getFormattedKernelVersion() {
+    private String doUpload(ProcessedInfo info) {
+        String jiraBugId;
+
+        // create a new JIRA ticket and grab the ID
         try {
-            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
-        } catch (IOException e) {
-            Log.e(TAG,
-                    "IO Exception when getting kernel version for Device Info screen",
-                    e);
-            return "Unavailable";
+            jiraBugId = UploadHelper.uploadAndGetId(this, info.inputJson);
+        } catch (JSONException | IOException e) {
+            Log.e(TAG, "Could not parse JSON response", e);
+            notifyNotOnlineAndRetry(info, R.string.error_bad_response);
+            return null;
         }
+
+        // verify the id is sane
+        if (jiraBugId == null || jiraBugId.isEmpty()) {
+            notifyNotOnlineAndRetry(info, R.string.error_bad_response);
+            return null;
+        }
+
+        // Now we attach the report
+        if (info.zippedFile != null && info.zippedFile.exists()) {
+            try {
+                notifyOfUpload();
+                UploadHelper.attachFile(this, info.zippedFile, jiraBugId);
+                notifyUploadFinished(jiraBugId);
+                info.zippedFile.delete();
+                return jiraBugId; // success!
+            } catch (IOException e) {
+                notifyNotOnlineAndRetry(info, R.string.error_bad_response);
+            }
+        } else {
+            notifyUploadFinished(jiraBugId);
+        }
+        return null;
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private static Uri zipUri(Context context, Uri zipUri) {
+        Uri fileUri = null;
+        File zipFile = null;
+        FileInputStream is = null;
+        ZipInputStream zis = null;
+        FileOutputStream unZipped = null;
+        try {
+            zipFile = new File("/data" + zipUri.getPath());
+            is = new FileInputStream(zipFile);
+            zis = new ZipInputStream(new BufferedInputStream(is));
+            ZipEntry ze = zis.getNextEntry();
+            byte[] buffer = new byte[1024];
+            String filename = ze.getName();
+            String fullFileName = context.getCacheDir() + "/" + filename;
+            unZipped = new FileOutputStream(fullFileName);
+            int count = 0;
+            while ((count = zis.read(buffer)) != -1) {
+                unZipped.write(buffer, 0, count);
+            }
+            zis.closeEntry();
+            fileUri = Uri.parse(fullFileName);
+        } catch (IOException e) {
+            Log.e(TAG, " failed to unzip ", e);
+        } finally {
+            try {
+                if (zis != null) {
+                    zis.close();
+                }
+                if (unZipped != null) {
+                    unZipped.close();
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "can't even close things right", e);
+            }
+        }
+        return fileUri;
     }
 
     public static String formatKernelVersion(String rawKernelVersion) {
@@ -217,6 +435,17 @@ public class CMLogService extends IntentService {
                 m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
     }
 
+    public static String getFormattedKernelVersion() {
+        try {
+            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
+        } catch (IOException e) {
+            Log.e(TAG,
+                    "IO Exception when getting kernel version for Device Info screen",
+                    e);
+            return "Unavailable";
+        }
+    }
+
     /**
      * Reads a line from the specified file.
      * @param filename the file to read from
@@ -224,148 +453,19 @@ public class CMLogService extends IntentService {
      * @throws IOException if the file couldn't be read
      */
     private static String readLine(String filename) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filename), 256);
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename), 256)) {
             return reader.readLine();
-        } finally {
-            reader.close();
         }
     }
 
-    private String doUpload(Uri reportUri, Uri screenshotUri, JSONObject json) {
-        String jiraBugId;
-
-        try {
-            jiraBugId = UploadHelper.uploadAndGetId(this, json);
-        } catch (IOException e) {
-            Log.e(TAG, "Could not upload bug report", e);
-            notifyUploadFailed(R.string.error_connection_problem);
-            return null;
-        } catch (JSONException e) {
-            Log.e(TAG, "Could not parse JSON response", e);
-            notifyUploadFailed(R.string.error_bad_response);
-            return null;
-        }
-
-        if (jiraBugId == null || jiraBugId.isEmpty()) {
-            notifyUploadFailed(R.string.error_bad_response);
-            return null;
-        }
-
-        if (reportUri != null) {
-            // Now we attach the report
-            try {
-                notifyProcessing();
-                attachFile(reportUri, jiraBugId, screenshotUri);
-                notifyUploadFinished(jiraBugId);
-                return jiraBugId; // success!
-            } catch (ZipException e) {
-                notifyUploadFailed(R.string.error_zip_fail);
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-                notifyUploadFailed(R.string.error_file_fail);
-            }
-        } else {
-            notifyUploadFinished(jiraBugId);
-        }
-        return null;
+    private static class UnprocessedInfo {
+        Uri reportUri;
+        Uri ssUri;
+        JSONObject inputJson;
     }
 
-
-    private void attachFile(Uri reportUri, String bugId, Uri sshotUri)
-            throws IOException {
-
-        File bugreportFile = new File(reportUri.getPath());
-        File scrubbedBugReportFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
-                + bugreportFile.getName());
-
-        // scrub file clean of user info
-        ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedBugReportFile);
-
-        // zip it back up, maybe with a screenshot
-        File zippedReportFile;
-        if (sshotUri != null) {
-            File sshotFile = new File("/data" + sshotUri.getPath());
-            zippedReportFile = zipFiles(scrubbedBugReportFile, sshotFile);
-        } else {
-            zippedReportFile = zipFiles(scrubbedBugReportFile);
-        }
-        UploadHelper.attachFile(this, zippedReportFile, bugId);
-    }
-
-    private File zipFiles(File... files) throws ZipException {
-        ZipOutputStream zos = null;
-        File zippedFile = new File(getCacheDir(), files[0].getName() + ".zip");
-        try {
-            byte[] buffer = new byte[1024];
-            FileOutputStream fos = new FileOutputStream(zippedFile);
-            zos = new ZipOutputStream(fos);
-
-            for (int i = 0; i < files.length; i++) {
-                FileInputStream fis = new FileInputStream(files[i]);
-                try {
-                    zos.putNextEntry(new ZipEntry(files[i].getName()));
-                    int length;
-                    while ((length = fis.read(buffer)) != -1) {
-                        zos.write(buffer, 0, length);
-                    }
-                    zos.closeEntry();
-                } finally {
-                    try {
-                        fis.close();
-                    } catch (IOException e) {
-                    }
-                }
-            }
-        } catch (IOException e) {
-            Log.e(TAG, "Could not zip bug report", e);
-            throw new ZipException();
-        } finally {
-            if (zos != null)
-                try {
-                    zos.close();
-                } catch (IOException e) {
-                }
-        }
-        return zippedFile;
-    }
-
-    private Uri zipUri(Uri zipUri) {
-        Uri fileUri = null;
-        File zipFile = null;
-        FileInputStream is = null;
-        ZipInputStream zis = null;
-        FileOutputStream unZipped = null;
-        try {
-            zipFile = new File("/data" + zipUri.getPath());
-            is = new FileInputStream(zipFile);
-            zis = new ZipInputStream(new BufferedInputStream(is));
-            ZipEntry ze = zis.getNextEntry();
-            byte[] buffer = new byte[1024];
-            String filename = ze.getName();
-            String fullFileName = getCacheDir() + "/" + filename;
-            unZipped = new FileOutputStream(fullFileName);
-            int count = 0;
-            while ((count = zis.read(buffer)) != -1) {
-                unZipped.write(buffer, 0, count);
-            }
-            zis.closeEntry();
-            fileUri = Uri.parse(fullFileName);
-        } catch (Exception e) {
-            Log.e(TAG, " failed to unzip ", e);
-        } finally {
-            try {
-                if (zis != null) {
-                    zis.close();
-                }
-                if (unZipped != null) {
-                    unZipped.close();
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "can't even close things right", e);
-            }
-        }
-        return fileUri;
+    private static class ProcessedInfo {
+        JSONObject inputJson;
+        File zippedFile;
     }
 }

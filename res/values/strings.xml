@@ -33,11 +33,15 @@
     <string name="error_no_text">This field must not be empty</string>
 
     <string name="error_upload_failed">Upload failed: <xliff:g id="reason">%1$s</xliff:g></string>
+
     <string name="error_problem_creating">Problem creating the issue</string>
-    <string name="error_connection_problem">Problem connecting to the server</string>
+    <string name="error_connection_problem">Problem connecting to the server. Tap to retry.</string>
+    <string name="action_retry">Retry upload</string>
+    <string name="action_delete">Cancel upload</string>
     <string name="error_bad_response">Bad response from server</string>
     <string name="error_file_fail">The file failed to upload</string>
     <string name="error_zip_fail">The file failed to compress</string>
+
     <string name="submit_crash_report">Preview Crash Report</string>
     <string name="submit">Submit</string>
     <string name="title_subject">Submission subject</string>
