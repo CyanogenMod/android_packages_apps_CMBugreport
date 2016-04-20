@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM Xəta Hesabatı</string>
+  <!-- Main application -->
   <string name="summary">Bu hesabat üçün bir xülasə daxil edin</string>
   <string name="description">Nə edirdiniz, işlək tətbiqetmələr və s. kimi açıqlama daxil edin.</string>
   <string name="screenshot">Çəkilən ekran şəkli xəta hesabatına əlavə olunsun?</string>
   <string name="action_submit">Göndər</string>
+  <!-- Notification messages -->
   <string name="notif_title">Xəta hesabatı</string>
   <string name="notif_processing">Xəta hesabatı işlənilir\u2026</string>
   <string name="notif_uploading">Məsələ hazırlanıb hesabatı göndərilir\u2026</string>
   <string name="notif_thanks">Qeydiniz üçün təşəkkür edirik</string>
+  <!-- Error messages -->
   <string name="error_no_text">Bu sahə boş olmamalıdır</string>
   <string name="error_upload_failed">Göndərilə bilmədi: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Məsələnin hazırlanması problemi</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Təqdimat məzmunu</string>
   <string name="already_submitted">Bu xəta hesabatı artıq təqdim olunub, təşəkkür edirik!</string>
   <string name="network_unavailable">Şəbəkə bağlantısı yoxdur</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Çökmə hesabatı lövhəyə kopyalandı.</string>
   <string name="crash_clipboard_toast_message_failure">Çökmə hesabatı lövhəyə kopyalanmadı.</string>
   <string name="crash_clipboard_label">Çökmə Hesabatı</string>

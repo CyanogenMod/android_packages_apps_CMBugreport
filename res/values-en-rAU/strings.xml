@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM Bug Report</string>
+  <!-- Main application -->
   <string name="summary">Enter a summary for this report</string>
   <string name="description">Enter a description, what you were doing, apps running, etc.</string>
   <string name="screenshot">Attach screenshot captured with bugreport?</string>
   <string name="action_submit">Submit</string>
+  <!-- Notification messages -->
   <string name="notif_title">Bug report</string>
   <string name="notif_processing">Processing bug report\u2026</string>
   <string name="notif_uploading">Creating issue and uploading report\u2026</string>
   <string name="notif_thanks">Thank you for your submission</string>
+  <!-- Error messages -->
   <string name="error_no_text">This field must not be empty</string>
   <string name="error_upload_failed">Upload failed: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem creating the issue</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Submission content</string>
   <string name="already_submitted">This bug report has already been submitted, thank you!</string>
   <string name="network_unavailable">No network connection available</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Crash report copied to clipboard.</string>
   <string name="crash_clipboard_toast_message_failure">Failed to copy the crash report to clipboard.</string>
   <string name="crash_clipboard_label">Crash Report</string>

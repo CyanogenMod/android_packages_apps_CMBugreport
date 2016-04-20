@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">รายงานข้อผิดพลาด CM</string>
+  <!-- Main application -->
   <string name="summary">ป้อนข้อมูลสรุปสำหรับรายงานนี้</string>
   <string name="description">ป้อนคำอธิบาย สิ่งที่กำลังทำ แอปที่ใช้งาน ฯลฯ</string>
   <string name="screenshot">ต้องการแนบภาพหน้าจอที่จับได้กับรายงานข้อผิดพลาดหรือไม่</string>
   <string name="action_submit">ส่ง</string>
+  <!-- Notification messages -->
   <string name="notif_title">รายงานข้อผิดพลาด</string>
   <string name="notif_processing">กำลังประมวลผลรายงานข้อผิดพลาด\u2026</string>
   <string name="notif_uploading">กำลังสร้างประเด็นและอัปโหลดรายงาน\u2026</string>
   <string name="notif_thanks">ขอบคุณสำหรับการส่งของคุณ</string>
+  <!-- Error messages -->
   <string name="error_no_text">ช่องนี้ต้องไม่ว่างเปล่า</string>
   <string name="error_upload_failed">อัปโหลดล้มเหลว: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">ปัญหาในการสร้างประเด็น</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">เนื้อหาที่ส่ง</string>
   <string name="already_submitted">ส่งรายงานข้อผิดพลาดนี้แล้ว ขอบคุณ!</string>
   <string name="network_unavailable">การเชื่อมต่อเครือข่ายไม่พร้อมใช้</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">คัดลอกรายงานความผิดพลาดไปยังคลิปบอร์ดแล้ว</string>
   <string name="crash_clipboard_toast_message_failure">ไม่สามารถคัดลอกรายงานความผิดพลาดไปยังคลิปบอร์ด</string>
   <string name="crash_clipboard_label">รายงานความผิดพลาด</string>

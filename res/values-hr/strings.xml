@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM prijava greške</string>
+  <!-- Main application -->
   <string name="summary">Unesite sažetak za ovu prijavu</string>
   <string name="description">Unesite opis, što ste radili, pokrenute aplikacije, itd.</string>
   <string name="screenshot">Želite li prijavi greške priložiti uhvaćenu snimku zaslona?</string>
   <string name="action_submit">Pošalji</string>
+  <!-- Notification messages -->
   <string name="notif_title">Prijava greške</string>
   <string name="notif_processing">Obrađujem prijavu greške\u2026</string>
   <string name="notif_uploading">Otvaram novi problem i prenosim prijavu\u2026</string>
   <string name="notif_thanks">Hvala vam za vaš doprinos</string>
+  <!-- Error messages -->
   <string name="error_no_text">Ovo polje ne smije biti prazno</string>
   <string name="error_upload_failed">Slanje nije uspjelo: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Greška pri otvaranju problema</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Sadržaj prijave</string>
   <string name="already_submitted">Ova greška je već prijavljena, hvala!</string>
   <string name="network_unavailable">Veza na internet nije dostupna</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Izvješće pada sustava je kopirano na međuspremnik.</string>
   <string name="crash_clipboard_toast_message_failure">Kopiranje izvješća pada sustava na međuspremnik nije uspjelo.</string>
   <string name="crash_clipboard_label">Izvješće pada sustava</string>

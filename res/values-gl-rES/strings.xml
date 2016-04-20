@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Informe de erros de CM</string>
+  <!-- Main application -->
   <string name="summary">Escribe un resumo do informe</string>
   <string name="description">Escriba unha descrición, que estaba a facer, apps en execución, etc.</string>
   <string name="screenshot">Anexar unha captura de pantalla xunta o informe?</string>
   <string name="action_submit">Enviar</string>
+  <!-- Notification messages -->
   <string name="notif_title">Informe de erros</string>
   <string name="notif_processing">Procesando o informe de erros\u2026</string>
   <string name="notif_uploading">Creando unha incidencia e subindo o informe\u2026</string>
   <string name="notif_thanks">Grazas pola túa axuda</string>
+  <!-- Error messages -->
   <string name="error_no_text">Este campo non pode estar baleiro</string>
   <string name="error_upload_failed">Produciuse un erro ao subir: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Produciuse un problema ao crear a incidencia</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Contido do envío</string>
   <string name="already_submitted">Xa se enviou este informe de erros, grazas!</string>
   <string name="network_unavailable">Non hai ningunha conexión de rede dispoñíbel</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">O informe de falla copiouse no portapapeis.</string>
   <string name="crash_clipboard_toast_message_failure">Produciuse un erro ao copiar o informe de falla no portapapeis.</string>
   <string name="crash_clipboard_label">Informe de falla</string>

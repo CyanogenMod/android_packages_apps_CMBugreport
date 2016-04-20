@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">सीएम बग रिपोर्ट</string>
+  <!-- Main application -->
   <string name="summary">इस रिपोर्ट के लिए एक सारांश दर्ज करें</string>
   <string name="description">एक विवरण दर्ज करें, आप क्या कर रहे थे, कौन से ऐप चल रहे थे, इत्यादि।</string>
   <string name="screenshot">बग रिपोर्ट के साथ लिया गया स्क्रीनशॉट संलग्न करें?</string>
   <string name="action_submit">जमा करें</string>
+  <!-- Notification messages -->
   <string name="notif_title">बग रिपोर्ट</string>
   <string name="notif_processing">बग रिपोर्ट को संसाधित कर रहे हैं\u2026</string>
   <string name="notif_uploading">मुद्दा निर्मित कर रहे हैं और रिपोर्ट को अपलोड कर रहे हैं\u2026</string>
   <string name="notif_thanks">रिपोर्ट जमा करने के लिए धन्यवाद</string>
+  <!-- Error messages -->
   <string name="error_no_text">इस फ़ील्ड को खाली नहीं छोड़ना चाहिए</string>
   <string name="error_upload_failed">अपलोड विफल हुआ: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">मुद्द बनाते समय समस्या आई</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">रिपोर्ट की सामग्री</string>
   <string name="already_submitted">यह रिपोर्ट पहले ही जमा हो चुकी है, धन्यवाद।</string>
   <string name="network_unavailable">कोई नेटवर्क कनेक्शन उपलब्ध नहीं है</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">क्रैश रिपोर्ट को क्लिपबोर्ड में कॉपी कर दिया गया।</string>
   <string name="crash_clipboard_toast_message_failure">क्रैश रिपोर्ट को क्लिपबोर्ड में कॉपी नहीं कर सके।</string>
   <string name="crash_clipboard_label">क्रैश रिपोर्ट</string>

@@ -16,29 +16,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">דיווח תקלות CM</string>
+  <string name="app_name">דיווח באגים מסוג CM</string>
+  <!-- Main application -->
   <string name="summary">הזן תקציר לדיווח זה</string>
   <string name="description">הזן תיאור, מה עשית, יישומים רצים וכדומה.</string>
-  <string name="screenshot">האם לצרף צילום מסך עם דיווח התקלות?</string>
+  <string name="screenshot">האם לצרף צילום מסך עם דיווח הבאגים?</string>
   <string name="action_submit">שלח</string>
-  <string name="notif_title">דיווח תקלה</string>
-  <string name="notif_processing">מעבד דיווח תקלה\u2026</string>
+  <!-- Notification messages -->
+  <string name="notif_title">דיווח באגים</string>
+  <string name="notif_processing">מעבד דיווח באגים\u2026</string>
   <string name="notif_uploading">יוצר נושא ושולח דיווח\u2026</string>
   <string name="notif_thanks">תודה על הדיווח</string>
-  <string name="error_no_text">השדה לא יכול להיות ריק</string>
+  <!-- Error messages -->
+  <string name="error_no_text">השדה אינו יכול להיות ריק</string>
   <string name="error_upload_failed">העלאה נכשלה: <xliff:g id="reason">%1$s</xliff:g></string>
-  <string name="error_problem_creating">בעיה ביצירת הנושא</string>
+  <string name="error_problem_creating">בעיה ביצירת הבעיה</string>
   <string name="error_connection_problem">בעיה בהתחברות לשרת</string>
   <string name="error_bad_response">תגובה שגויה מהשרת</string>
   <string name="error_file_fail">העלאת הקובץ נכשלה</string>
   <string name="error_zip_fail">דחיסת הקובץ נכשלה</string>
-  <string name="submit_crash_report">תצוגה מקדימה לדוח קריסה</string>
+  <string name="submit_crash_report">תצוגה מקדימה לדווח קריסה</string>
   <string name="submit">שלח</string>
-  <string name="title_subject">נושא השליחה</string>
-  <string name="title_crash_log">תוכן השליחה</string>
-  <string name="already_submitted">דוח זה כבר נשלח, תודה!</string>
+  <string name="title_subject">נושא הדיווח</string>
+  <string name="title_crash_log">תוכן הדיווח</string>
+  <string name="already_submitted">דיווח באגים זה כבר נשלח, תודה!</string>
   <string name="network_unavailable">אין חיבור רשת זמין</string>
-  <string name="crash_clipboard_toast_message_success">דו\"ח הקריסה הועתק ללוח.</string>
+  <!-- Hidden copy paste feature -->
+  <string name="crash_clipboard_toast_message_success">דיווח הקריסה הועתק ללוח.</string>
   <string name="crash_clipboard_toast_message_failure">נכשלה העתקת דו\"ח הקריסה ללוח.</string>
   <string name="crash_clipboard_label">דו\"ח קריסה</string>
 </resources>

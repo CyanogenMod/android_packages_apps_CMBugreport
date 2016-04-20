@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Паведамленні пра памылкі CyanogenMod</string>
+  <!-- Main application -->
   <string name="summary">Увядзіце апісанне для гэтай справаздачы</string>
   <string name="description">Апішыце, пасля якога дзеяння паўстала памылка, якія працавалі дадаткі і да г. д. - пажадана па-ангельску.</string>
   <string name="screenshot">Прымацаваць скрыншот, зняты падчас стварэння справаздачы?</string>
   <string name="action_submit">Даслаць</string>
+  <!-- Notification messages -->
   <string name="notif_title">Справаздача пра памылкі</string>
   <string name="notif_processing">Апрацоўка справаздачы пра памылку\u2026</string>
   <string name="notif_uploading">Стварэнне інцыдэнту і адпраўка справаздачы\u2026</string>
   <string name="notif_thanks">Дзякуй, вы нам вельмі дапамаглі</string>
+  <!-- Error messages -->
   <string name="error_no_text">Гэты радок павінен быць запоўнены</string>
   <string name="error_upload_failed">Адпраўка не атрымалася: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Збой пры стварэнні інцыдэнту</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Змесціва справаздачы</string>
   <string name="already_submitted">Гэта памылка ўжо ёсць у нашай базе дадзеных, дзякуй за ўдзел!</string>
   <string name="network_unavailable">Няма інтэрнэт-падлучэння</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Справаздача пра памылку скапіяваная ў буфер памену.</string>
   <string name="crash_clipboard_toast_message_failure">Не атрымалася скапіяваць справаздачу пра памылку ў буфер.</string>
   <string name="crash_clipboard_label">Справаздача пра памылку</string>

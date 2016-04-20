@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Rapporto bug CM</string>
+  <!-- Main application -->
   <string name="summary">Inserisci un riassunto per questo rapporto</string>
   <string name="description">Immetti una descrizione, cosa stavi facendo, app in esecuzione, ecc.</string>
   <string name="screenshot">Allegare uno screenshot alla segnalazione bug?</string>
   <string name="action_submit">Invia</string>
+  <!-- Notification messages -->
   <string name="notif_title">Rapporto bug</string>
   <string name="notif_processing">Elaborazione rapporto bug\u2026</string>
   <string name="notif_uploading">Preparazione e invio del rapporto\u2026</string>
   <string name="notif_thanks">Grazie per la segnalazione</string>
+  <!-- Error messages -->
   <string name="error_no_text">Questo campo non può essere vuoto</string>
   <string name="error_upload_failed">Caricamento non riuscito: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problema nella creazione della segnalazione</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Contenuto segnalazione</string>
   <string name="already_submitted">Questo rapporto del bug è già stato inviato, grazie!</string>
   <string name="network_unavailable">Nessuna connessione di rete disponibile</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Segnalazione bug copiata negli appunti.</string>
   <string name="crash_clipboard_toast_message_failure">Impossibile copiare negli appunti la segnalazione crash.</string>
   <string name="crash_clipboard_label">Segnalazione crash</string>
