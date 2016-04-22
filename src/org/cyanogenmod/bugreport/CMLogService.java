@@ -16,6 +16,8 @@
 
 package org.cyanogenmod.bugreport;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -29,6 +31,8 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.util.Log;
+import android.util.Patterns;
+
 import libcore.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -157,8 +161,13 @@ public class CMLogService extends IntentService {
 
         // first scrub
         try {
-            scrubbedFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX + bugreportFile.getName());
-            ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedFile);
+            if (getResources().getBoolean(R.bool.config_bypass_scrub)) {
+                scrubbedFile = bugreportFile;
+            } else {
+                scrubbedFile = getFileStreamPath(SCRUBBED_BUG_REPORT_PREFIX
+                        + bugreportFile.getName());
+                ScrubberUtils.scrubFile(CMLogService.this, bugreportFile, scrubbedFile);
+            }
 
             // zip it back up, maybe with a screenshot
             if (sshotUri != null) {
@@ -224,6 +233,18 @@ public class CMLogService extends IntentService {
             } else {
                 labels.put("user");
             }
+            if (getResources().getBoolean(R.bool.config_bypass_scrub)) {
+                Account[] accounts = AccountManager.get(this).getAccounts();
+                Pattern emailPattern = Patterns.EMAIL_ADDRESS;
+                for (Account account : accounts) {
+                    if (emailPattern.matcher(account.name).matches()) {
+                        String possibleEmail = account.name;
+                        labels.put(possibleEmail);
+                        break;
+                    }
+                }
+            }
+
             if (!isCMKernel) {
                 labels.put("non-CM-kernel");
             }
