@@ -7,4 +7,5 @@
     <string name="config_api_url_upload"></string>
     <string name="config_kernel_field"></string>
     <string name="config_buildid_field"></string>
+    <bool name="config_bypass_scrub">false</bool>
 </resources>
