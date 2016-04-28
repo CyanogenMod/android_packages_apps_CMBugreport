@@ -31,7 +31,6 @@
   <string name="error_no_text">এই ফিল্ড খালি থাকিব নোৱাৰে।</string>
   <string name="error_upload_failed">আপলড ব্যৰ্থ হৈছে: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">বিষয়টো সৃষ্টি কৰোতে সমস্যা হৈছে</string>
-  <string name="error_connection_problem">ছাৰ্ভাৰলৈ সংযোগ কৰোতে সমস্যা হৈছে</string>
   <string name="error_bad_response">ছাৰ্ভাৰৰ পৰা বেয়া সঁহাৰি</string>
   <string name="error_file_fail">ফাইলটো আপলোড কৰিবলৈ ব্যৰ্থ হৈছে</string>
   <string name="error_zip_fail">ফাইলটো সংকোচন কৰিবলৈ ব্যৰ্থ হৈছে</string>

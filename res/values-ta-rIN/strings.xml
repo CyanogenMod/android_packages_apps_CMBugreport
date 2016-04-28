@@ -31,7 +31,6 @@
   <string name="error_no_text">இந்த களம் வெறுமையாக இருக்கக் கூடாது.</string>
   <string name="error_upload_failed">பதிவேற்றல் தோல்வியுற்றது: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">பிரச்சனையை உருவாக்குவதில் சிக்கல்</string>
-  <string name="error_connection_problem">சேவையகத்துடன் இணைவதில் சிக்கல்</string>
   <string name="error_bad_response">சேவையகத்திடம் இருந்து மோசமான பதில்</string>
   <string name="error_file_fail">கோப்பு பதிவேற்றப்படுவது தோல்வியுற்றது</string>
   <string name="error_zip_fail">கோப்பு சுருங்குதல் தோல்வியுற்றது</string>

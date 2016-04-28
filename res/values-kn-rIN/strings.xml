@@ -31,7 +31,6 @@
   <string name="error_no_text">ಈ ಜಾಗ ಖಾಲಿ ಇರಕೂಡದು</string>
   <string name="error_upload_failed">ಅಪ್‍ಲೋಡ್ ವಿಫಲಗೊಂಡಿದೆ: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">ಸಮಸ್ಯೆ ರಚಿಸಲು ತೊಂದರೆಯಾಗುತ್ತಿದೆ</string>
-  <string name="error_connection_problem">ಸರ್ವರ್‍ಗೆ ಸಂಪರ್ಕಿಸಲು ತೊಂದರೆಯಾಗುತ್ತಿದೆ</string>
   <string name="error_bad_response">ಸರ್ವರ್‍ನಿಂದ ಕೆಟ್ಟ ಪ್ರತಿಕ್ರಿಯೆ</string>
   <string name="error_file_fail">ಕಡತ ಅಪ್‍ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="error_zip_fail">ಕಡತ ಕಂಪ್ರೆಸ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>

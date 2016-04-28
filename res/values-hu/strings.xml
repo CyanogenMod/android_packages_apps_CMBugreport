@@ -31,7 +31,6 @@
   <string name="error_no_text">Ez a mező nem lehet üres</string>
   <string name="error_upload_failed">Sikertelen feltöltés: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probléma létrehozása hibába ütközött</string>
-  <string name="error_connection_problem">Hiba a kiszolgálóhoz való csatlakozáskor</string>
   <string name="error_bad_response">Rossz válasz a kiszolgálótól</string>
   <string name="error_file_fail">A fájlt nem sikerült feltölteni</string>
   <string name="error_zip_fail">A fájlt nem sikerült tömöríteni</string>

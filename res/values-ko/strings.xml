@@ -31,7 +31,6 @@
   <string name="error_no_text">이 칸은 비워둘 수 없습니다</string>
   <string name="error_upload_failed">업로드 실패: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">이슈를 만들지 못함</string>
-  <string name="error_connection_problem">서버에 연결할 수 없음</string>
   <string name="error_bad_response">서버에서 잘못된 응답 수신</string>
   <string name="error_file_fail">파일을 업로드하지 못함</string>
   <string name="error_zip_fail">파일을 압축하지 못함</string>

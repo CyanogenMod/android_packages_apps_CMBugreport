@@ -31,7 +31,6 @@
   <string name="error_no_text">Acest câmp trebuie să nu fie gol</string>
   <string name="error_upload_failed">Încărcare nereușită: <xliff:g id="reason"> %1$s </xliff:g></string>
   <string name="error_problem_creating">Problema întampinată la crearea raportul</string>
-  <string name="error_connection_problem">Problemă la conectarea la server</string>
   <string name="error_bad_response">Răspuns greșit de la server</string>
   <string name="error_file_fail">Fișierul nu a reușit să fie transmis</string>
   <string name="error_zip_fail">Fișierul nu a reușit să fie comprimat</string>

@@ -31,7 +31,6 @@
   <string name="error_no_text">Trường này không được để trống</string>
   <string name="error_upload_failed">Tải lên thất bại: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">Có lỗi khi xuất bản</string>
-  <string name="error_connection_problem">Vấn đề kết nối với máy chủ</string>
   <string name="error_bad_response">Phản hồi không tốt từ máy chủ</string>
   <string name="error_file_fail">Tập tin tải lên thất bại</string>
   <string name="error_zip_fail">Tập tin nén không thành công</string>

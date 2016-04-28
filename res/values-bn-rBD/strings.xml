@@ -31,7 +31,6 @@
   <string name="error_no_text">এই ঘরটি ফাঁকা রাখা যাবে না</string>
   <string name="error_upload_failed">আপলোড বিফল হয়েছেঃ <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">ইস্যু তৈরিতে সমস্যা হয়েছে</string>
-  <string name="error_connection_problem">সার্ভারের সাথে সংযোগে সমস্যা হচ্ছে</string>
   <string name="error_bad_response">সার্ভারে সমস্যা দেখা দিয়েছে</string>
   <string name="error_file_fail">ফাইল আপলোড হতে ব্যর্থ হয়েছে</string>
   <string name="error_zip_fail">ফাইল সংকুচিত হতে ব্যর্থ হয়েছে</string>

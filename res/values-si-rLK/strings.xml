@@ -31,7 +31,6 @@
   <string name="error_no_text">මෙම ක්ෂේත්‍රය හිස් නොවිය යුතුය</string>
   <string name="error_upload_failed">උඩුගතකිරීම අසමත්විය: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">වාද විෂය සෑදීමේදී ගැටළුවක්</string>
-  <string name="error_connection_problem">සේවාදායකයට සම්බන්ධ වීමේදී ගැටළුවක්</string>
   <string name="error_bad_response">සේවාදායකයෙන් අයහපත් ප්‍රතිචාරයක්</string>
   <string name="error_file_fail">ගොනුව උඩුගතකිරීමට අසමත්විය</string>
   <string name="error_zip_fail">ගොනුව සම්පීඩනයට අසමත්විය</string>

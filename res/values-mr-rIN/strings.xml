@@ -31,7 +31,6 @@
   <string name="error_no_text">हे क्षेत्र रिक्त नसावे</string>
   <string name="error_upload_failed">अपलोड करणे अपयशी झाले: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">इश्यू तयार करण्यात समस्या</string>
-  <string name="error_connection_problem">सर्व्हरसह कनेक्ट करण्यात समस्या</string>
   <string name="error_bad_response">सर्व्हरकडून वाईट प्रतिसाद</string>
   <string name="error_file_fail">फाइल अपलोड करण्यात अपयशी झाले</string>
   <string name="error_zip_fail">फाइल कॉम्प्रेस करण्यात अपयशी झाले</string>
