@@ -37,10 +37,10 @@
   <string name="error_bad_response">Неправилен отговор от сървара</string>
   <string name="error_file_fail">Възникна грешка при качването на файла</string>
   <string name="error_zip_fail">Възникна грешка при компресирането на файла</string>
-  <string name="submit_crash_report">Визуализирай доклада за срив</string>
+  <string name="submit_crash_report">Доклад за срив</string>
   <string name="submit">Изпрати</string>
-  <string name="title_subject">Задаване на тема</string>
-  <string name="title_crash_log">Подаване на съдържание</string>
+  <string name="title_subject">Тема</string>
+  <string name="title_crash_log">Съдържание</string>
   <string name="already_submitted">Тази грешка вече е била представена, Благодарим Ви!</string>
   <string name="network_unavailable">Няма достъпна мрежа</string>
   <!-- Hidden copy paste feature -->
