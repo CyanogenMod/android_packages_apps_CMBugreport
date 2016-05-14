@@ -31,7 +31,6 @@
   <string name="error_no_text">Bu sahə boş olmamalıdır</string>
   <string name="error_upload_failed">Göndərilə bilmədi: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Məsələnin hazırlanması problemi</string>
-  <string name="error_connection_problem">Serverə bağlanma problemi</string>
   <string name="error_bad_response">Serverdən pis cavab</string>
   <string name="error_file_fail">Fayl yüklənmə xətası</string>
   <string name="error_zip_fail">Fayl sıxışdırılma xətası</string>

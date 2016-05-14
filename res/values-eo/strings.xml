@@ -31,7 +31,6 @@
   <string name="error_no_text">Tiu kampo ne estu malplena</string>
   <string name="error_upload_failed">Sendado fiaskis: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problemo dum kreado de la raporto</string>
-  <string name="error_connection_problem">Problemo dum la konekto al la servilo</string>
   <string name="error_bad_response">Maltaŭga respondo de la servilo</string>
   <string name="error_file_fail">Alŝuto de dosiero fiaskis</string>
   <string name="error_zip_fail">Densigado de dosiero fiaskis</string>

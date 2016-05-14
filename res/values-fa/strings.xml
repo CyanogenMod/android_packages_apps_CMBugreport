@@ -31,7 +31,6 @@
   <string name="error_no_text">این قسمت نباید خالی باشد</string>
   <string name="error_upload_failed">آپلود نشد: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">اشکال در ایجاد موضوع</string>
-  <string name="error_connection_problem">اشکال در اتصال به سرور</string>
   <string name="error_bad_response">پاسخ بد از سرور</string>
   <string name="error_file_fail">آپلود فایل ناموفق بود</string>
   <string name="error_zip_fail">فشرده سازی فایل ناموفق بود</string>

@@ -31,7 +31,6 @@
   <string name="error_no_text">Поле не може бути пустим</string>
   <string name="error_upload_failed">Завантаження не вдалось: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Виникла проблема при створенні питання</string>
-  <string name="error_connection_problem">Виникла проблема при підключенні до сервера</string>
   <string name="error_bad_response">Неправильна відповідь від сервера</string>
   <string name="error_file_fail">Не вдалося завантажити файл</string>
   <string name="error_zip_fail">Не вдалося стиснути файл</string>

@@ -24,25 +24,27 @@
   <string name="action_submit">Изпрати</string>
   <!-- Notification messages -->
   <string name="notif_title">Доклад за грешка</string>
-  <string name="notif_processing">Обработка на доклада\u2026</string>
+  <string name="notif_processing">Доклада се обработва\u2026</string>
   <string name="notif_uploading">Създаване на издание и качване на доклада\u2026</string>
   <string name="notif_thanks">Благодарим Ви за доклада</string>
   <!-- Error messages -->
   <string name="error_no_text">Това поле не трябва да бъде празно</string>
   <string name="error_upload_failed">Неуспешно качване: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">Възникна проблем при създаването на доклада</string>
-  <string name="error_connection_problem">Проблем при свързването със сървъра</string>
+  <string name="error_connection_problem">Проблем при свързването към сървъра. Натиснете, за да опитате отново.</string>
+  <string name="action_retry">Опитай отново да качиш</string>
+  <string name="action_delete">Отмяна на качването</string>
   <string name="error_bad_response">Неправилен отговор от сървара</string>
   <string name="error_file_fail">Възникна грешка при качването на файла</string>
   <string name="error_zip_fail">Възникна грешка при компресирането на файла</string>
-  <string name="submit_crash_report">Визуализирай доклада за срив</string>
+  <string name="submit_crash_report">Доклад за срив</string>
   <string name="submit">Изпрати</string>
-  <string name="title_subject">Задаване на тема</string>
-  <string name="title_crash_log">Подаване на съдържание</string>
+  <string name="title_subject">Тема</string>
+  <string name="title_crash_log">Съдържание</string>
   <string name="already_submitted">Тази грешка вече е била представена, Благодарим Ви!</string>
   <string name="network_unavailable">Няма достъпна мрежа</string>
   <!-- Hidden copy paste feature -->
-  <string name="crash_clipboard_toast_message_success">Доклада за срива, копиран на клипборда.</string>
-  <string name="crash_clipboard_toast_message_failure">Неуспешно копиране на доклада за срива на клипборда.</string>
+  <string name="crash_clipboard_toast_message_success">Доклада за срив е копиран в клипборда.</string>
+  <string name="crash_clipboard_toast_message_failure">Неуспешно копиране на доклада за срив в клипборда.</string>
   <string name="crash_clipboard_label">Доклад за срив</string>
 </resources>

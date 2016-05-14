@@ -31,7 +31,6 @@
   <string name="error_no_text">इस फ़ील्ड को खाली नहीं छोड़ना चाहिए</string>
   <string name="error_upload_failed">अपलोड विफल हुआ: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">मुद्द बनाते समय समस्या आई</string>
-  <string name="error_connection_problem">सर्वर के साथ जुड़ने में दिक्कत आई</string>
   <string name="error_bad_response">सर्वर से खराब प्रतिक्रिया मिली</string>
   <string name="error_file_fail">फ़ाइल अपलोड नहीं हुई</string>
   <string name="error_zip_fail">फ़ाइल संपीडित नहीं हुई</string>

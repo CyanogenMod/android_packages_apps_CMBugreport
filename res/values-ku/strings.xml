@@ -31,7 +31,6 @@
   <string name="error_no_text">ناکرێ ئه‌م خانه‌یه‌ به‌تاڵ بێت</string>
   <string name="error_upload_failed">ناردن سه‌رکه‌وتوو نه‌بوو: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">کێشه‌ له‌ کاتی ڕاپۆرتکردن</string>
-  <string name="error_connection_problem">کێشه‌ له‌ کاتی په‌یوه‌ندی کردن به‌ ڕاژه‌وه‌</string>
   <string name="error_bad_response">ڕاژه‌که‌ هه‌ڵه‌ی هه‌یه‌</string>
   <string name="error_file_fail">ئه‌م په‌ڕگه‌یه‌ سه‌رکه‌وتوو نه‌بوو بۆ ناردن</string>
   <string name="error_zip_fail">ئه‌م په‌ڕگه‌یه‌ هه‌ڵه‌ی هه‌یه‌ بۆ که‌پسکردن</string>

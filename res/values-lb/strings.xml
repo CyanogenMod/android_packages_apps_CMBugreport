@@ -31,7 +31,6 @@
   <string name="error_no_text">Dëst Feld dierf net eidel sinn</string>
   <string name="error_upload_failed">Eropluede feelgeschloen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Melle vun der Ugeleeënheet</string>
-  <string name="error_connection_problem">Problem beim Verbanne mam Server</string>
   <string name="error_bad_response">Schlecht Äntwert vum Server</string>
   <string name="error_file_fail">De Fichier konnt net eropgelude ginn</string>
   <string name="error_zip_fail">De Fichier konnt net kompriméiert ginn</string>

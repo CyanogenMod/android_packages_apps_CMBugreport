@@ -31,7 +31,6 @@
   <string name="error_no_text">ఈ క్షేత్రం ఖాళీగా ఉండకూడదు</string>
   <string name="error_upload_failed">అప్లోడ్ విఫలమయింది: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">సమస్యను సృష్టిస్తున్న సమస్య</string>
-  <string name="error_connection_problem">సర్వరుకు అనుసంధానం కావడంలో సమస్య</string>
   <string name="error_bad_response">సర్వరు నుండి చెల్లని ప్రతిస్పందన</string>
   <string name="error_file_fail">ఫైల్ అప్లోడ్ కావడం విఫలమయింది</string>
   <string name="error_zip_fail">ఫైల్ కుదించబడడం విఫలమయింది</string>

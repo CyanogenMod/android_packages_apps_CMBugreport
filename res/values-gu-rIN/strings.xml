@@ -31,7 +31,6 @@
   <string name="error_no_text">આ ફિલ્ડ ખાલી ન હોઇ શકે</string>
   <string name="error_upload_failed">અપલોડ નિષ્ફળ થયું: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">ઇશ્યૂ સર્જનમાં સમસ્યા</string>
-  <string name="error_connection_problem">સર્વર સાથે જોડાવામાં સમસ્યા</string>
   <string name="error_bad_response">સર્વર તરફથી ખરાબ પ્રતિભાવ</string>
   <string name="error_file_fail">ફાઇલ અપલોડ થવામાં નિષ્ફળતા</string>
   <string name="error_zip_fail">ફાઇલ કોમ્પ્રેસ થવામાં નિષ્ફળતા</string>
