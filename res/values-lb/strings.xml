@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM-Feelerbericht</string>
+  <!-- Main application -->
   <string name="summary">Gëff eng Kuerzfaassung fir dëse Bericht an</string>
   <string name="description">Gëff eng Beschreiwung an, wat s du grad gemaach hues, wéieng Appe gelaf sinn, etc.</string>
   <string name="screenshot">Soll d\'Schiermfoto déi mam Feelerbericht gemaach ginn ass ugehaange ginn?</string>
   <string name="action_submit">Schécken</string>
+  <!-- Notification messages -->
   <string name="notif_title">Feelerbericht</string>
   <string name="notif_processing">Feelerbericht gëtt verschafft\u2026</string>
   <string name="notif_uploading">Ugeleeënheet gëtt ugeluecht an de Feelerbericht gëtt eropgelueden\u2026</string>
   <string name="notif_thanks">Merci fir d\'Eraschécken</string>
+  <!-- Error messages -->
   <string name="error_no_text">Dëst Feld dierf net eidel sinn</string>
   <string name="error_upload_failed">Eropluede feelgeschloen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Melle vun der Ugeleeënheet</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Inhalt vun der Areechung</string>
   <string name="already_submitted">Dëse Feelerbericht gouf schon erageschéckt, merci!</string>
   <string name="network_unavailable">Keng Netzwierkverbindung verfügbar</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Feelerbericht an d\'Tëschenoflag kopéiert.</string>
   <string name="crash_clipboard_toast_message_failure">De Feelerbericht konnt net an d\'Tëschenoflag kopéiert ginn.</string>
   <string name="crash_clipboard_label">Feelerbericht</string>

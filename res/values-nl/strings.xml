@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod-foutenrapport</string>
+  <!-- Main application -->
   <string name="summary">Samenvatting van dit foutenrapport</string>
   <string name="description">Geef een omschrijving, wat u deed, apps die werden uitgevoerd, enz.</string>
   <string name="screenshot">Screenshot gemaakt door foutenrapport meesturen?</string>
   <string name="action_submit">Verzenden</string>
+  <!-- Notification messages -->
   <string name="notif_title">Foutenrapport</string>
   <string name="notif_processing">Foutenrapport verwerken\u2026</string>
   <string name="notif_uploading">Rapport maken en uploaden\u2026</string>
   <string name="notif_thanks">Bedankt voor uw inzending</string>
+  <!-- Error messages -->
   <string name="error_no_text">Dit veld mag niet leeg zijn</string>
   <string name="error_upload_failed">Upload mislukt: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Fout bij creëren van rapport</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Inhoud</string>
   <string name="already_submitted">Deze fout is al eerder ingediend, bedankt!</string>
   <string name="network_unavailable">Geen netwerkverbinding beschikbaar</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Foutenrapport naar klembord gekopieerd.</string>
   <string name="crash_clipboard_toast_message_failure">Foutenrapport naar klembord kopiëren mislukt.</string>
   <string name="crash_clipboard_label">Foutenrapport</string>

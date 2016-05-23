@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">تقرير عن أخطاء CM</string>
+  <!-- Main application -->
   <string name="summary">أدخل موجز لهذا التقرير</string>
   <string name="description">أدخل وصفاً، ماذا كنت تفعل، تطبيقات قيد التشغيل، إلخ.</string>
   <string name="screenshot">إرفاق لقطة شاشة تم التقاطها مع تقرير عن الأخطاء؟</string>
   <string name="action_submit">إرسال</string>
+  <!-- Notification messages -->
   <string name="notif_title">تقرير عن الأخطاء</string>
   <string name="notif_processing">معالجة تقارير عن الأخطاء\u2026</string>
   <string name="notif_uploading">إنشاء محتوى المشكلة وتحميل التقرير\u2026</string>
   <string name="notif_thanks">شكرا على إرسالك</string>
+  <!-- Error messages -->
   <string name="error_no_text">يجب أن لا يكون هذا الحقل فارغاً</string>
   <string name="error_upload_failed">فشل التحميل: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">مشكلة عند إنشاء الموضوع</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">المحتوى المقدم</string>
   <string name="already_submitted">تم ارسال تقرير عن الأخطاء بالفعل، شكراً!</string>
   <string name="network_unavailable">لا يتوافر اتصال بالشبكة</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">تم نسخ تقرير التعطل إلى الحافظة.</string>
   <string name="crash_clipboard_toast_message_failure">فشل نسخ تقرير التعطل إلى الحافظة.</string>
   <string name="crash_clipboard_label">تقرير عن التعطل</string>

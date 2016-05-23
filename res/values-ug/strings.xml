@@ -17,18 +17,21 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM خاتالىق دوكلاتى</string>
+  <!-- Main application -->
   <string name="summary">بۇ دوكلاتنىڭ قىسقىچە مەزمۇنىنى كىرگۈزۈڭ</string>
   <string name="description">چۈشەندۈرۈشنى كىرگۈزۈڭ، سىز قايسى مەشغۇلاتنى قىلىۋاتقان، قايسى ئەپنى ئىجرا قىلىۋاتقان قاتارلىق.</string>
   <string name="screenshot">خاتالىق دوكلاتىغا ئېكران كەسمە سۈرەتنى قوشۇمچە قىلامدۇ؟</string>
   <string name="action_submit">تاپشۇر</string>
+  <!-- Notification messages -->
   <string name="notif_title">خاتالىق دوكلاتى</string>
   <string name="notif_processing">خاتالىق دوكلاتىنى بىر تەرەپ قىلىۋاتىدۇ\u2026</string>
   <string name="notif_uploading">مەسىلە ۋە يۈكلەيدىغان دوكلاتنى قۇرۇۋاتىدۇ\u2026</string>
   <string name="notif_thanks">تاپشۇرغىنىڭىزغا رەھمەت</string>
+  <!-- Error messages -->
   <string name="error_no_text">بۇ سۆز بۆلىكى بوش قالمايدۇ</string>
   <string name="error_upload_failed">يۈكلىيەلمىدى: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">مەسىلە دوكلاتىنى قۇرۇۋاتقاندا خاتالىق كۆرۈلدى</string>
-  <string name="error_connection_problem">مۇلازىمېتىرغا باغلىنىۋاتقاندا كاشىلا كۆرۈلدى</string>
+  <string name="error_connection_problem">مۇلازىمېتىرغا ئۇلىنىۋاتقاندا كاشىلا كۆرۈلدى</string>
   <string name="error_bad_response">مۇلازىمېتىر خاتا ئىنكاس قايتۇردى</string>
   <string name="error_file_fail">ھۆججەتنى يۈكلىيەلمىدى</string>
   <string name="error_zip_fail">ھۆججەتنى پىرىسلىيالمىدى</string>
@@ -37,7 +40,8 @@
   <string name="title_subject">تاپشۇرۇش باش تېمىسى</string>
   <string name="title_crash_log">تاپشۇرۇش مەزمۇنى</string>
   <string name="already_submitted">بۇ خاتالىق دوكلاتى تاپشۇرۇلغان، رەھمەت سىزگە!</string>
-  <string name="network_unavailable">ئىشلەتكىلى بولىدىغان تور باغلىنىشى يوق</string>
+  <string name="network_unavailable">ئىشلەتكىلى بولىدىغان تور ئۇلىنىشى يوق</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">يىمىرىلىش دوكلاتى چاپلاش تاختىسىغا كۆچۈرۈلدى.</string>
   <string name="crash_clipboard_toast_message_failure">يىمىرىلىش دوكلاتىنى چاپلاش تاختىسىغا كۆچۈرەلمىدى.</string>
   <string name="crash_clipboard_label">يىمىرىلىش دوكلاتى</string>

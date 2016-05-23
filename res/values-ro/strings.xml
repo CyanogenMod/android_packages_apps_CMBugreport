@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Raport de eroare CM</string>
+  <!-- Main application -->
   <string name="summary">Introdu un rezumat pentru acest raport</string>
   <string name="description">Introdu o descriere, ceea ce faceai, aplicații care rulau, etc.</string>
   <string name="screenshot">Atașați captura de ecran la raportul de eroare?</string>
   <string name="action_submit">Trimite</string>
+  <!-- Notification messages -->
   <string name="notif_title">Raport de eroare</string>
   <string name="notif_processing">Se prelucrează reportul de eroare\u2026</string>
   <string name="notif_uploading">Crearea raportului și încărcarea sa\u2026</string>
   <string name="notif_thanks">Îți mulțumim pentru raport</string>
+  <!-- Error messages -->
   <string name="error_no_text">Acest câmp trebuie să nu fie gol</string>
   <string name="error_upload_failed">Încărcare nereușită: <xliff:g id="reason"> %1$s </xliff:g></string>
   <string name="error_problem_creating">Problema întampinată la crearea raportul</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Conținutul trimiterii</string>
   <string name="already_submitted">Acest raport a fost trimis deja, vă mulțumesc!</string>
   <string name="network_unavailable">Nicio conexiune la rețea disponibilă</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Raportul de avarie copiat în clipboard.</string>
   <string name="crash_clipboard_toast_message_failure">A eșuat copierea raportului de avarie în clipboard.</string>
   <string name="crash_clipboard_label">Raportul de avarie</string>
