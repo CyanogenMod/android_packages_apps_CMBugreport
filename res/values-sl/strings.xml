@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Poročilo o hrošču CM</string>
+  <!-- Main application -->
   <string name="summary">Vnesite povzetek za to poročilo</string>
-  <string name="description">Vnesite opis, kaj ste počeli, programe v izvajanju itd.</string>
+  <string name="description">Vnesite opis, kaj ste počeli, aplikacije v izvajanju itd.</string>
   <string name="screenshot">Pripni zaslonsko sliko, ki je bila zajeta s poročilom o hrošču?</string>
   <string name="action_submit">Pošlji</string>
+  <!-- Notification messages -->
   <string name="notif_title">Poročilo o hrošču</string>
   <string name="notif_processing">Obdelovanje poročila o hrošču \u2026</string>
   <string name="notif_uploading">Ustvarjanje vprašanja ter prenašanje poročila \u2026</string>
   <string name="notif_thanks">Hvala za vaše poročilo</string>
+  <!-- Error messages -->
   <string name="error_no_text">To polje ne sme biti prazno</string>
   <string name="error_upload_failed">Prenos je spodletel: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Težava pri ustvarjenju vprašanja</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Vsebina poročila</string>
   <string name="already_submitted">To poročilo o hrošču je že bilo poslano, hvala!</string>
   <string name="network_unavailable">Nobene omrežne povezave ni na voljo</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Poročilo o sesutju kopirano na odložišče.</string>
   <string name="crash_clipboard_toast_message_failure">Kopiranje poročila o sesutju na odložišče je spodletelo.</string>
   <string name="crash_clipboard_label">Poročilo o sesutju</string>

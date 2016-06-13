@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM feilrapport</string>
+  <!-- Main application -->
   <string name="summary">Angi et sammendrag for denne rapporten</string>
   <string name="description">Angi en beskrivelse, hva du gjorde, programmer som kjører, osv.</string>
   <string name="screenshot">Knytte skjermbilde tatt med bugreport?</string>
   <string name="action_submit">Send inn</string>
+  <!-- Notification messages -->
   <string name="notif_title">Feilrapport</string>
   <string name="notif_processing">Behandler feilrapport\u2026</string>
   <string name="notif_uploading">Oppretter problemrapport og laster opp/u2026</string>
   <string name="notif_thanks">Takk for bidraget</string>
+  <!-- Error messages -->
   <string name="error_no_text">Dette feltet kan ikke være tomt</string>
   <string name="error_upload_failed">Opplastingen mislyktes: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem med å opprette feilrapport</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Sender inn innhold</string>
   <string name="already_submitted">Denne feilrapporten er allerede sendt, takk!</string>
   <string name="network_unavailable">Ingen nettverkstilkobling tilgjengelig</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Krasjrapportering kopiert til utklippstavlen.</string>
   <string name="crash_clipboard_toast_message_failure">Kan ikke kopiere feilrapporten til utklippstavlen.</string>
   <string name="crash_clipboard_label">Feilrapport</string>

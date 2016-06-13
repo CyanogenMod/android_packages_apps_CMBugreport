@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">گزارش اشکال CM</string>
+  <!-- Main application -->
   <string name="summary">یک خلاصه برای این گزارش وارد کنید</string>
   <string name="description">شرح آنچه انجام شد، برنامه‌های در حال اجرا، و غیره را وارد کنید.</string>
-  <string name="screenshot">پیوست تصویر گرفته‌شده با گزارش اشکال؟</string>
+  <string name="screenshot">تصویر گرفته شده به گزارش اشکال پیوست شود؟</string>
   <string name="action_submit">ارسال</string>
+  <!-- Notification messages -->
   <string name="notif_title">گزارش اشکال</string>
   <string name="notif_processing">پردازش گزارش اشکال\u2026</string>
   <string name="notif_uploading">ایجاد موضوع و آپلود گزارش\u2026</string>
   <string name="notif_thanks">از ارسال شما سپاس گذاریم</string>
+  <!-- Error messages -->
   <string name="error_no_text">این قسمت نباید خالی باشد</string>
   <string name="error_upload_failed">آپلود نشد: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">اشکال در ایجاد موضوع</string>
@@ -32,12 +35,13 @@
   <string name="error_bad_response">پاسخ بد از سرور</string>
   <string name="error_file_fail">آپلود فایل ناموفق بود</string>
   <string name="error_zip_fail">فشرده سازی فایل ناموفق بود</string>
-  <string name="submit_crash_report">پیش نمایش گزارش</string>
+  <string name="submit_crash_report">مشاهده گزارش خرابی</string>
   <string name="submit">ارسال</string>
   <string name="title_subject">موضوع ارسال</string>
   <string name="title_crash_log">محتوای ارسال</string>
   <string name="already_submitted">این گزارش قبلا ارسال شده است، با تشکر!</string>
   <string name="network_unavailable">هیچ اتصال شبکه‌ای در دسترس نیست</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">گزارش خرابی در کلیپ بورد کپی شد.</string>
   <string name="crash_clipboard_toast_message_failure">کپی گزارش خرابی در کلیپ بورد ناموفق بود.</string>
   <string name="crash_clipboard_label">گزارش خرابی</string>

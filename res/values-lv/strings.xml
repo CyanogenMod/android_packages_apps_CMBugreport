@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM Kļūdas ziņojums</string>
+  <!-- Main application -->
   <string name="summary">Ievadiet ziņojuma kopsavilkumu</string>
   <string name="description">Ievadiet aprakstu, ko jūs darījāt, darbojošās lietotnes u.tml.</string>
   <string name="screenshot">Pievienot kļūdu ziņojumam ekrānattēlu?</string>
   <string name="action_submit">Iesniegt</string>
+  <!-- Notification messages -->
   <string name="notif_title">Kļūdas ziņojums</string>
   <string name="notif_processing">Apstrādā kļūdas ziņojumu\u2026</string>
   <string name="notif_uploading">Sagatavo ziņojumu un augšuplādē pārskatu\u2026</string>
   <string name="notif_thanks">Paldies par jūsu ziņojumu</string>
+  <!-- Error messages -->
   <string name="error_no_text">Šis lauks nedrīkst būt tukšs</string>
   <string name="error_upload_failed">Augšuplāde neizdevās: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Sagatavojot ziņojumu, radās kļūda</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Iesnieguma saturs</string>
   <string name="already_submitted">Šis kļūdas ziņojums jau ir iesniegts. Paldies!</string>
   <string name="network_unavailable">Nav pieejams tīkla savienojums</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Kļūdas ziņojuma iekopēts starpliktuvē.</string>
   <string name="crash_clipboard_toast_message_failure">Neizdevās kopēt kļūdas ziņojumu starpliktuvē.</string>
   <string name="crash_clipboard_label">Kļūdas ziņojums</string>

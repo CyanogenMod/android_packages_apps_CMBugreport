@@ -17,14 +17,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CM hibajelentés</string>
+  <!-- Main application -->
   <string name="summary">Adjon meg egy összefoglalót a jelentéshez</string>
   <string name="description">Adjon meg egy leírást, mit csinált, futó alkalmazások, stb.</string>
   <string name="screenshot">Csatolja a képernyőmentést a hibajelentéshez?</string>
   <string name="action_submit">Elküldés</string>
+  <!-- Notification messages -->
   <string name="notif_title">Hibajelentés</string>
   <string name="notif_processing">Hibabejelentés feldolgozása\u2026</string>
   <string name="notif_uploading">Probléma létrehozása és jelentés feltöltése\u2026</string>
   <string name="notif_thanks">Köszönjük a hibabejelentést</string>
+  <!-- Error messages -->
   <string name="error_no_text">Ez a mező nem lehet üres</string>
   <string name="error_upload_failed">Sikertelen feltöltés: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probléma létrehozása hibába ütközött</string>
@@ -38,6 +41,7 @@
   <string name="title_crash_log">Hibabejelentés tartalma</string>
   <string name="already_submitted">Ezt a hibabejelentést már beküldték, köszönöm!</string>
   <string name="network_unavailable">Nincs hálózati kapcsolat</string>
+  <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">Hibajelentés a vágólapra másolva.</string>
   <string name="crash_clipboard_toast_message_failure">Nem sikerült a vágólapra másolni a hibajelentést.</string>
   <string name="crash_clipboard_label">Hibajelentés</string>

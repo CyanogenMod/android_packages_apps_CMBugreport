@@ -16,29 +16,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">تقرير حول خطأ في CyanogenMod</string>
+  <string name="app_name">تقرير عن أخطاء CM</string>
+  <!-- Main application -->
   <string name="summary">أدخل موجز لهذا التقرير</string>
   <string name="description">أدخل وصفاً، ماذا كنت تفعل، تطبيقات قيد التشغيل، إلخ.</string>
-  <string name="screenshot">إرفاق صورة تم التقاطها للشاشة مع تقرير الأخطاء؟</string>
-  <string name="action_submit">إعتماد</string>
-  <string name="notif_title">تقرير حول خطأ</string>
-  <string name="notif_processing">معالجة بلاغات الأخطاء\u2026</string>
-  <string name="notif_uploading">إنشاء و رفع الموضوع\u2026</string>
-  <string name="notif_thanks">شكرا لك على تقريرك</string>
-  <string name="error_no_text">هذا الحقل يجب إلا يكون فارغاً</string>
-  <string name="error_upload_failed">فشل في الرفع: <xliff:g id="reason"> %1$s </xliff:g></string>
+  <string name="screenshot">إرفاق لقطة شاشة تم التقاطها مع تقرير عن الأخطاء؟</string>
+  <string name="action_submit">إرسال</string>
+  <!-- Notification messages -->
+  <string name="notif_title">تقرير عن الأخطاء</string>
+  <string name="notif_processing">معالجة تقارير عن الأخطاء\u2026</string>
+  <string name="notif_uploading">إنشاء محتوى المشكلة وتحميل التقرير\u2026</string>
+  <string name="notif_thanks">شكرا على إرسالك</string>
+  <!-- Error messages -->
+  <string name="error_no_text">يجب أن لا يكون هذا الحقل فارغاً</string>
+  <string name="error_upload_failed">فشل التحميل: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">مشكلة عند إنشاء الموضوع</string>
   <string name="error_connection_problem">مشكلة في الاتصال بالخادم</string>
   <string name="error_bad_response">إجابة سيئة من الخادم</string>
   <string name="error_file_fail">فشل في تحميل الملف</string>
   <string name="error_zip_fail">فشل في ضغط الملف</string>
-  <string name="submit_crash_report">معاينة تقرير العطب</string>
-  <string name="submit">إعتماد</string>
-  <string name="title_subject">موضوع التقرير</string>
-  <string name="title_crash_log">محتوى التقرير</string>
-  <string name="already_submitted">تم ارسال تقرير حول هذا الخطأ سابقا، شكرا لك!</string>
-  <string name="network_unavailable">لا يوجد أي اتصال بالشبكة متوفر</string>
-  <string name="crash_clipboard_toast_message_success">تم نسخ تقرير الخلل إلى الحافظة.</string>
-  <string name="crash_clipboard_toast_message_failure">فشل نسخ تقرير الخلل إلى الحافظة.</string>
-  <string name="crash_clipboard_label">تقرير عن خطأ</string>
+  <string name="submit_crash_report">معاينة تقرير التعطل</string>
+  <string name="submit">إرسال</string>
+  <string name="title_subject">إرسال الموضوع</string>
+  <string name="title_crash_log">المحتوى المقدم</string>
+  <string name="already_submitted">تم ارسال تقرير عن الأخطاء بالفعل، شكراً!</string>
+  <string name="network_unavailable">لا يتوافر اتصال بالشبكة</string>
+  <!-- Hidden copy paste feature -->
+  <string name="crash_clipboard_toast_message_success">تم نسخ تقرير التعطل إلى الحافظة.</string>
+  <string name="crash_clipboard_toast_message_failure">فشل نسخ تقرير التعطل إلى الحافظة.</string>
+  <string name="crash_clipboard_label">تقرير عن التعطل</string>
 </resources>
