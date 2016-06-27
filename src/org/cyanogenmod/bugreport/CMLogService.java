@@ -289,12 +289,12 @@ public class CMLogService extends IntentService {
         final PendingIntent retryPi = PendingIntent.getService(this, 0, retryIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         final Notification.Action retry = new Notification.Action.Builder(
-                Icon.createWithResource(getApplicationContext(), R.drawable.ic_tab_upload),
+                Icon.createWithResource(getApplicationContext(), R.drawable.ic_retry),
                 getString(R.string.action_retry),
                 retryPi).build();
 
         final Notification.Action cancel = new Notification.Action.Builder(
-                Icon.createWithResource(getApplicationContext(), android.R.drawable.ic_delete),
+                Icon.createWithResource(getApplicationContext(), R.drawable.ic_cancel),
                 getString(R.string.action_delete),
                 PendingIntent.getService(this, 0, new Intent(ACTION_CANCEL_UPLOAD)
                                 .putExtra(EXTRA_RETRY_FILE_PATH, info.zippedFile.getPath()),
@@ -309,7 +309,7 @@ public class CMLogService extends IntentService {
         }
 
         Notification.Builder notificationBuilder = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.stat_cmbugreport)
+                .setSmallIcon(R.drawable.ic_notif_bug)
                 .setOngoing(true)
                 .setContentTitle(getString(R.string.notif_title))
                 .setContentText(notificationMessage)
@@ -323,20 +323,20 @@ public class CMLogService extends IntentService {
     }
 
     private void notifyOfUpload() {
-        notify(getString(R.string.notif_uploading), R.drawable.ic_tab_upload, true, true);
+        notify(getString(R.string.notif_uploading), R.drawable.ic_notif_upload, true, true);
     }
 
     private void notifyUploadFinished(String issueNumber) {
-        notify(getString(R.string.notif_thanks), R.drawable.stat_cmbugreport, false, false);
+        notify(getString(R.string.notif_thanks), R.drawable.ic_notif_success, false, false);
     }
 
     private void notifyProcessing() {
-        notify(getString(R.string.notif_processing), R.drawable.stat_cmbugreport, true, true);
+        notify(getString(R.string.notif_processing), R.drawable.ic_notif_bug, true, true);
     }
 
     private void notifyUploadFailed(int reasonResId) {
         String reason = getString(reasonResId);
-        notify(getString(R.string.error_upload_failed, reason), R.drawable.stat_cmbugreport, false,
+        notify(getString(R.string.error_upload_failed, reason), R.drawable.ic_notif_failed, false,
                 false);
     }
 
