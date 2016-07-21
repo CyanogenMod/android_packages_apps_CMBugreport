@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Не удалось отправить отчёт: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Сбой при создании инцидента</string>
   <string name="error_connection_problem">Не удалось подключиться к серверу. Нажмите, чтобы повторить попытку.</string>
-  <string name="action_retry">Повторить передачу</string>
-  <string name="action_delete">Отменить загрузку</string>
   <string name="error_bad_response">Получен некорректный ответ от сервера</string>
   <string name="error_file_fail">Не удалось загрузить файл</string>
   <string name="error_zip_fail">Не удалось сжать файл</string>

@@ -32,8 +32,6 @@
   <string name="error_upload_failed">El envío ha fallado: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Ocurrió un problema al crear el informe</string>
   <string name="error_connection_problem">Hubo un problema al conectar con el servidor. Pulsa para volver a intentarlo.</string>
-  <string name="action_retry">Reintentar la carga</string>
-  <string name="action_delete">Cancelar la carga</string>
   <string name="error_bad_response">Respuesta del servidor incorrecta</string>
   <string name="error_file_fail">No se pudo cargar el archivo</string>
   <string name="error_zip_fail">Ocurrió un error al comprimir el archivo</string>

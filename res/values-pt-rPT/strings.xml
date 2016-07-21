@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Falha no envio:<xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problema ao criar o relatório</string>
   <string name="error_connection_problem">Problema de conexão com o servidor. Toque para repetir.</string>
-  <string name="action_retry">Reiniciar o carregamento</string>
-  <string name="action_delete">Cancelar o carregamento</string>
   <string name="error_bad_response">Sem resposta do servidor</string>
   <string name="error_file_fail">Falha no envio do relatório</string>
   <string name="error_zip_fail">Falha ao comprimir o relatório</string>

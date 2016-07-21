@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Tải lên thất bại: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">Có lỗi khi xuất bản</string>
   <string name="error_connection_problem">Xảy ra sự cố khi kết nối với máy chủ. Chạm để thử lại.</string>
-  <string name="action_retry">Thử tải lên lại lần nữa</string>
-  <string name="action_delete">Hủy tải lên</string>
   <string name="error_bad_response">Phản hồi không tốt từ máy chủ</string>
   <string name="error_file_fail">Tập tin tải lên thất bại</string>
   <string name="error_zip_fail">Tập tin nén không thành công</string>

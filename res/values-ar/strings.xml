@@ -32,8 +32,6 @@
   <string name="error_upload_failed">فشل التحميل: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">مشكلة عند إنشاء الموضوع</string>
   <string name="error_connection_problem">مشكلة في الاتصال بالملقم. اضغط لإعادة المحاولة.</string>
-  <string name="action_retry">إعادة محاولة التحميل</string>
-  <string name="action_delete">إلغاء التحميل</string>
   <string name="error_bad_response">إجابة سيئة من الخادم</string>
   <string name="error_file_fail">فشل في تحميل الملف</string>
   <string name="error_zip_fail">فشل في ضغط الملف</string>

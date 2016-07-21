@@ -32,8 +32,6 @@
   <string name="error_upload_failed">上传失败：<xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">创建该问题报告时出错</string>
   <string name="error_connection_problem">连接到服务器出现问题。点击以重试。</string>
-  <string name="action_retry">重试上传</string>
-  <string name="action_delete">取消上传</string>
   <string name="error_bad_response">服务器返回了不正确的回应</string>
   <string name="error_file_fail">该文件上传失败</string>
   <string name="error_zip_fail">该文件压缩失败</string>

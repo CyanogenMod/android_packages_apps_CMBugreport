@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Pengunggahan gagal: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Ada masalah dalam membuat isu</string>
   <string name="error_connection_problem">Terdapat masalah saat menyambung ke server. Ketuk untuk mencoba lagi.</string>
-  <string name="action_retry">Coba unggah lagi</string>
-  <string name="action_delete">Batalkan unggah</string>
   <string name="error_bad_response">Respon buruk dari server</string>
   <string name="error_file_fail">File gagal diunggah</string>
   <string name="error_zip_fail">File gagal untuk di kompres</string>

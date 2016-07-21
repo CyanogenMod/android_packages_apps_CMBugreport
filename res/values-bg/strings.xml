@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Неуспешно качване: <xliff:g id="reason">%1$s </xliff:g></string>
   <string name="error_problem_creating">Възникна проблем при създаването на доклада</string>
   <string name="error_connection_problem">Проблем при свързването към сървъра. Натиснете, за да опитате отново.</string>
-  <string name="action_retry">Опитай отново да качиш</string>
-  <string name="action_delete">Отмяна на качването</string>
   <string name="error_bad_response">Неправилен отговор от сървара</string>
   <string name="error_file_fail">Възникна грешка при качването на файла</string>
   <string name="error_zip_fail">Възникна грешка при компресирането на файла</string>

@@ -31,7 +31,6 @@
   <string name="error_no_text">Гэты радок павінен быць запоўнены</string>
   <string name="error_upload_failed">Адпраўка не атрымалася: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Збой пры стварэнні інцыдэнту</string>
-  <string name="action_delete">Скасаваць спампоўку</string>
   <string name="error_bad_response">Атрыманы некарэктны адказ ад сервера</string>
   <string name="error_file_fail">Не атрымалася загрузіць файл</string>
   <string name="error_zip_fail">Не атрымалася сціснуць файл</string>

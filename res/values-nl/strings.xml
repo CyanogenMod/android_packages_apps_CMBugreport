@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Upload mislukt: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Fout bij creëren van rapport</string>
   <string name="error_connection_problem">Kon niet verbinden met de server. Tik om opnieuw te proberen.</string>
-  <string name="action_retry">Opnieuw uploaden</string>
-  <string name="action_delete">Uploaden annuleren</string>
   <string name="error_bad_response">Geen reactie van de server</string>
   <string name="error_file_fail">Bestand uploaden mislukt</string>
   <string name="error_zip_fail">Bestand comprimeren mislukt</string>

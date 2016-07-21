@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Wysyłanie nie powiodło się: <xliff:g id="powód">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem z utworzeniem zgłoszenia</string>
   <string name="error_connection_problem">Błąd podczas łączenia z serwerem. Dotknij, aby ponowić próbę.</string>
-  <string name="action_retry">Ponów przekazywanie</string>
-  <string name="action_delete">Anuluj przekazywanie</string>
   <string name="error_bad_response">Negatywna odpowiedź serwera</string>
   <string name="error_file_fail">Nie udało się wysłać pliku</string>
   <string name="error_zip_fail">Nie udało się skompresować pliku</string>

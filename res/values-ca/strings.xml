@@ -32,8 +32,6 @@
   <string name="error_upload_failed">No s\'ha pogut penjar: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Hi ha hagut un problema creant la problemàtica</string>
   <string name="error_connection_problem">Hi ha un problema connectant al servidor. Pica per tornar-ho a provar.</string>
-  <string name="action_retry">Reintenta la càrrega</string>
-  <string name="action_delete">Cancel·la la càrrega</string>
   <string name="error_bad_response">Mala resposta del servidor</string>
   <string name="error_file_fail">El fitxer no s\'ha pogut penjar</string>
   <string name="error_zip_fail">El fitxer no s\'ha pogut comprimir</string>

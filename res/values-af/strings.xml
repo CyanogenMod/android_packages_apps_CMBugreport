@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Oplaai het gefaal: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probleem om fout te skep</string>
   <string name="error_connection_problem">Kan nie koppel aan bediener nie. Tik om weer te probeer.</string>
-  <string name="action_retry">Her probeer oplaai</string>
-  <string name="action_delete">Kanselleer oplaai</string>
   <string name="error_bad_response">Verkeerde terugvoer van bediener</string>
   <string name="error_file_fail">Kon nie die lêer oplaai nie</string>
   <string name="error_zip_fail">Die lêer kon nie saamgepers word nie</string>

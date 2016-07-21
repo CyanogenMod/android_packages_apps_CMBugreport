@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Igoerak huts egin du: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Txostena sortzean akats bat egon da</string>
   <string name="error_connection_problem">Arazo bat egon da zerbitzariarekin konektatzean. Sakatu berriro saiatzeko.</string>
-  <string name="action_retry">Saiatu berriro igotzen</string>
-  <string name="action_delete">Utzi igotzeari</string>
   <string name="error_bad_response">Zerbitzariaren erantzun okerra</string>
   <string name="error_file_fail">Fitxategiaren igoerak huts egin du</string>
   <string name="error_zip_fail">Huts egin du fitxategia konprimitzean</string>

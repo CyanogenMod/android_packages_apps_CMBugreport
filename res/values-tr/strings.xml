@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Yüklenemedi: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Sorun oluştururken hata</string>
   <string name="error_connection_problem">Sunucuya bağlanırken sorun oluştu. Yeniden denemek için dokunun.</string>
-  <string name="action_retry">Yeniden yüklemeyi dene</string>
-  <string name="action_delete">Yüklemeyi iptal et</string>
   <string name="error_bad_response">Sunucudan kötü yanıt</string>
   <string name="error_file_fail">Dosya gönderilemedi</string>
   <string name="error_zip_fail">Dosya sıkıştırılamadı</string>

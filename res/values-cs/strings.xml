@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Odeslání se nezdařilo: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problém vytváření záznamu</string>
   <string name="error_connection_problem">Problémy s připojením k serveru. Dotykem opakovat.</string>
-  <string name="action_retry">Opakovat odeslání</string>
-  <string name="action_delete">Zrušit odeslání</string>
   <string name="error_bad_response">Neočekávaná odpověď ze serveru</string>
   <string name="error_file_fail">Selhalo odeslání souboru</string>
   <string name="error_zip_fail">Selhala komprimace souboru</string>

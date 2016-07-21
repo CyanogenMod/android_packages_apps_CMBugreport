@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Falló l\'unviu: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Hebo un problema al crear l\'informe</string>
   <string name="error_connection_problem">Hebo un fallu al coneutar col sirvidor. Primi pa volver intentalo.</string>
-  <string name="action_retry">Reintentar la carga</string>
-  <string name="action_delete">Encaboxar la carga</string>
   <string name="error_bad_response">Mala rempuesta del sirvidor</string>
   <string name="error_file_fail">Nun pudo unviase\'l ficheru</string>
   <string name="error_zip_fail">Hebo un fallu al comprimir el ficheru</string>

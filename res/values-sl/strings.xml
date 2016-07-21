@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Prenos je spodletel: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Težava pri ustvarjenju vprašanja</string>
   <string name="error_connection_problem">Težava pri povezovanju na strežnik. Tapnite za ponovni poskus.</string>
-  <string name="action_retry">Ponovno poskusi prenesti</string>
-  <string name="action_delete">Prekliči prenos</string>
   <string name="error_bad_response">Slab odgovor strežnika</string>
   <string name="error_file_fail">Prenos datoteke je spodletel</string>
   <string name="error_zip_fail">Stiskanje datoteke je spodletelo</string>

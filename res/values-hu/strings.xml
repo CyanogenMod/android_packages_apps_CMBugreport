@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Sikertelen feltöltés: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probléma létrehozása hibába ütközött</string>
   <string name="error_connection_problem">Probléma a szerverhez való csatlakozáskor. Érintse meg az újrapróbáláshoz.</string>
-  <string name="action_retry">Feltöltés újrapróbálása</string>
-  <string name="action_delete">Feltöltés megszakítása</string>
   <string name="error_bad_response">Rossz válasz a kiszolgálótól</string>
   <string name="error_file_fail">A fájlt nem sikerült feltölteni</string>
   <string name="error_zip_fail">A fájlt nem sikerült tömöríteni</string>

@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Lataus epäonnistui: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Virhe luotaessa ilmoitusta</string>
   <string name="error_connection_problem">Ongelma yhdistettäessä palvelimeen. Napauta yritääksesi uudelleen.</string>
-  <string name="action_retry">Yritä uudelleen</string>
-  <string name="action_delete">Peruuta lataus</string>
   <string name="error_bad_response">Virheellinen vastaus palvelimelta</string>
   <string name="error_file_fail">Tiedoston lataaminen ei onnistu</string>
   <string name="error_zip_fail">Tiedoston pakkaaminen ei onnistu</string>

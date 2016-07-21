@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Opplastingen mislyktes: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem med å opprette feilrapport</string>
   <string name="error_connection_problem">Det er et problem med å koble til serveren. Trykk for å prøve på nytt.</string>
-  <string name="action_retry">Prøv opplasting på nytt</string>
-  <string name="action_delete">Avbryt opplasting</string>
   <string name="error_bad_response">Ugyldig svar fra server</string>
   <string name="error_file_fail">Filen kunne ikke lastes opp</string>
   <string name="error_zip_fail">Filen kan ikke komprimeres</string>

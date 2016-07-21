@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Caricamento non riuscito: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problema nella creazione della segnalazione</string>
   <string name="error_connection_problem">Problema di connessione al server. Tocca per riprovare.</string>
-  <string name="action_retry">Riprova il caricamento</string>
-  <string name="action_delete">Annulla caricamento</string>
   <string name="error_bad_response">Risposta del server non valida</string>
   <string name="error_file_fail">Impossibile caricare il file</string>
   <string name="error_zip_fail">Impossibile comprimere il file</string>

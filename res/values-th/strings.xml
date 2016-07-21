@@ -32,8 +32,6 @@
   <string name="error_upload_failed">อัปโหลดล้มเหลว: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">ปัญหาในการสร้างประเด็น</string>
   <string name="error_connection_problem">มีปัญหาในการเชื่อมต่อกับเซิร์ฟเวอร์ แตะเพื่อลองอีกครั้ง</string>
-  <string name="action_retry">ลองอัปโหลดอีกครั้ง</string>
-  <string name="action_delete">ยกเลิกการอัปโหลด</string>
   <string name="error_bad_response">เซิร์ฟเวอร์ตอบสนองไม่ถูกต้อง</string>
   <string name="error_file_fail">อัปโหลดไฟล์ล้มเหลว</string>
   <string name="error_zip_fail">บีบอัดไฟล์ล้มเหลว</string>

@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Eropluede feelgeschloen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Melle vun der Ugeleeënheet</string>
   <string name="error_connection_problem">Problem bei der Hierstellung vun enger Connectioun mam Server. Dréck fir nach eng Kéier ze probéieren.</string>
-  <string name="action_retry">Upload widderhuelen</string>
-  <string name="action_delete">Upload ofbriechen</string>
   <string name="error_bad_response">Schlecht Äntwert vum Server</string>
   <string name="error_file_fail">De Fichier konnt net eropgelude ginn</string>
   <string name="error_zip_fail">De Fichier konnt net kompriméiert ginn</string>

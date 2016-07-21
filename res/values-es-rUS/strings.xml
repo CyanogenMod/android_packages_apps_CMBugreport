@@ -32,8 +32,6 @@
   <string name="error_upload_failed">Error de carga: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Ocurrió un problema al crear el informe</string>
   <string name="error_connection_problem">Hubo un problema al conectar con el servidor. Pulsa para volver a intentarlo.</string>
-  <string name="action_retry">Reintentar la carga</string>
-  <string name="action_delete">Cancelar la carga</string>
   <string name="error_bad_response">Respuesta errónea del servidor</string>
   <string name="error_file_fail">Error al cargar el archivo</string>
   <string name="error_zip_fail">Error al comprimir el archivo</string>

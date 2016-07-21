@@ -32,8 +32,6 @@
   <string name="error_upload_failed">העלאה נכשלה: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">בעיה ביצירת הבעיה</string>
   <string name="error_connection_problem">בעיה בהתחברות לשרת. גע כדי לנסות שנית.</string>
-  <string name="action_retry">נסה להעלות שוב</string>
-  <string name="action_delete">בטל העלאה</string>
   <string name="error_bad_response">תגובה שגויה מהשרת</string>
   <string name="error_file_fail">העלאת הקובץ נכשלה</string>
   <string name="error_zip_fail">דחיסת הקובץ נכשלה</string>
