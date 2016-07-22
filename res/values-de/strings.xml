@@ -32,6 +32,8 @@
   <string name="error_upload_failed">Hochladen fehlgeschlagen: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem beim Eintragen des Fehlers</string>
   <string name="error_connection_problem">Problem beim Herstellen der Verbindung mit dem Server. Tippen zum Wiederholen.</string>
+  <string name="action_retry">Wiederholen</string>
+  <string name="action_delete">Abbrechen</string>
   <string name="error_bad_response">Negative Antwort des Servers</string>
   <string name="error_file_fail">Die Datei konnte nicht hochgeladen werden.</string>
   <string name="error_zip_fail">Die Datei konnte nicht komprimiert werden.</string>
