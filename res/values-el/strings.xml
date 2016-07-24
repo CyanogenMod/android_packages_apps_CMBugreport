@@ -32,6 +32,8 @@
   <string name="error_upload_failed">Η μεταφόρτωση απέτυχε: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Πρόβλημα κατά τη δημιουργία του ζητήματος</string>
   <string name="error_connection_problem">Πρόβλημα κατά τη σύνδεση με το διακομιστή. Πιέστε για επανάληψη.</string>
+  <string name="action_retry">Επανάληψη</string>
+  <string name="action_delete">Ακύρωση</string>
   <string name="error_bad_response">Εσφαλμένη απόκριση από το διακομιστή</string>
   <string name="error_file_fail">Η μεταφόρτωση του αρχείου απέτυχε</string>
   <string name="error_zip_fail">Η συμπίεση του αρχείου απέτυχε</string>

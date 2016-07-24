@@ -32,6 +32,8 @@
   <string name="error_upload_failed">Slanje nije uspjelo: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Greška pri otvaranju problema</string>
   <string name="error_connection_problem">Problem pri povezivanju na server. Pokušajte ponovno.</string>
+  <string name="action_retry">Pokušaj ponovno</string>
+  <string name="action_delete">Odustani</string>
   <string name="error_bad_response">Pogrešan odgovor poslužitelja</string>
   <string name="error_file_fail">Datoteka nije uspješno prenesena</string>
   <string name="error_zip_fail">Datoteka nije uspješno komprimirana</string>
