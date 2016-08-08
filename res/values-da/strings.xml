@@ -32,6 +32,8 @@
   <string name="error_upload_failed">Upload mislykkedes: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem med at oprette spørgsmålet</string>
   <string name="error_connection_problem">Problemer med forbindelsen til serveren. Tryk for at prøve igen.</string>
+  <string name="action_retry">Prøv igen</string>
+  <string name="action_delete">Annullér</string>
   <string name="error_bad_response">Ugyldigt svar fra serveren</string>
   <string name="error_file_fail">Filen kunne ikke overføres</string>
   <string name="error_zip_fail">Filen kunne ikke komprimeres</string>
