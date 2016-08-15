@@ -31,6 +31,8 @@
   <string name="error_no_text">Det här fältet får inte vara tomt</string>
   <string name="error_upload_failed">Uppladdningen misslyckades: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problem med att skapa ärendet</string>
+  <string name="action_retry">Försök igen</string>
+  <string name="action_delete">Avbryt</string>
   <string name="error_bad_response">Ogiltigt svar från servern</string>
   <string name="error_file_fail">Filen gick inte att överföra</string>
   <string name="error_zip_fail">Det gick inte att komprimera filen</string>
