@@ -16,15 +16,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Laporan galat fungsi CM</string>
+  <string name="app_name">Laporan bug CM</string>
   <!-- Main application -->
   <string name="summary">Masukkan ringkasan untuk laporan ini</string>
   <string name="description">Masukkan keterangan, apa yang Anda lakukan, aplikasi yang berjalan, dll.</string>
-  <string name="screenshot">Sertakan cuplikan layar yang diambil dengan laporan galat fungsi?</string>
+  <string name="screenshot">Lampirkan tangkap layar yang diambil dengan laporan bug?</string>
   <string name="action_submit">Kirim</string>
   <!-- Notification messages -->
-  <string name="notif_title">Laporan galat fungsi</string>
-  <string name="notif_processing">Memproses laporan galat fungsi\u2026</string>
+  <string name="notif_title">Laporan bug</string>
+  <string name="notif_processing">Memproses laporan bug\u2026</string>
   <string name="notif_uploading">Membuat isu dan mengunggah laporan\u2026</string>
   <string name="notif_thanks">Terima kasih atas pengiriman Anda</string>
   <!-- Error messages -->
@@ -33,16 +33,16 @@
   <string name="error_problem_creating">Ada masalah dalam membuat isu</string>
   <string name="error_connection_problem">Terdapat masalah saat menyambung ke server. Ketuk untuk mencoba lagi.</string>
   <string name="error_bad_response">Respon buruk dari server</string>
-  <string name="error_file_fail">File gagal diunggah</string>
-  <string name="error_zip_fail">File gagal untuk di kompres</string>
-  <string name="submit_crash_report">Pratinjau Laporan Mogok (Crash)</string>
+  <string name="error_file_fail">Berkas gagal diunggah</string>
+  <string name="error_zip_fail">Berkas gagal untuk dikompres</string>
+  <string name="submit_crash_report">Pratinjau Laporan Crash</string>
   <string name="submit">Kirim</string>
   <string name="title_subject">Subjek pengajuan</string>
-  <string name="title_crash_log">Konten serahan</string>
-  <string name="already_submitted">Laporan galat fungsi ini telah dikirimkan, terima kasih!</string>
-  <string name="network_unavailable">Tidak ada koneksi jaringan yang tersedia</string>
+  <string name="title_crash_log">Konten pengajuan</string>
+  <string name="already_submitted">Laporan bug ini telah dikirimkan, terima kasih!</string>
+  <string name="network_unavailable">Tidak ada koneksi jaringan tersedia</string>
   <!-- Hidden copy paste feature -->
-  <string name="crash_clipboard_toast_message_success">Laporan mogok (crash) disalin ke papan klip.</string>
-  <string name="crash_clipboard_toast_message_failure">Gagal menyalin laporan mogok (crash) ke papan klip.</string>
-  <string name="crash_clipboard_label">Laporan Mogok (Crash)</string>
+  <string name="crash_clipboard_toast_message_success">Laporan crash disalin ke clipboard.</string>
+  <string name="crash_clipboard_toast_message_failure">Gagal menyalin laporan crash ke clipboard.</string>
+  <string name="crash_clipboard_label">Laporan Crash</string>
 </resources>
