@@ -32,6 +32,8 @@
   <string name="error_upload_failed">Le téléchargement a échoué : <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Problème causant l\'erreur</string>
   <string name="error_connection_problem">Problème de connexion au serveur. Appuyer pour réessayer.</string>
+  <string name="action_retry">Réessayer</string>
+  <string name="action_delete">Annuler</string>
   <string name="error_bad_response">Réponse erronée du serveur</string>
   <string name="error_file_fail">Le fichier n\'a pas pu être téléchargé</string>
   <string name="error_zip_fail">La compression du fichier a échoué</string>
