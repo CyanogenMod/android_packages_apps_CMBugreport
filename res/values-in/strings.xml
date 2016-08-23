@@ -31,7 +31,7 @@
   <string name="error_no_text">Bidang ini tidak boleh kosong</string>
   <string name="error_upload_failed">Pengunggahan gagal: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Ada masalah dalam membuat isu</string>
-  <string name="error_connection_problem">Terdapat masalah saat menyambung ke server. Ketuk untuk mencoba lagi.</string>
+  <string name="error_connection_problem">Ada masalah saat menghubungkan ke server. Ketuk untuk mencoba lagi.</string>
   <string name="action_retry">Coba unggah lagi</string>
   <string name="action_delete">Batalkan unggah</string>
   <string name="error_bad_response">Respon buruk dari server</string>
