@@ -31,6 +31,8 @@
   <string name="error_no_text">بۇ سۆز بۆلىكى بوش قالمايدۇ</string>
   <string name="error_upload_failed">يۈكلىيەلمىدى: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">مەسىلە دوكلاتىنى قۇرۇۋاتقاندا خاتالىق كۆرۈلدى</string>
+  <string name="action_retry">قايتا يۈكلەش</string>
+  <string name="action_delete">يۈكلەشنى بىكار قىلىش</string>
   <string name="error_bad_response">مۇلازىمېتىر خاتا ئىنكاس قايتۇردى</string>
   <string name="error_file_fail">ھۆججەتنى يۈكلىيەلمىدى</string>
   <string name="error_zip_fail">ھۆججەتنى پىرىسلىيالمىدى</string>
