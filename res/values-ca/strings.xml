@@ -44,7 +44,7 @@
   <string name="already_submitted">Aquest informe d\'error ja s\'ha presentat, gràcies!</string>
   <string name="network_unavailable">No hi ha connexió de xarxa disponible</string>
   <!-- Hidden copy paste feature -->
-  <string name="crash_clipboard_toast_message_success">Informe de fallada copiat al porta-retalls.</string>
-  <string name="crash_clipboard_toast_message_failure">No s\'ha pogut copiar l\'informe de fallada al porta-retalls.</string>
+  <string name="crash_clipboard_toast_message_success">Informe de fallada copiat al portapapers.</string>
+  <string name="crash_clipboard_toast_message_failure">No s\'ha pogut copiar l\'informe de fallada al portapapers.</string>
   <string name="crash_clipboard_label">Informe de fallada</string>
 </resources>
