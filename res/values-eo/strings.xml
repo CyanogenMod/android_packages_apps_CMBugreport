@@ -16,7 +16,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM Cimraporto</string>
   <!-- Main application -->
   <string name="summary">Entajpu resumon por tiu raporto</string>
   <string name="description">Entajpu priskribon pri kio vi faris, aplikaĵoj funkciantaj, ktp.</string>
