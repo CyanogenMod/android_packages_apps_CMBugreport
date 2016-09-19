@@ -31,6 +31,9 @@
   <string name="error_no_text">Este campo non pode estar baleiro</string>
   <string name="error_upload_failed">Produciuse un erro ao subir: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Produciuse un problema ao crear a incidencia</string>
+  <string name="error_connection_problem">Problema ao conectarse ao servidor. Toque para reintentar.</string>
+  <string name="action_retry">Reintentar a subida</string>
+  <string name="action_delete">Cancelar subida</string>
   <string name="error_bad_response">Resposta anormal do servidor</string>
   <string name="error_file_fail">Produciuse un erro ao subir o ficheiro</string>
   <string name="error_zip_fail">Produciuse un erro ao comprimir o ficheiro</string>
