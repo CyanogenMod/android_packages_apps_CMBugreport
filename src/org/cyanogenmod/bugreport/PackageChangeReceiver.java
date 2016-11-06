@@ -35,7 +35,7 @@ public class PackageChangeReceiver extends BroadcastReceiver {
         int newState = PackageManager.COMPONENT_ENABLED_STATE_DEFAULT;
         if (isPackageInstalled(context, XPOSED_INSTALLER_PACKAGE)) {
             // disable bug reporting
-            newState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+            newState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
         }
 
         ComponentName crashActivity = new ComponentName(context, CrashFeedbackActivity.class);
