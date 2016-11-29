@@ -60,6 +60,7 @@
                 <action android:name="org.cyanogenmod.bugreport.action.CANCEL_BUGREPORT_UPLOAD" />
             </intent-filter>
         </service>
+        <!--
         <receiver android:name=".PackageChangeReceiver"
                 android:exported="false">
             <intent-filter>
@@ -72,5 +73,6 @@
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+        -->
     </application>
 </manifest>
