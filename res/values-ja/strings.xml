@@ -31,6 +31,9 @@
   <string name="error_no_text">このフィールドは空にできません</string>
   <string name="error_upload_failed">アップロードできませんでした: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">イシュー作成の問題</string>
+  <string name="error_connection_problem">サーバーへの接続中に問題が発生しました。タップして再試行します。</string>
+  <string name="action_retry">再試行</string>
+  <string name="action_delete">キャンセル</string>
   <string name="error_bad_response">サーバーからの無効な応答</string>
   <string name="error_file_fail">ファイルをアップロードできませんでした</string>
   <string name="error_zip_fail">ファイルを圧縮できませんでした</string>

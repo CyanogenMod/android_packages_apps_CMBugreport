@@ -17,30 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Main application -->
-  <string name="summary">Entajpu resumon por tiu raporto</string>
-  <string name="description">Entajpu priskribon pri kio vi faris, aplikaĵoj funkciantaj, ktp.</string>
-  <string name="screenshot">Ĉu kunligi ekrankapturon kun cimraporto?</string>
-  <string name="action_submit">Sendi</string>
   <!-- Notification messages -->
-  <string name="notif_title">Cimraporto</string>
-  <string name="notif_processing">Traktado de la cimraporto\u2026</string>
-  <string name="notif_uploading">Kreado kaj sendado de la cimraporto\u2026</string>
-  <string name="notif_thanks">Dankon pro via partopreno</string>
   <!-- Error messages -->
-  <string name="error_no_text">Tiu kampo ne estu malplena</string>
-  <string name="error_upload_failed">Sendado fiaskis: <xliff:g id="reason">%1$s</xliff:g></string>
-  <string name="error_problem_creating">Problemo dum kreado de la raporto</string>
-  <string name="error_bad_response">Maltaŭga respondo de la servilo</string>
-  <string name="error_file_fail">Alŝuto de dosiero fiaskis</string>
-  <string name="error_zip_fail">Densigado de dosiero fiaskis</string>
-  <string name="submit_crash_report">Antaŭrigardo de la cimraporto</string>
-  <string name="submit">Sendi</string>
-  <string name="title_subject">Temo de la raporto</string>
-  <string name="title_crash_log">Enhavo de la raporto</string>
-  <string name="already_submitted">Tiu cimraporto jam estis sendita, dankon!</string>
-  <string name="network_unavailable">Neniu konekto disponeblas</string>
+  <string name="action_delete">Nuligi</string>
   <!-- Hidden copy paste feature -->
-  <string name="crash_clipboard_toast_message_success">Cimraporto kopiiĝis en la tondejon.</string>
-  <string name="crash_clipboard_toast_message_failure">Kopio de la cimraporo en la tondejon fiaskis.</string>
-  <string name="crash_clipboard_label">Cimraporto</string>
 </resources>
