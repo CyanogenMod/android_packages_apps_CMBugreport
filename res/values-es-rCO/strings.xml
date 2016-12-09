@@ -19,6 +19,5 @@
   <!-- Main application -->
   <!-- Notification messages -->
   <!-- Error messages -->
-  <string name="action_delete">Nuligi</string>
   <!-- Hidden copy paste feature -->
 </resources>

@@ -31,6 +31,9 @@
   <string name="error_no_text">See väli ei tohi olla tühi</string>
   <string name="error_upload_failed">Üleslaadimine nurjus: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Probleem teema loomisel</string>
+  <string name="error_connection_problem">Probleem serveriga ühendumisel. Koputa uuesti proovimiseks.</string>
+  <string name="action_retry">Proovi uuesti</string>
+  <string name="action_delete">Katkesta</string>
   <string name="error_bad_response">Halb vastus serverist</string>
   <string name="error_file_fail">Faili üleslaadimine nurjus</string>
   <string name="error_zip_fail">Faili tihendamine nurjus</string>
