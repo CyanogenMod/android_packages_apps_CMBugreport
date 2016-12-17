@@ -31,6 +31,9 @@
   <string name="error_no_text">Toto pole nesmie byť prázdne</string>
   <string name="error_upload_failed">Nahrávanie zlyhalo: <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="error_problem_creating">Chyba pri vytváraní problému</string>
+  <string name="error_connection_problem">Problém s pripojením k serveru. Stlačte pre zopakovanie.</string>
+  <string name="action_retry">Skúsiť znovu</string>
+  <string name="action_delete">Zrušiť</string>
   <string name="error_bad_response">Chybná odpoveď zo servera</string>
   <string name="error_file_fail">Súbor sa nepodarilo nahrať</string>
   <string name="error_zip_fail">Súbor sa nepodarilo skomprimovať</string>
