@@ -20,7 +20,7 @@
   <!-- Main application -->
   <string name="summary">輸入回報摘要</string>
   <string name="description">輸入具體描述，您在做什麼，運作中的應用程式，等等。</string>
-  <string name="screenshot">在錯誤報告中附加螢幕擷取畫面？</string>
+  <string name="screenshot">在錯誤報告中附加螢幕截圖？</string>
   <string name="action_submit">提交</string>
   <!-- Notification messages -->
   <string name="notif_title">錯誤報告</string>
@@ -31,6 +31,9 @@
   <string name="error_no_text">此欄位不能為空</string>
   <string name="error_upload_failed">上載失敗：<xliff:g id="reason"> %1$s </xliff:g></string>
   <string name="error_problem_creating">建立錯誤報告時出現錯誤</string>
+  <string name="error_connection_problem">連線至伺服器時出現問題。輕觸即可重試。</string>
+  <string name="action_retry">重試</string>
+  <string name="action_delete">取消</string>
   <string name="error_bad_response">伺服器回應錯誤</string>
   <string name="error_file_fail">檔案上載失敗</string>
   <string name="error_zip_fail">檔案壓縮失敗</string>
@@ -39,7 +42,7 @@
   <string name="title_subject">報告主題</string>
   <string name="title_crash_log">報告內容</string>
   <string name="already_submitted">這個錯誤已成功報告，感謝您的反饋！</string>
-  <string name="network_unavailable">無可用的網路連接</string>
+  <string name="network_unavailable">無可用的網路連線</string>
   <!-- Hidden copy paste feature -->
   <string name="crash_clipboard_toast_message_success">錯誤報告已複製至剪貼簿。</string>
   <string name="crash_clipboard_toast_message_failure">未能將錯誤報告複製至剪貼簿。</string>
